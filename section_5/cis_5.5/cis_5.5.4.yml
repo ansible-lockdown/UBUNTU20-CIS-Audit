@@ -1,0 +1,51 @@
+{{ if .Vars.ubuntu20cis_level_1 }}
+  {{ if .Vars.ubuntu20cis_rule_5_5_4 }}
+file:
+  /etc/profile:
+    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/profile
+    exists: true
+    contains:
+    - '/^\s+umask\s0(2|7)(2|7)/'
+    - '!/^\s+umask\s[1-7][0-7][0-7]/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 
+      - 5.5.4
+  /etc/logins.def:
+    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/logins.def
+    exists: true
+    contains:
+    - '/^\s+umask\s0(2|7)(2|7)/'
+    - '!/^\s+umask\s[1-7][0-7][0-7]/'
+    - '/^USERGROUPS_ENAB no/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 
+      - 5.5.4
+  /etc/bash.bashrc:
+    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/bash.bashrc
+    exists: true
+    contains:
+    - '/^\s+umask\s0(2|7)(2|7)/'
+    - '!/^\s+umask\s[1-7][0-7][0-7]/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 
+      - 5.5.4
+  /etc/pam.d/common-session:
+    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/pam.d/common-session
+    exists: true
+    contains:
+    - '/^session\s*optional\s*pam_umask.so/'
+    - '/^\s+umask\s0(2|7)(2|7)/'
+    - '!/^\s+umask\s[1-7][0-7][0-7]/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 
+      - 5.5.4
+  {{ end }}
+{{ end }}

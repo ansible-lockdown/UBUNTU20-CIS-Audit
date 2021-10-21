@@ -1,0 +1,12 @@
+{{ if not .Vars.ubuntu20cis_ldap_clients_required }}
+  {{ if .Vars.ubuntu20cis_rule_2_2_5 }}
+package:
+  ldap-utils:
+    title: 2.2.5 | L1 | Ensure LDAP client is not installed
+    installed: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 2.2.5
+  {{ end }}
+{{ end }}

@@ -1,0 +1,11 @@
+{{ if .Vars.ubuntu20cis_rule_6_2_17 }}
+group:
+  shadow:
+    title: 6.2.17 | L1 | Ensure shadow group is empty (Automated)
+    exists: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.17
+{{ end }}
