@@ -42,5 +42,5 @@ benchparse/
 *.retry
 
 # GitHub Action/Workflow files
-#.github/
+.github/
 
