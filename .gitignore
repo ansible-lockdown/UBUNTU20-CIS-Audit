@@ -42,4 +42,9 @@ benchparse/
 *.retry
 
 # GitHub Action/Workflow files
+<<<<<<< HEAD
 .github/
+=======
+#.github/
+
+>>>>>>> 4549480 (Updated and add templates)
