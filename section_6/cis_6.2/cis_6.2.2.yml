@@ -4,7 +4,7 @@ file:
     title: 6.2.2 | L1 | Ensure password fields are not empty
     exists: true
     contains:
-    - '!/^.*::/'
+    - '!/^*.[a-z]::/'
     meta:
       server: 1
       workstation: 1
