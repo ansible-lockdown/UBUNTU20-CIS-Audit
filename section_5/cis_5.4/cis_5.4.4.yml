@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_level_1 }}
   {{ if .Vars.ubuntu20cis_rule_5_4_4 }}
 file:
-  /etc/pam.d/common-passowrd:
+  /etc/pam.d/common-password:
     title: 5.4.4 | L1 | Ensure password hashing algorithm is SHA-512 | password-auth
     exists: true
     contains:
