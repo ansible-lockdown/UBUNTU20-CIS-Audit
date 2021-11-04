@@ -5,7 +5,7 @@ file:
     exists: True
     contains:
     - '/s+chmod 400${grub_cfg}.new || true/'
-    - '!/chmod ([0-3]|[5-7)[[1-7][1-7]/'
+    - '!/chmod ([0-3]|[5-7)[[1-7][1-7])/'
     meta:
       server: 1
       workstation: 1
