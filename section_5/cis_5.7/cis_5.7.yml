@@ -19,7 +19,7 @@ file:
     title: 5.7 | L1 | Ensure access to the su command is restricted | /etc/group
     exists: true
     contains:
-    - '/^{{ .Vars.ubuntu20cis_sugroup }}:x:10:vagrant,root$/'
+    - '/^{{ .Vars.ubuntu20cis_sugroup }}:x:10:$/'
     meta:
       server: 1
       workstation: 1
