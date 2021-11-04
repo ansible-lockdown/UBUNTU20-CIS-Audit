@@ -1,4 +1,4 @@
-{{ if eq .Vars.ubuntu20cis_time_service "ntp" }}
+{{ if eq .Vars.ubuntu20cis_time_service "chronyd" }}
   {{ if .Vars.ubuntu20cis_rule_2_1_1_4 }}
 service:
   chronyd:
