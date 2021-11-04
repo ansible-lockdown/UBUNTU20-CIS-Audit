@@ -8,7 +8,7 @@ package:
       workstation: 2
       CIS_ID: 
       - 4.1.1.1
-  auditspd-plugins:
+  audispd-plugins:
     title: 4.1.1.1 | L2 | Ensure auditd is installed | audispd-plugins pkg
     installed: true
     meta:
