@@ -13,7 +13,7 @@ file:
       CIS_ID: 
       - 5.5.4
   /etc/login.defs:
-    title: 5.5.4 | L1 | Ensure default user umask is 027 or more restrictive | /etc/logins.def
+    title: 5.5.4 | L1 | Ensure default user umask is 027 or more restrictive | /etc/login.defs
     exists: true
     contains:
     - '/^\s+umask\s0(2|7)(2|7)/'
