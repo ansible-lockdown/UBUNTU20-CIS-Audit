@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_5_5_4 }}
 file:
   /etc/profile:
-    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/profile
+    title: 5.5.4 | L1 | Ensure default user umask is 027 or more restrictive | /etc/profile
     exists: true
     contains:
     - '/^\s+umask\s0(2|7)(2|7)/'
@@ -12,8 +12,8 @@ file:
       workstation: 1
       CIS_ID: 
       - 5.5.4
-  /etc/logins.def:
-    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/logins.def
+  /etc/login.def:
+    title: 5.5.4 | L1 | Ensure default user umask is 027 or more restrictive | /etc/logins.def
     exists: true
     contains:
     - '/^\s+umask\s0(2|7)(2|7)/'
@@ -25,7 +25,7 @@ file:
       CIS_ID: 
       - 5.5.4
   /etc/bash.bashrc:
-    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/bash.bashrc
+    title: 5.5.4 | L1 | Ensure default user umask is 027 or more restrictive | /etc/bash.bashrc
     exists: true
     contains:
     - '/^\s+umask\s0(2|7)(2|7)/'
@@ -36,7 +36,7 @@ file:
       CIS_ID: 
       - 5.5.4
   /etc/pam.d/common-session:
-    title: 5.5.4 | L1 | Ensure default user umask is configured | /etc/pam.d/common-session
+    title: 5.5.4 | L1 | Ensure default user umask is 027 or more restrictive | /etc/pam.d/common-session
     exists: true
     contains:
     - '/^session\s*optional\s*pam_umask.so/'
