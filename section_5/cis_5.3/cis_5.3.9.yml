@@ -5,7 +5,7 @@ file:
     title: 5.3.9 | L1 | Ensure SSH HostbasedAuthentication is disabled
     exists: true
     contains:
-    - '/^(?i)HostbasedAuthentication no'
+    - '/^(?i)HostbasedAuthentication no/'
     - '!/^(?i)HostbasedAuthentication yes/'
     meta:
       server: 1
