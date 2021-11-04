@@ -2,7 +2,7 @@
 command:
   shadow_perms:
     title: 6.1.6 | L1 | Ensure permissions on /etc/shadow are configured
-    exec:  stat -L -c "%a %U %G" /etc/shadow
+    exec: stat -L -c "%a %U %G" /etc/shadow
     exit-status: 0
     stdout:
     - '/6[0.4]0 root (root|shadow)/'
