@@ -358,9 +358,9 @@ ubuntu20cis_samba_server: false
 ubuntu20cis_squid_server: false
 ubuntu20cis_snmp_server: false
 
-#  exim config
+# Mail Server config - needs to be defined as exim4 or Not_defined
+ubuntu20cis_mailserver: Not_defined
 
-ubuntu20cis_mailserver: exim4
 ubuntu20_exim_conf:
   - dc_eximconfig_configtype='local'
   - dc_local_interfaces='127.0.0.1 ; ::1'
