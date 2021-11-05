@@ -18,7 +18,7 @@ command:
       - 4.2.1.6
   rsyslog_des_hosts_tcp:
     title: 4.2.1.6 | L1 | Ensure remote rsyslog messages are only accepted on designated log hosts | TCP Port
-    exec: grep '$ModLoad imtcp' /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+    exec: grep '$InputTCPServerRun' /etc/rsyslog.conf /etc/rsyslog.d/*.conf
     exit-status: 0
     stdout:
     {{ if .Vars.ubuntu20cis_is_syslog_server }}
