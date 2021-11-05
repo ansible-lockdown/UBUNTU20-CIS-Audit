@@ -5,7 +5,7 @@ file:
     title: 5.4.4 | L1 | Ensure password hashing algorithm is SHA-512 | password-auth
     exists: true
     contains:
-    - '/^password\s+[success=1 default=ignore]\s+pam_unix.so obscure sha512/'
+    - '/^password\s+[success=1 default=ignore]\s+pam_unix.so obscure.*\ssha512/'
     - '!/^password.*md5/'
     meta:
       server: 1
