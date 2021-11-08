@@ -3,9 +3,9 @@ command:
   cramfs:
     title: 1.1.1.1 | L1 | Ensure mounting of cramfs filesystems is disabled
     exit-status: 0
-    exec: "modprobe -n -v cramfs | grep -E '(cramfs|install)'"
+    exec: if [ `lsmod | grep -c cramfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(cramfs|install)'"; else echo OK; fi
     stdout:
-    - install /bin/true
+    - '/(install /bin/true|OK)/'
     meta:
       server: 1
       workstation: 1
@@ -15,9 +15,9 @@ command:
   freevxfs:
     title: 1.1.1.2 | L1 | Ensure mounting of freevxfs filesystems is disabled
     exit-status: 0
-    exec: "modprobe -n -v freevxfs | grep -E '(freevxfs|install)'"
+    exec: if [ `lsmod | grep -c freevxfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(freevxfs|install)'"; else echo OK; fi
     stdout:
-    - install /bin/true
+    - '/(install /bin/true|OK)/'
     meta:
       server: 1
       workstation: 1
@@ -30,9 +30,9 @@ command:
       or:
       - 0
       - 1
-    exec: if [ `lsmod | grep -c jffs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(jffs|install)'"; fi
+    exec: if [ `lsmod | grep -c jffs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(jffs|install)'"; else echo OK; fi
     stdout:
-    - install /bin/true
+    - '/(install /bin/true|OK)/'
     meta:
       server: 1
       workstation: 1
@@ -42,9 +42,9 @@ command:
   hfs:
     title: 1.1.1.4 | L1 | Ensure mounting of hfs filesystems is disabled
     exit-status: 0
-    exec: "modprobe -n -v hfs | grep -E '(hfs|install)'"
+    exec: if [ `lsmod | grep -c hfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(hfs|install)'"; else echo OK; fi
     stdout:
-    - install /bin/true
+    - '/(install /bin/true|OK)/'
     meta:
       server: 1
       workstation: 1
@@ -54,9 +54,9 @@ command:
   hfsplus:
     title: 1.1.1.5 | L1 | Ensure mounting of hfsplus filesystems is disabled
     exit-status: 0
-    exec: "modprobe -n -v hfsplus | grep -E '(hfsplus|install)'"
+    exec: if [ `lsmod | grep -c hfsplus` != 0 ]; then  "modprobe -n -v jffs | grep -E '(hfsplus|install)'"; else echo OK; fi
     stdout:
-    - install /bin/true
+    - '/(install /bin/true|OK)/'
     meta:
       server: 1
       workstation: 1
@@ -66,9 +66,9 @@ command:
   udf:
     title: 1.1.1.7 | L1 | Ensure mounting of udf filesystems is disabled
     exit-status: 0
-    exec: "modprobe -n -v udf | grep -E '(udf|install)'"
+    exec: if [ `lsmod | grep -c udf` != 0 ]; then  "modprobe -n -v jffs | grep -E '(udf|install)'"; else echo OK; fi
     stdout:
-    - install /bin/true
+    - '/(install /bin/true|OK)/'
     meta:
       server: 1
       workstation: 1
@@ -82,9 +82,9 @@ command:
       or:
       - 0
       - 1
-    exec: if [ `lsmod | grep -c squashfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(squashfs|install)'"; fi
+    exec: if [ `lsmod | grep -c squashfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(squashfs|install)'"; else echo OK fi
     stdout:
-    - install /bin/true
+    - '/(install /bin/true|OK)/'
     meta:
       server: 2
       workstation: 2
