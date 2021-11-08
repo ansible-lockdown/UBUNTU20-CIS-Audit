@@ -30,7 +30,7 @@ command:
       or:
       - 0
       - 1
-    exec: "modprobe -n -v jffs | grep -E '(jffs|install)'"
+    exec: if [ `lsmod | grep -c jffs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(jffs|install)'"; fi
     stdout:
     - install /bin/true
     meta:
@@ -82,7 +82,7 @@ command:
       or:
       - 0
       - 1
-    exec: "modprobe -n -v squashfs | grep -E '(squashfs|install)'"
+    exec: if [ `lsmod | grep -c squashfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(squashfs|install)'"; fi
     stdout:
     - install /bin/true
     meta:
