@@ -28,6 +28,36 @@ AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/var/tmp}"  # Location of the 
 BENCHMARK=CIS  # Benchmark Name aligns to the audit
 BENCHMARK_VER=1.1.0
 BENCHMARK_OS=UBUNTU2004
+#! /bin/bash
+# script to run audit while populating local host data
+# 13th Sept 2021 - Initial
+# 9th Nov 2021 - Added root user check - more posix compliant for multiple OS types
+# 10 Dec 2021 - Enhanced so more linux OS agnostic, less input required
+#             - added vars options for bespoke vars file
+#             - Ability to run as script from remediation role increased consistency
+# 17 Dec 2021 - Added system_type variable - default Server will change to workstations with -w switch
+# 02 Mar 2022 - Updated benchmark variable naming
+# 06 Apr 2022 - Added format option in output inline with goss options e.g. json documentation this is for fault finding
+# 03 May 2022 - update for audit variables improvement added by @pavloos - https://github.com/ansible-lockdown/RHEL8-CIS-Audit/pull/29
+# 10 Jun 2022 - added format output for different type - supports json,documentation or rspecish
+
+
+#!/bin/bash
+
+
+# Variables in upper case tend to be able to be adjusted
+# lower case variables are discovered or built from other variables
+
+# Goss host Variables
+AUDIT_BIN="${AUDIT_BIN:-/usr/local/bin/goss}"  # location of the goss executable
+AUDIT_FILE="${AUDIT_FILE:-goss.yml}"  # the default goss file used by the audit provided by the audit configuration
+AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/var/tmp}"  # Location of the audit configuration file as available to the OS
+
+
+# Goss benchmark variables (these should not need changing unless new release)
+BENCHMARK=STIG  # Benchmark Name aligns to the audit
+BENCHMARK_VER=3.8
+BENCHMARK_OS=RHEL7
 
 
 
