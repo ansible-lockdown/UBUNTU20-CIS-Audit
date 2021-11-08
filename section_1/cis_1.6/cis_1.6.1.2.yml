@@ -17,7 +17,7 @@ file:
     exists: true
     contains:
     - '/^GRUB_CMDLINE_LINUX.*apparmor=1/'
-    - '/^GRUB_CMDLINE_LINUXsecurity=apparmor/'
+    - '/^GRUB_CMDLINE_LINUX.*security=apparmor/'
     - '!/apparmor=0/'
     meta:
       server: 1
