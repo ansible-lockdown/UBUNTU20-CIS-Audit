@@ -1,7 +1,11 @@
 {{ if .Vars.ubuntu20cis_rule_3_2_1 }}
 kernel-param:
   net.ipv4.conf.all.send_redirects:
+<<<<<<< HEAD
     title: 3.2.1 | Ensure packet redirect sending is disabled | all send_redirect
+=======
+    title: 3.2.1 | L1 | Ensure packet redirect sending is disabled | all send_redirect
+>>>>>>> dd6bf79 (merge and squash devel initial main)
     value: '0'
     meta:
       server: 1
@@ -9,7 +13,11 @@ kernel-param:
       CIS_ID:
       - 3.2.1
   net.ipv4.conf.default.send_redirects:
+<<<<<<< HEAD
     title: 3.2.1 | Ensure packet redirect sending is disabled | default send_redirects
+=======
+    title: 3.2.1 | L1 | Ensure packet redirect sending is disabled | default send_redirects
+>>>>>>> dd6bf79 (merge and squash devel initial main)
     value: '0'
     meta:
       server: 1

@@ -29,6 +29,15 @@ BENCHMARK=CIS  # Benchmark Name aligns to the audit
 BENCHMARK_VER=1.1.0
 BENCHMARK_OS=UBUNTU2004
 
+<<<<<<< HEAD
+=======
+AUDIT_BIN=/usr/local/bin/goss
+AUDIT_FILE=goss.yml
+AUDIT_VARS=vars/${BENCHMARK}.yml
+AUDIT_CONTENT_LOCATION=/var/tmp
+AUDIT_CONTENT_VERSION=UBUNTU20-$BENCHMARK-Audit
+AUDIT_CONTENT_DIR=$AUDIT_CONTENT_LOCATION/$AUDIT_CONTENT_VERSION
+>>>>>>> dd6bf79 (merge and squash devel initial main)
 
 
 # help output
@@ -70,6 +79,7 @@ while getopts f:g:o:v::wh option; do
   esac
 done
 
+<<<<<<< HEAD
 #### Pre-Checks
 
 # check access need to run as root or privileges due to some configuration access
@@ -110,6 +120,10 @@ fi
 # set default variable for varfile_path
 if [ -z "$VARS_PATH" ]; then
      export varfile_path=$audit_content_dir/$audit_vars
+=======
+if [ -z $GROUP ]; then
+   export auto_group="ungrouped"
+>>>>>>> dd6bf79 (merge and squash devel initial main)
    else
    # Check -v exists fail if not
    if [ -f "$VARS_PATH" ]; then
@@ -143,6 +157,7 @@ audit_json_vars='{"benchmark_type":"'"$BENCHMARK"'","benchmark_os":"'"$BENCHMARK
 
 ## Run pre checks
 
+<<<<<<< HEAD
 echo
 echo "## Pre-Checks Start"
 echo
@@ -150,6 +165,12 @@ echo
 export FAILURE=0
 if [ -s "$AUDIT_BIN" ]; then
    echo "OK Audit binary $AUDIT_BIN is available"
+=======
+
+## Set AUDIT OUT
+if [ -z $OUTFILE ]; then
+   export AUDIT_OUT=$AUDIT_CONTENT_LOCATION/audit_$os_hostname_$epoch.json
+>>>>>>> dd6bf79 (merge and squash devel initial main)
 else
    echo "WARNING - The audit binary is not available at $AUDIT_BIN "; export FAILURE=1
 fi
@@ -161,6 +182,7 @@ else
 fi
 
 
+<<<<<<< HEAD
 if [ `echo $FAILURE` != 0 ]; then
    echo "## Pre-checks failed please see output"
    exit 1
@@ -178,6 +200,10 @@ fi
 # defaults
 output_summary="tail -2 $audit_out"
 format_output="-f $format"
+=======
+if [ ! -s $AUDIT_BIN ]; then
+   BIN_MISSING=`echo "WARNING - The audit binary is not available at $AUDIT_BIN "`; echo $BIN_MISSING && exit 1
+>>>>>>> dd6bf79 (merge and squash devel initial main)
 
 if [ $format = json ]; then
    format_output="-f json -o pretty"
@@ -196,6 +222,7 @@ echo
 $AUDIT_BIN -g $audit_content_dir/$AUDIT_FILE --vars $varfile_path  --vars-inline $audit_json_vars v $format_output > $audit_out
 
 # create screen output
+<<<<<<< HEAD
 if [ `grep -c $BENCHMARK $audit_out` != 0 ] || [ $format = junit ] || [ $format = tap ]; then
 echo " `$output_summary`
 Completed file can be found at $audit_out"
@@ -203,6 +230,12 @@ echo "###############"
 echo "Audit Completed"
 echo "###############"
 
+=======
+if [ `grep -c $BENCHMARK $AUDIT_OUT` > 0 ]; then
+   echo  "Success Audit
+`tail -7 $AUDIT_OUT`
+Completed file can be found at $AUDIT_OUT"
+>>>>>>> dd6bf79 (merge and squash devel initial main)
 else
   echo "Fail Audit - There were issues when running the audit please investigate $audit_out"
 fi
