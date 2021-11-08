@@ -82,7 +82,7 @@ command:
       or:
       - 0
       - 1
-    exec: if [ `lsmod | grep -c squashfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(squashfs|install)'"; else echo OK fi
+    exec: if [ `lsmod | grep -c squashfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(squashfs|install)'"; else echo OK; fi
     stdout:
     - '/(install /bin/true|OK)/'
     meta:
