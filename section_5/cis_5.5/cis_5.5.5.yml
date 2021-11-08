@@ -1,8 +1,8 @@
 {{ if .Vars.ubuntu20cis_level_1}}
-  {{ if .Vars.ubuntu20cis_rule_5_5_4 }}
+  {{ if .Vars.ubuntu20cis_rule_5_5_5 }}
 file:
   /etc/profile.d/tmout.sh:
-    title: 5.5.4 | L1 | Ensure default user shell timeout is configured | profile.d
+    title: 5.5.5 | L1 | Ensure default user shell timeout is configured | profile.d
     exists: true
     contains:
     - '/^TMOUT=([1-8][0-9]{0,2}|900)/'
@@ -11,6 +11,6 @@ file:
       server: 1
       workstation: 1
       CIS_ID: 
-      - 5.5.4
+      - 5.5.5
   {{ end }}
 {{ end }}
