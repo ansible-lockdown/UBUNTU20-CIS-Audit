@@ -39,8 +39,8 @@ while getopts g:o:h option; do
         h) # display Help
            Help
            exit;;
-        \?) # Invalid option
-         echo "Error: Invalid option"
+        ?) # Invalid option
+         echo "Error: Unknown option"
          exit;;
   esac
 done
