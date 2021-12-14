@@ -71,6 +71,7 @@ BENCHMARK=CIS # Benchmark Name aligns to the audit
 BENCHMARK_VER=1.1.0
 BENCHMARK_OS=UBUNTU2004
 
+
 # help output
 Help()
 {
