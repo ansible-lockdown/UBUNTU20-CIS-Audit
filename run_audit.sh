@@ -211,6 +211,7 @@ else
    echo
 fi
 
+<<<<<<< HEAD
 # format output
 #json, rspecish = grep -A 4 \"summary\": $audit_out
 # tap junit no output as no summary
@@ -228,6 +229,8 @@ elif [ $format = junit ] || [ $format = tap ]; then
 fi
 
 
+=======
+>>>>>>> b97a71f (fixed script)
 
 ## Run commands
 echo "#############"
@@ -237,8 +240,15 @@ echo
 $AUDIT_BIN -g $audit_content_dir/$AUDIT_FILE --vars $varfile_path  --vars-inline $audit_json_vars v $format_output > $audit_out
 
 # create screen output
+<<<<<<< HEAD
 if [ `grep -c $BENCHMARK $audit_out` != 0 ] || [ $format = junit ] || [ $format = tap ]; then
 echo " `$output_summary`
+=======
+if [ `grep -c $BENCHMARK $audit_out` != 0 ]; then
+echo "
+`tail -7 $audit_out`
+
+>>>>>>> b97a71f (fixed script)
 Completed file can be found at $audit_out"
 echo "###############"
 echo "Audit Completed"
