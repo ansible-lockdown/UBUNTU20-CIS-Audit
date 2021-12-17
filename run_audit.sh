@@ -6,6 +6,7 @@
 #             - added vars options for bespoke vars file
 #             - Ability to run as script from remediation role increased consistency
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 17 Dec 2021 - Added system_type variable - default Server will change to workstations with -w switch
 # 02 Mar 2022 - Updated benchmark variable naming
 # 06 Apr 2022 - Added format option in output inline with goss options e.g. json documentation this is for fault finding
@@ -14,6 +15,9 @@
 
 =======
 >>>>>>> 4017413 (updated docs and script)
+=======
+# 17 Dec 2021 - Added system_type variable - default Server will change to workstations with -w switch
+>>>>>>> e14275e (Added system_type server/workstation option)
 
 #!/bin/bash
 
@@ -70,7 +74,6 @@ AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/var/tmp}"  # Location of the 
 BENCHMARK=CIS # Benchmark Name aligns to the audit
 BENCHMARK_VER=1.1.0
 BENCHMARK_OS=UBUNTU2004
-
 
 # help output
 Help()
