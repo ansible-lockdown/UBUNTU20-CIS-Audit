@@ -6,10 +6,13 @@
 #             - added vars options for bespoke vars file
 #             - Ability to run as script from remediation role increased consistency
 # 17 Dec 2021 - Added system_type variable - default Server will change to workstations with -w switch
+<<<<<<< HEAD
 # 02 Mar 2022 - Updated benchmark variable naming
 # 06 Apr 2022 - Added format option in output inline with goss options e.g. json documentation this is for fault finding
 # 03 May 2022 - update for audit variables improvement added by @pavloos - https://github.com/ansible-lockdown/RHEL8-CIS-Audit/pull/29
 
+=======
+>>>>>>> 6cb8743 (Script improvement (#5))
 
 #!/bin/bash
 
@@ -22,6 +25,7 @@ AUDIT_BIN="${AUDIT_BIN:-/usr/local/bin/goss}"  # location of the goss executable
 AUDIT_FILE="${AUDIT_FILE:-goss.yml}"  # the default goss file used by the audit provided by the audit configuration
 AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/var/tmp}"  # Location of the audit configuration file as available to the OS
 
+<<<<<<< HEAD
 
 # Goss benchmark variables (these should not need changing unless new release)
 BENCHMARK=CIS  # Benchmark Name aligns to the audit
@@ -29,6 +33,8 @@ BENCHMARK_VER=1.1.0
 BENCHMARK_OS=UBUNTU2004
 
 
+=======
+>>>>>>> 6cb8743 (Script improvement (#5))
 # help output
 Help()
 {
@@ -48,7 +54,11 @@ Help()
 
 
 # Default vars that can be set
+<<<<<<< HEAD
 host_system_type=Server
+=======
+system_type=Server
+>>>>>>> 6cb8743 (Script improvement (#5))
 
 ## option statement
 while getopts f:g:o:v::wh option; do
@@ -57,7 +67,11 @@ while getopts f:g:o:v::wh option; do
         g ) GROUP=${OPTARG} ;;
         o ) OUTFILE=${OPTARG} ;;
         v ) VARS_PATH=${OPTARG} ;;
+<<<<<<< HEAD
         w ) host_system_type=Workstation ;;
+=======
+        w ) system_type=Workstation ;;
+>>>>>>> 6cb8743 (Script improvement (#5))
         h ) # display Help
             Help
             exit;;
@@ -140,7 +154,11 @@ fi
 
 
 ## Set the AUDIT json string
+<<<<<<< HEAD
 audit_json_vars='{"benchmark_type":"'"$BENCHMARK"'","benchmark_os":"'"$BENCHMARK_OS"'","benchmark_version":"'"$BENCHMARK_VER"'","machine_uuid":"'"$host_machine_uuid"'","epoch":"'"$host_epoch"'","os_locale":"'"$host_os_locale"'","os_release":"'"$host_os_version"'","os_distribution":"'"$host_os_name"'","os_hostname":"'"$host_os_hostname"'","auto_group":"'"$host_auto_group"'","system_type":"'"$host_system_type"'"}'
+=======
+audit_json_vars='{"benchmark":"'"$BENCHMARK"'","machine_uuid":"'"$machine_uuid"'","epoch":"'"$epoch"'","os_locale":"'"$os_locale"'","os_release":"'"$os_version"'","os_distribution":"'"$os_name"'","os_hostname":"'"$os_hostname"'","auto_group":"'"$auto_group"'","system_type":"'"$system_type"'"}'
+>>>>>>> 6cb8743 (Script improvement (#5))
 
 ## Run pre checks
 
