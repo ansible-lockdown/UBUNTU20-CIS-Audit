@@ -1,12 +1,6 @@
-## metadata for benchmark
-ubuntu20cis_benchmark:
-  - "type: CIS"
-  - "version: '1.1.0'"
-  - "os: Ubuntu 20.04"
-#  - "epoch: {{ ansible_date_time.epoch }}" # To be populated via wrapper script using inline vars
-#  - "hostname: {{ ansible_hostname }}" # To be populated via wrapper script using inline vars
+## metadata for Audit benchmark
+benchmark_version: '1.1.0'
 
-ubuntu20cis_os_distribution: ubuntu
 
 #  timeout for each command to run where set - default = 10seconds/10000ms
 timeout_ms: 60000
@@ -491,3 +485,4 @@ ubuntu20_sugroup_users: "root"
 
 # var log location variable
 ubuntu20_varlog_location: "/var/log/sudo.log"
+

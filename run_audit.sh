@@ -1,9 +1,11 @@
+#! /bin/bash
 # script to run audit while populating local host data
 # 13th Sept 2021 - Initial
 # 9th Nov 2021 - Added root user check - more posix compliant for multiple OS types
 # 10 Dec 2021 - Enhanced so more linux OS agnostic, less input required
 #             - added vars options for bespoke vars file
 #             - Ability to run as script from remediation role increased consistency
+# 17 Dec 2021 - Added system_type variable - default Server will change to workstations with -w switch
 
 #!/bin/bash
 
@@ -17,35 +19,38 @@ AUDIT_BIN=/usr/local/bin/goss  # location of the goss executable
 AUDIT_FILE=goss.yml  # the default goss file used by the audit provided by the audit configuration
 AUDIT_CONTENT_LOCATION=/var/tmp  # Location of the audit configuration file as available to the OS
 
-
 # help output
 Help()
 {
    # Display Help
    echo "Script to run the goss audit"
    echo
-   echo "Syntax: $0 [-g|-o|-v|-h]"
+   echo "Syntax: $0 [-g|-o|-v|-w|-h]"
    echo "options:"
    echo "-g     optional - Add a group that the server should be grouped with (default value = ungrouped)"
    echo "-o     optional - file to output audit data"
    echo "-v     optional - relative path to thevars file to load (default e.g. $AUDIT_CONTENT_LOCATION/RHEL7-$BENCHMARK/vars/$BENCHMARK.yml)"
+   echo "-w     optional - Sets the system_type to workstation (Default - Server)"
    echo "-h     Print this Help."
    echo
 }
 
 
-## option statement
+# Default vars that can be set
+system_type=Server
 
-while getopts g:o:v:h option; do
+## option statement
+while getopts g:o:v::wh option; do
    case "${option}" in
-        g) GROUP=${OPTARG};;
-        o) OUTFILE=${OPTARG};;
-        v) VARS_PATH=${OPTARG};;
-        h) # display Help
-           Help
-           exit;;
-        ?) # Invalid option
-         echo "Error: Invalid option"
+        g ) GROUP=${OPTARG} ;;
+        o ) OUTFILE=${OPTARG} ;;
+        v ) VARS_PATH=${OPTARG} ;;
+        w ) system_type=Workstation ;;
+        h ) # display Help
+            Help
+            exit;;
+        ? ) # Invalid option
+         echo "Invalid option: -${OPTARG}."
          Help
          exit;;
   esac
@@ -115,14 +120,15 @@ fi
 
 
 ## Set the AUDIT json string
-audit_json_vars='{"machine_uuid":"'"$machine_uuid"'","epoch":"'"$epoch"'","os_locale":"'"$os_locale"'","audit_run":"wrapper","os_release":"'"$os_version"'","ubuntu18cis_os_distribution":"'"$os_name"'","os_hostname":"'"$os_hostname"'","auto_group":"'"$auto_group"'"}'
-
+audit_json_vars='{"benchmark":"'"$BENCHMARK"'","machine_uuid":"'"$machine_uuid"'","epoch":"'"$epoch"'","os_locale":"'"$os_locale"'","os_release":"'"$os_version"'","os_distribution":"'"$os_name"'","os_hostname":"'"$os_hostname"'","auto_group":"'"$auto_group"'","system_type":"'"$system_type"'"}'
 
 ## Run pre checks
 
 echo
 echo "## Pre-Checks Start"
 echo
+
+export FAILURE=0
 if [ -s "$AUDIT_BIN" ]; then
    echo "OK Audit binary $AUDIT_BIN is available"
 else
@@ -136,7 +142,7 @@ else
 fi
 
 
-if [ "${FAILURE}" > 0 ]; then
+if [ `echo $FAILURE` != 0 ]; then
    echo "## Pre-checks failed please see output"
    exit 1
 else
@@ -145,7 +151,6 @@ else
    echo
 fi
 
-echo $audit_out
 
 ## Run commands
 echo "#############"
@@ -155,7 +160,7 @@ echo
 $AUDIT_BIN -g $audit_content_dir/$AUDIT_FILE --vars $varfile_path  --vars-inline $audit_json_vars v -f json -o pretty > $audit_out
 
 # create screen output
-if [ `grep -c $BENCHMARK $audit_out` > 0 ]; then
+if [ `grep -c $BENCHMARK $audit_out` != 0 ]; then
 echo "
 `tail -7 $audit_out`
 
