@@ -62,7 +62,6 @@ It can be run in two ways:
 
 - RHEL 7
 - RHEL 8
-- Ubuntu 18.04
 - Ubuntu 20.04
 - Windows 2016 Standalone, Member and Controller (in testing August 21)
 - Windows 2019 Standalone, Member and Controller (in testing August 21)
@@ -283,10 +282,7 @@ script variables
 example:
 
 ```sh
-<<<<<<< HEAD
-=======
 BENCHMARK=CIS  # Benchmark Name aligns to the audit
->>>>>>> 4017413 (updated docs and script)
 AUDIT_BIN=/usr/local/bin/goss  # location of the goss executable
 AUDIT_FILE=goss.yml  # the default goss file used by the audit provided by the audit configuration
 AUDIT_CONTENT_LOCATION=/var/tmp  # Location of the audit configuration file as available to the OS
