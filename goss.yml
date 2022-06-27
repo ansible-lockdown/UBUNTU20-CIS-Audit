@@ -38,6 +38,8 @@ gossfile:
       {{ end }}
     {{ end }}
   section_4/cis_4.2/*.yml: {}
+  section_4/cis_4.3/*.yml: {}
+  section_4/cis_4.4/*.yml: {}
   {{ end }}
 
 # Section 5
