@@ -1,6 +1,6 @@
 {{ if .Vars.ubuntu20cis_rule_4_4 }}
 command:
-  logrotate_config:
+  logrotate_perms:
     title: 4.4 | L1 | Ensure logrotate assigns appropriate permissions | existing
     exec: grep -Es "^\s*create\s+\S+" /etc/logrotate.conf /etc/logrotate.d/* | grep - E -v "\s(0)?[0-6][04]0\s"
     exit-status: 0
