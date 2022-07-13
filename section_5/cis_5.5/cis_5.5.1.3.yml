@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_5_5_1_3 }}
 file:
   /etc/login.defs:
-    title: 5.5.1.3 | L1 | Ensure password expiration warning days is 7 or more | logins.def
+    title: 5.5.1.3 | Ensure password expiration warning days is 7 or more | logins.def
     exists: true
     contains:
     - '/^PASS_WARN_AGE\s*{{ .Vars.ubuntu20cis_pass.warn_age }}/'
@@ -14,7 +14,7 @@ file:
       - 5.5.1.3
 command:
   user_expire_warn:
-    title: 5.5.1.3 | L1 | Ensure password expiration warning days is 7 or more | user_warning
+    title: 5.5.1.3 | Ensure password expiration warning days is 7 or more | user_warning
     exec: "awk -F: '(/^[^:]+:[^!*]/ && $6<7){print $1 \" \" $6}' /etc/shadow"
     exit-status: 
       or:
