@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_4_4 }}
 command:
   check_root_pw:
-    title: 1.4.4 | L1 | Ensure authentication required for single user mode
+    title: 1.4.4 | Ensure authentication required for single user mode
     exec: grep -Eq '^root:\$[0-9]' /etc/shadow || echo "root is not locked"
     exit-status: 1
     stdout: 
