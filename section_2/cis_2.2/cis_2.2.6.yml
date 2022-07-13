@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_2_2_6 }}
 package:
   rpcbind:
-    title: 2.2.6 | L1 | Ensure RPC is not installed
+    title: 2.2.6 | Ensure RPC is not installed
     installed: false
     meta:
       server: 1

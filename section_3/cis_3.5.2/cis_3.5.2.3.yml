@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_5_2_3 }}
 command:
   iptables_flushed:
-    title: 3.5.2.3 | L1 | Ensure iptables are flushed with nftables | iptable IPv4 flushed
+    title: 3.5.2.3 | Ensure iptables are flushed with nftables | iptable IPv4 flushed
     exec: iptables -L
     exit-status: 
       or:
@@ -15,7 +15,7 @@ command:
       CIS_ID:
       - 3.5.2.3
   ip6tables_flushed:
-    title: 3.5.2.3 | L1 | Ensure iptables are flushed with nftables | iptable IPv4 flushed
+    title: 3.5.2.3 | Ensure iptables are flushed with nftables | iptable IPv4 flushed
     exec: ip6tables -L
     exit-status: 
       or:

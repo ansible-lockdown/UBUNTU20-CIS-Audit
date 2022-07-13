@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_5_2_1 }}
 package:
   nftables:
-    title: 3.5.2.1 | L1 | Ensure nftables is installed
+    title: 3.5.2.1 | Ensure nftables is installed
     installed: true
     meta:
       server: 1

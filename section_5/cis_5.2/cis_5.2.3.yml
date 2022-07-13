@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_5_2_3 }}
 file:
   /etc/sudoers:
-    title: 5.2.3 | L1 | Ensure sudo log file exists | config
+    title: 5.2.3 | Ensure sudo log file exists | config
     exists: true
     contains:
     - '/^Defaults\s+logfile="/var/log/sudo.log"/'
@@ -13,7 +13,7 @@ file:
       - 5.2.3
 command:
   log_sudoers_d: 
-    title: 5.2.3 | L1 | Ensure sudo log file exists | sudoers.d
+    title: 5.2.3 | Ensure sudo log file exists | sudoers.d
     exec: "grep -c '^Defaults logfile=/var/log/*.log' /etc/sudoers.d/.*/" 
     exit-status: 
       lt: 3
