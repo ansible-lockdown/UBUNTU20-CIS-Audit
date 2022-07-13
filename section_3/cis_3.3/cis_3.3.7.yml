@@ -39,7 +39,11 @@ command:
       - 0
       - 1
     stdout:
+<<<<<<< HEAD
     - '/^\/etc\/sysctl.*:net.ipv4.conf.default.rp_filter(\s|)=(\s|)/'
+=======
+    - '/net.ipv4.conf.default.rp_filter(\s|)=(\s|)/'
+>>>>>>> 5df80a8 (updated regex test)
     meta:
       server: 1
       workstation: 1
