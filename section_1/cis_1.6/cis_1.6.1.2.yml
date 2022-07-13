@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_1_6_1_2 }}
 file:
   {{ .Vars.ubuntu20cis_grub_conf_file }}:
-    title: 1.6.1.2 | L1 | Ensure AppArmor is enabled in the bootloader configuration | running grub
+    title: 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | running grub
     exists: true
     contains:
     - '/apparmor=1/'
@@ -13,7 +13,7 @@ file:
       CIS_ID: 
       - 1.6.1.2
   /etc/default/grub:
-    title: 1.6.1.2 | L1 | Ensure AppArmor is enabled in the bootloader configuration | running grub
+    title: 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | running grub
     exists: true
     contains:
     - '/^GRUB_CMDLINE_LINUX.*apparmor=1/'

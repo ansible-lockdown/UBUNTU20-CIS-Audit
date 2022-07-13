@@ -2,7 +2,7 @@
   {{ if eq .Vars.ubuntu20cis_time_service "timesyncd" }}
 service:
   timesyncd:
-    title: 2.1.1.1 | L1 | Ensure time synchronization is in use | timesyncd
+    title: 2.1.1.1 | Ensure time synchronization is in use | timesyncd
     enabled: true
     meta:
       server: 1
@@ -13,7 +13,7 @@ service:
 package:
   {{ if eq .Vars.ubuntu20cis_time_service "chrony" }}
   chrony:
-    title: 2.1.1.1 | L1 |Ensure time synchronization is in use | chrony
+    title: 2.1.1.1 | Ensure time synchronization is in use | chrony
     installed: true
     meta:
       server: 1
@@ -22,7 +22,7 @@ package:
   {{ end  }}
   {{ if eq .Vars.ubuntu20cis_time_service "ntp" }}
   ntp:
-    title: 2.1.1.1 | L1 | Ensure time synchronization is in use | ntp
+    title: 2.1.1.1 | Ensure time synchronization is in use | ntp
     installed: true
     meta:
       server: 1

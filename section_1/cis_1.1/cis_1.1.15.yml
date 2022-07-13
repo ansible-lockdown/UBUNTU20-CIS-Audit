@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_1_15 }}
 mount:
   /var/log:
-    title: 1.1.15 | L2 | Ensure separate partition exists for /var/log
+    title: 1.1.15 | Ensure separate partition exists for /var/log
     exists: true
     meta:
       server: 2
