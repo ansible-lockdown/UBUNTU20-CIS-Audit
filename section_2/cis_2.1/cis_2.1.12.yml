@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_2_1_12 }}
 package:
   samba:
-    title: 2.1.12 | L1 | Ensure samba Server is not installed
+    title: 2.1.12 | Ensure samba Server is not installed
     installed: false
     meta:
       server: 1

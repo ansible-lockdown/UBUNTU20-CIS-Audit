@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_7_5 }}
 file:
   /etc/issue:
-    title: 1.7.5 | L1 | Ensure permissions on /etc/issue are configured
+    title: 1.7.5 | Ensure permissions on /etc/issue are configured
     exists: true
     owner: root
     group: root
