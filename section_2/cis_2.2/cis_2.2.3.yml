@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_2_2_3 }}
 package:
   talk:
-    title: 2.2.3 | L1 | Ensure talk client is not installed
+    title: 2.2.3 | Ensure talk client is not installed
     installed: false
     meta:
       server: 1

@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_5_1_1 }}
 package:
   ufw:
-    title: 3.5.1.1 | L1 | Ensure ufw is installed
+    title: 3.5.1.1 | Ensure ufw is installed
     installed: true
     meta:
       server: 1

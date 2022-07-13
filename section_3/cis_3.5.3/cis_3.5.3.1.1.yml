@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_5_3_1_1 }}
 package:
   iptables:
-    title: 3.5.3.1.1 | L1 | Ensure iptables packages are installed | iptables pkg
+    title: 3.5.3.1.1 | Ensure iptables packages are installed | iptables pkg
     installed: true
     meta:
       server: 1
@@ -9,7 +9,7 @@ package:
       CIS_ID:
       - 3.5.3.1.1
   iptables-persistent:
-    title: 3.5.3.1.1 | L1 | Ensure iptables packages are installed | iptables-persistent pkg
+    title: 3.5.3.1.1 | Ensure iptables packages are installed | iptables-persistent pkg
     installed: true
     meta:
       server: 1
