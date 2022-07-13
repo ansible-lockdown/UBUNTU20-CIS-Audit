@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_5_4 }}
 package:
   prelink:
-    title: 1.5.3 | L1 | Ensure prelink is not installed
+    title: 1.5.3 | Ensure prelink is not installed
     installed: false
     meta:
       server: 1
