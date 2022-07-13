@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_5_2_4 }}
 command:
   nft_tables:
-    title: 3.5.2.4 | L1 | Ensure a nftables table exists
+    title: 3.5.2.4 | Ensure a nftables table exists
     exec: echo "Manual - Please confirm nfttables table exists and matched site policy"
     exit-status: 0
     stdout:

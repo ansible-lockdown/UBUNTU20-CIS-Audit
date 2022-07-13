@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_4_3 }}
 command:
   logrotate_config:
-    title: 4.3 | L1 | Ensure logrotate is configured
+    title: 4.3 | Ensure logrotate is configured
     exec: echo " Manual - Please ensure lograote is configured as per site policy"
     exit-status: 0
     stdout:

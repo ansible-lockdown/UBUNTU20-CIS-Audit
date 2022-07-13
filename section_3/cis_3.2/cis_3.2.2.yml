@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_3_2_2 }}
 kernel-param:
   net.ipv4.ip_forward:
-    title: 3.2.2 | L1 | Ensure IP forwarding is disabled | IPv4
+    title: 3.2.2 | Ensure IP forwarding is disabled | IPv4
     value: '0'
     meta:
       server: 1
@@ -11,7 +11,7 @@ kernel-param:
       - 3.2.2
   {{ if .Vars.ubuntu20cis_ipv6_required }}
   net.ipv6.conf.all.forwarding:
-    title: 3.2.2 | L1 | Ensure IP forwarding is disabled | IPv6
+    title: 3.2.2 | Ensure IP forwarding is disabled | IPv6
     value: '0'
     meta:
       server: 1
@@ -21,7 +21,7 @@ kernel-param:
   {{ end }}
 command:
   ipv4_ip_forward:
-    title: 3.2.2 | L1 | Ensure IP forwarding is disabled | IPv4 config
+    title: 3.2.2 | Ensure IP forwarding is disabled | IPv4 config
     exec: grep -E "^\s*net\.ipv4\.ip_forward" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf
     exit-status:
       or:
@@ -37,7 +37,7 @@ command:
       - 3.2.2
   {{ if .Vars.ubuntu20cis_ipv6_required }}
   ipv6_ip_forward:
-    title: 3.2.2 | L1 | Ensure IP forwarding is disabled | IPv6 config
+    title: 3.2.2 | Ensure IP forwarding is disabled | IPv6 config
     exec: grep -E "^\s*net\.ipv6\.conf\.all\.forwarding" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf
     exit-status:
       or:

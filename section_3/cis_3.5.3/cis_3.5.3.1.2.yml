@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_5_3_1_2 }}
 package:
   nftables:
-    title: 3.5.3.1.2 | L1 | Ensure nftables is not installed with iptables
+    title: 3.5.3.1.2 | Ensure nftables is not installed with iptables
     installed: false
     meta:
       server: 1
