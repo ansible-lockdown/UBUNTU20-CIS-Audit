@@ -12,7 +12,7 @@ command:
     - 'ClientAliveInterval {{ .Vars.ubuntu20cis_ssh_aliveinterval }}'
     - 'ClientAliveCountMax {{ .Vars.ubuntu20cis_ssh_countmax }}'
     - '/ClientAliveInterval ([1-9]|[1-2][0-9][0-9]|300)/'
-    - '/ClientAliveCountMax [1-3]/'
+    - '/ClientAliveCountMax [0-3]/'
     meta:
       server: 1
       workstation: 1
