@@ -2,7 +2,10 @@
 command:
   modprobe_RDS:
     title: 3.4.3 | Ensure RDS is disabled | rds config
-    exit-status: 0
+    exit-status: 
+      or:
+      - 0
+      - 1
     exec: 'modprobe -n -v RDS'
     stdout: ['install /bin/true']
     meta:
@@ -12,7 +15,7 @@ command:
       - 3.4.3
   lsmod_RDS:
     title: 3.4.3 | Ensure RDS is disabled | running rds
-    exit-status: 0
+    exit-status: 1
     exec: lsmod | grep rds
     stdout:
     - '!/^.*/'
