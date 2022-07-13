@@ -39,7 +39,11 @@ command:
       - 0
       - 1
     stdout:
+<<<<<<< HEAD
     - '/^\/etc\/sysctl.*:net.ipv4.conf.default.secure_redirects(\s|)=(\s|)0/'
+=======
+    - '/^net.ipv4.conf.default.secure_redirects = 0/'
+>>>>>>> e3349b1 (tidy up title remove L(1|2))
     meta:
       server: 1
       workstation: 1
