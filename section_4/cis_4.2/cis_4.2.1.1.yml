@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_4_2_1_1 }}
 package:
   rsyslog:
-    title: 4.2.1.1| L1 | Ensure rsyslog is installed
+    title: 4.2.1.1| Ensure rsyslog is installed
     installed: true
     meta:
       server: 1
