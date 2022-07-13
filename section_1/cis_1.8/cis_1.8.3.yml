@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_8_3 }}
 file:
   /etc/gdm3/greeter.dconf-defaults:
-    title: 1.8.3 | L1 | Ensure disable-user-list is enabled
+    title: 1.8.3 | Ensure disable-user-list is enabled
     exists: true
     contains:
     - '/^disable-user-list=true/'

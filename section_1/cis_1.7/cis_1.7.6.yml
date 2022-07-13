@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_7_6 }}
 file:
   /etc/issue.net:
-    title: 1.7.6 | L1 | Ensure permissions on /etc/issue.net are configured
+    title: 1.7.6 | Ensure permissions on /etc/issue.net are configured
     exists: true
     owner: root
     group: root
