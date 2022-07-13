@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_4_1_1_1 }}
 package:
   auditd:
-    title: 4.1.1.1 | L2 | Ensure auditd is installed | auditd pkg
+    title: 4.1.1.1 | Ensure auditd is installed | auditd pkg
     installed: true
     meta:
       server: 2
@@ -9,7 +9,7 @@ package:
       CIS_ID: 
       - 4.1.1.1
   audispd-plugins:
-    title: 4.1.1.1 | L2 | Ensure auditd is installed | audispd-plugins pkg
+    title: 4.1.1.1 | Ensure auditd is installed | audispd-plugins pkg
     installed: true
     meta:
       server: 2
