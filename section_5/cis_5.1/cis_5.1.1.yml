@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_5_1_1 }}
 package:
   cron:
-    title: 5.1.1 | L1 | Ensure cron daemon is enabled and running | pkg
+    title: 5.1.1 | Ensure cron daemon is enabled and running | pkg
     installed: true
     meta:
       server: 1
@@ -11,7 +11,7 @@ package:
       - 5.1.1
 service:
   cron:
-    title: 5.1.1 | L1 | Ensure cron daemon is enabled and running | service
+    title: 5.1.1 | Ensure cron daemon is enabled and running | service
     running: true
     enabled: true
     meta:
