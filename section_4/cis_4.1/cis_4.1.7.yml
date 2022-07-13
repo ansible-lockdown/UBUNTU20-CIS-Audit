@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_4_1_7 }}
 command:
   auditd_logins_cnf:
-    title: 4.1.7 | L2 | Ensure login and logout events are collected | Config
+    title: 4.1.7 | Ensure login and logout events are collected | Config
     exec: grep logins /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
@@ -14,7 +14,7 @@ command:
       CIS_ID: 
       - 4.1.7
   auditd_logins_live:
-    title: 4.1.7 | L2 | Ensure login and logout events are collected | Live
+    title: 4.1.7 | Ensure login and logout events are collected | Live
     exec: auditctl -l | grep logins
     exit-status: 0
     stdout:
