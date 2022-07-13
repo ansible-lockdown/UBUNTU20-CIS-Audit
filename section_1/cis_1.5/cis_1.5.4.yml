@@ -3,7 +3,10 @@
 command:
   core_dumps_limits:
     title: 1.5.4 | Ensure core dumps are restricted | security/limits.conf
-    exit-status: 0
+    exit-status:
+      or:
+      - 0
+      - 2
     exec: 'grep -E "\*.*hard.*core.*0" /etc/security/limits.conf /etc/security/limits.d/*'
     stdout:
     - '/^\/*.*\shard.*core.*0/'
