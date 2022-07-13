@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_3_1 }}
 kernel-param:
   net.ipv6.conf.all.accept_source_route:
-    title: 3.3.1 | L1 | Ensure source routed packets are not accepted | IPv6 all source routed
+    title: 3.3.1 | Ensure source routed packets are not accepted | IPv6 all source routed
     value: '0'
     meta:
       server: 1
@@ -9,7 +9,7 @@ kernel-param:
       CIS_ID:
       - 3.3.1
   net.ipv6.conf.default.accept_source_route:
-    title: 3.3.1 | L1 | Ensure source routed packets are not accepted | IPv6 default source routed
+    title: 3.3.1 | Ensure source routed packets are not accepted | IPv6 default source routed
     value: '0'
     meta:
       server: 1

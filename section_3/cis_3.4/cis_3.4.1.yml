@@ -1,7 +1,7 @@
-  {{ if .Vars.ubuntu20cis_rule_3_4_1 }}
+{{ if .Vars.ubuntu20cis_rule_3_4_1 }}
 command:
   modprobe_dccp:
-    title: 3.4.1 | L2 | Ensure DCCP is disabled | DCCP config
+    title: 3.4.1 | Ensure DCCP is disabled | DCCP config
     exit-status: 0
     exec: 'modprobe -n -v dccp'
     stdout: ['install /bin/true']
@@ -11,7 +11,7 @@ command:
       CIS_ID:
       - 3.4.1
   lsmod_dccp:
-    title: 3.4.1 | L2 | Ensure DCCP is disabled | running dccp
+    title: 3.4.1 | Ensure DCCP is disabled | running dccp
     exit-status: 0
     exec: lsmod | grep dccp
     stdout:

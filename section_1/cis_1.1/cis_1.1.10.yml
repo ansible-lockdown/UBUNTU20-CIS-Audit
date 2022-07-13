@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_1_10 }}
 mount:
   /var:
-    title: 1.1.10 | L2 | Ensure separate partition exists for /var
+    title: 1.1.10 | Ensure separate partition exists for /var
     exists: true
     meta:
       server: 2

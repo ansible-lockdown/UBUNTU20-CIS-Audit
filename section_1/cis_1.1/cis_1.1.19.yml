@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_1_19 }}
 command:
   floppy_nodev:
-    title: 1.1.19 | L1 | Ensure nodev option set on removable media partitions | floppy
+    title: 1.1.19 | Ensure nodev option set on removable media partitions | floppy
     exit-status: 0
     exec: "if [ `grep -c -i floppy /etc/fstab` = 1 ] ; then if [ `grep -c -E 'floppy.*nodev' /etc/fstab` -eq 1 ]; then echo FAIL; fi; else echo Passed_Check; fi"
     stdout: 
@@ -12,7 +12,7 @@ command:
       workstation: 1
       CIS_ID: 1.1.19
   cdrom_nodev:
-    title: 1.1.19 | L1 | Ensure nodev option set on removable media partitions | cdrom
+    title: 1.1.19 | Ensure nodev option set on removable media partitions | cdrom
     exit-status: 0
     exec: "if [ `grep -c -i cdrom /etc/fstab` = 1 ] ; then if [ `grep -c -E 'cdrom.*nodev' /etc/fstab` -eq 1 ]; then echo FAIL; fi; else echo Passed_Check; fi"
     stdout: 

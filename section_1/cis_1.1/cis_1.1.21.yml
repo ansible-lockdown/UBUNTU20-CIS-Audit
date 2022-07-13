@@ -2,7 +2,7 @@
   {{ if .Vars.ubuntu20cis_rule_1_1_21 }}
 command:
   floppy_noexec:
-    title: 1.1.21 | L1 | Ensure noexec option set on removable media partitions | floppy
+    title: 1.1.21 | Ensure noexec option set on removable media partitions | floppy
     exit-status: 0
     exec: "if [ `grep -c -i floppy /etc/fstab` = 1 ] ; then if [ `grep -c -E 'floppy.*noexec' /etc/fstab` -eq 1 ]; then echo FAIL; fi; else echo Passed_Check; fi"
     stdout: 
