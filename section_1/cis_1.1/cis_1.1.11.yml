@@ -4,7 +4,7 @@ mount:
   /var/tmp:
     title: 1.1.11 | Ensure separate partition exists for /var/tmp
     exists: true
-     opts:
+    opts:
     {{ if .Vars.ubuntu20cis_rule_1_1_12 }}
     - nodev
     {{ end }}
