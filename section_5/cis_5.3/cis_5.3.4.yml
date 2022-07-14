@@ -9,7 +9,7 @@ command:
       or:
       - 0
       - 1
-    contains:
+    stdout:
     {{ range .Vars.ubuntu20cis_sshd_access }}
     - {{ . }}
     {{ end }}
