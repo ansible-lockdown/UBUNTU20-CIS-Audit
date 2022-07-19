@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_6_1_5 }}
 command:
   group-_perms:
-    title: 6.1.5 | L1 | Ensure permissions on /etc/group- are configured
+    title: 6.1.5 | Ensure permissions on /etc/group- are configured
     exec:  stat -L -c "%a %U %G" /etc/group-
     exit-status: 0
     stdout:

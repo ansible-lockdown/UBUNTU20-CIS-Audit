@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_3_3_9 }}
 kernel-param:
   net.ipv6.conf.all.accept_ra:
-    title: 3.3.9 | L1 | Ensure IPv6 router advertisements are not accepted | ipv6 all router adverts
+    title: 3.3.9 | Ensure IPv6 router advertisements are not accepted | ipv6 all router adverts
     value: '0'
     meta:
       server: 1
@@ -9,7 +9,7 @@ kernel-param:
       CIS_ID:
       - 3.3.9
   net.ipv6.conf.default.accept_ra:
-    title: 3.3.9 | L1 | Ensure IPv6 router advertisements are not accepted  | ipv6 def router adverts
+    title: 3.3.9 | Ensure IPv6 router advertisements are not accepted  | ipv6 def router adverts
     value: '0'
     meta:
       server: 1
@@ -18,7 +18,7 @@ kernel-param:
       - 3.3.9
 command:
   ipv6_all_rtr_adverts:
-    title: 3.3.9 | L1 | Ensure IPv6 router advertisements are not accepted | ipv6 all router adverts conf
+    title: 3.3.9 | Ensure IPv6 router advertisements are not accepted | ipv6 all router adverts conf
     exec: grep "net\.ipv6\.conf\.all\.accept_ra" /etc/sysctl.conf /etc/sysctl.d/*
     exit-status:
       or:
@@ -32,14 +32,14 @@ command:
       CIS_ID:
       - 3.3.9
   ipv6_def_rtr_adverts:
-    title: 3.3.9 | L1 | Ensure IPv6 router advertisements are not accepted | ipv6 default router adverts conf
+    title: 3.3.9 | Ensure IPv6 router advertisements are not accepted | ipv6 default router adverts conf
     exec: grep "net\.ipv6\.conf\.default\.accept_ra" /etc/sysctl.conf /etc/sysctl.d/*
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/^net.ipv6.conf.default.accept_ra = 0/'
+    - '/^net.ipv6.conf.default.accept_ra(\s|)=(\s|)0/'
     meta:
       server: 1
       workstation: 1

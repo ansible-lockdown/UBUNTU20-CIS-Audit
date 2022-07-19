@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_6_2_8 }}
 command:
   dot_netrc_files:
-    title: 6.2.8 | L1 | Ensure no users have .netrc files
+    title: 6.2.8 | Ensure no users have .netrc files
     exec: 'find /home/ -name .netrc'
     exit-status: 0
     stdout: 

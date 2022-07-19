@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_6_2_2 }}
 file:
   /etc/shadow:
-    title: 6.2.2 | L1 | Ensure password fields are not empty
+    title: 6.2.2 | Ensure password fields are not empty
     exists: true
     contains:
     - '!/^*.[a-z]::/'

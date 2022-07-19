@@ -3,7 +3,7 @@
     {{ if .Vars.ubuntu20cis_rule_6_1_1 }}
 command:
   rpm_filecheck:
-    title: 6.1.1 | L2 | Audit system file permissions
+    title: 6.1.1 | Audit system file permissions
     exec: echo "Manual Check of packages required"
     exit-status: 0
     stdout:
