@@ -94,10 +94,7 @@ fi
 
 # Discover OS version aligning with audit
 # Define os_vendor variable
-if [[ "$BENCHMARK_OS" == AmazonLinux2 ]]; then
-    os_vendor="AMAZON"
-elif 
-   [ `grep -c rhel /etc/os-release` != 0 ]; then
+if [ `grep -c rhel /etc/os-release` != 0 ]; then
     os_vendor="RHEL"
 else
     os_vendor=`hostnamectl | grep Oper | cut -d : -f2 | awk '{print $1}' | tr a-z A-Z`
@@ -126,7 +123,7 @@ fi
 if [ -z "$VARS_PATH" ]; then
      export varfile_path=$audit_content_dir/$audit_vars
    else
-   # Check -v exists fail if not
+   # Check -v exists fail if not
    if [ -f "$VARS_PATH" ]; then
      export varfile_path=$VARS_PATH
    else
@@ -201,7 +198,6 @@ $AUDIT_BIN -g $audit_content_dir/$AUDIT_FILE --vars $varfile_path  --vars-inline
 if [ `grep -c $BENCHMARK $audit_out` != 0 ]; then
 echo "
 `tail -7 $audit_out`
-
 Completed file can be found at $audit_out"
 echo "###############"
 echo "Audit Completed"
