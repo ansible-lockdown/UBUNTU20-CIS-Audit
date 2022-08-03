@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_4_1_4 }}
 command:
   auditd_identity_cnf:
-    title: 4.1.4 | L2 | Ensure events that modify user/group information are collected | Config
+    title: 4.1.4 | Ensure events that modify user/group information are collected | Config
     exec: grep identity /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
@@ -16,7 +16,7 @@ command:
       CIS_ID: 
       - 4.1.4
   auditd_identity_live:
-    title: 4.1.4 | L2 | Ensure events that modify user/group information are collected | Live
+    title: 4.1.4 | Ensure events that modify user/group information are collected | Live
     exec: auditctl -l | grep identity
     exit-status: 0
     stdout:

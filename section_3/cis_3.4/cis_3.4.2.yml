@@ -1,7 +1,7 @@
-  {{ if .Vars.ubuntu20cis_rule_3_4_2 }}
+{{ if .Vars.ubuntu20cis_rule_3_4_2 }}
 command:
   modprobe_sctp:
-    title: 3.4.2 | L2 | Ensure SCTP is disabled | sctp config
+    title: 3.4.2 | Ensure SCTP is disabled | sctp config
     exit-status: 0
     exec: 'modprobe -n -v sctp'
     stdout: ['install /bin/true']
@@ -11,8 +11,8 @@ command:
       CIS_ID:
       - 3.4.2
   lsmod_sctp:
-    title: 3.4.2 | L2 | Ensure SCTP is disabled | running sctp
-    exit-status: 0
+    title: 3.4.2 | Ensure SCTP is disabled | running sctp
+    exit-status: 1
     exec: lsmod | grep sctp
     stdout:
     - '!/^.*/'

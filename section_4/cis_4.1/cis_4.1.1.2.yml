@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_4_1_1_2 }}
 service:
   auditd:
-    title: 4.1.1.2 | L2 | Ensure auditd service is enabled and running
+    title: 4.1.1.2 | Ensure auditd service is enabled and running
     enabled: true
     running: true
     meta:

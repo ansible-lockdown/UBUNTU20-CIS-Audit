@@ -1,7 +1,7 @@
 {{ if .Vars.ubuntu20cis_rule_4_2_1_3 }}
 file:
   /etc/rsyslog.conf:
-    title: 4.2.1.3 | L1 | Ensure logging is configured
+    title: 4.2.1.3 | Ensure logging is configured
     exists: true
     contains:
     - '/^mail.*                                            -/var/log/mail/'
