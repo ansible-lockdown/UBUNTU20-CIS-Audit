@@ -300,6 +300,7 @@ options:
 -v     optional - relative path to thevars file to load (default e.g. /var/tmp/RHEL7-CIS/vars/CIS.yml)
 -w     optional - Sets the system_type to workstation (Default - Server)
 -h     Print this Help.
+
 Other options can be assigned in the script itself
 ```
 

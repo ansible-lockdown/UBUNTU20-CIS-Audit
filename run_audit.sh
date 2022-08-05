@@ -25,7 +25,7 @@ AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/var/tmp}"  # Location of the 
 
 
 # Goss benchmark variables (these should not need changing unless new release)
-BENCHMARK=CIS # Benchmark Name aligns to the audit
+BENCHMARK=CIS  # Benchmark Name aligns to the audit
 BENCHMARK_VER=1.1.0
 BENCHMARK_OS=UBUNTU2004
 
