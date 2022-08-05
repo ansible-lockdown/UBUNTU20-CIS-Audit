@@ -6,13 +6,11 @@
 #             - added vars options for bespoke vars file
 #             - Ability to run as script from remediation role increased consistency
 # 17 Dec 2021 - Added system_type variable - default Server will change to workstations with -w switch
-<<<<<<< HEAD
 # 02 Mar 2022 - Updated benchmark variable naming
 # 06 Apr 2022 - Added format option in output inline with goss options e.g. json documentation this is for fault finding
 # 03 May 2022 - update for audit variables improvement added by @pavloos - https://github.com/ansible-lockdown/RHEL8-CIS-Audit/pull/29
+# 10 Jun 2022 - added format output for different type - supports json,documentation or rspecish
 
-=======
->>>>>>> 6cb8743 (Script improvement (#5))
 
 #!/bin/bash
 
@@ -25,7 +23,6 @@ AUDIT_BIN="${AUDIT_BIN:-/usr/local/bin/goss}"  # location of the goss executable
 AUDIT_FILE="${AUDIT_FILE:-goss.yml}"  # the default goss file used by the audit provided by the audit configuration
 AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/var/tmp}"  # Location of the audit configuration file as available to the OS
 
-<<<<<<< HEAD
 
 # Goss benchmark variables (these should not need changing unless new release)
 BENCHMARK=CIS  # Benchmark Name aligns to the audit
@@ -33,8 +30,7 @@ BENCHMARK_VER=1.1.0
 BENCHMARK_OS=UBUNTU2004
 
 
-=======
->>>>>>> 6cb8743 (Script improvement (#5))
+
 # help output
 Help()
 {
@@ -43,7 +39,7 @@ Help()
    echo
    echo "Syntax: $0 [-f|-g|-o|-v|-w|-h]"
    echo "options:"
-   echo "-f     optional - change the format output (default value = json)"
+   echo "-f     optional - change the format output (default value = json) other working options documentation, rspecish"
    echo "-g     optional - Add a group that the server should be grouped with (default value = ungrouped)"
    echo "-o     optional - file to output audit data"
    echo "-v     optional - relative path to thevars file to load (default e.g. $AUDIT_CONTENT_LOCATION/RHEL7-$BENCHMARK/vars/$BENCHMARK.yml)"
@@ -54,11 +50,7 @@ Help()
 
 
 # Default vars that can be set
-<<<<<<< HEAD
 host_system_type=Server
-=======
-system_type=Server
->>>>>>> 6cb8743 (Script improvement (#5))
 
 ## option statement
 while getopts f:g:o:v::wh option; do
@@ -67,11 +59,7 @@ while getopts f:g:o:v::wh option; do
         g ) GROUP=${OPTARG} ;;
         o ) OUTFILE=${OPTARG} ;;
         v ) VARS_PATH=${OPTARG} ;;
-<<<<<<< HEAD
         w ) host_system_type=Workstation ;;
-=======
-        w ) system_type=Workstation ;;
->>>>>>> 6cb8743 (Script improvement (#5))
         h ) # display Help
             Help
             exit;;
@@ -123,7 +111,7 @@ fi
 if [ -z "$VARS_PATH" ]; then
      export varfile_path=$audit_content_dir/$audit_vars
    else
-   # Check -v exists fail if not
+   # Check -v exists fail if not
    if [ -f "$VARS_PATH" ]; then
      export varfile_path=$VARS_PATH
    else
@@ -151,11 +139,7 @@ fi
 
 
 ## Set the AUDIT json string
-<<<<<<< HEAD
 audit_json_vars='{"benchmark_type":"'"$BENCHMARK"'","benchmark_os":"'"$BENCHMARK_OS"'","benchmark_version":"'"$BENCHMARK_VER"'","machine_uuid":"'"$host_machine_uuid"'","epoch":"'"$host_epoch"'","os_locale":"'"$host_os_locale"'","os_release":"'"$host_os_version"'","os_distribution":"'"$host_os_name"'","os_hostname":"'"$host_os_hostname"'","auto_group":"'"$host_auto_group"'","system_type":"'"$host_system_type"'"}'
-=======
-audit_json_vars='{"benchmark":"'"$BENCHMARK"'","machine_uuid":"'"$machine_uuid"'","epoch":"'"$epoch"'","os_locale":"'"$os_locale"'","os_release":"'"$os_version"'","os_distribution":"'"$os_name"'","os_hostname":"'"$os_hostname"'","auto_group":"'"$auto_group"'","system_type":"'"$system_type"'"}'
->>>>>>> 6cb8743 (Script improvement (#5))
 
 ## Run pre checks
 
@@ -186,18 +170,34 @@ else
    echo
 fi
 
+# format output
+#json, rspecish = grep -A 4 \"summary\": $audit_out
+# tap junit no output as no summary
+#documentation = tail -2 $audit_out
+
+# defaults
+output_summary="tail -2 $audit_out"
+format_output="-f $format"
+
+if [ $format = json ]; then
+   format_output="-f json -o pretty"
+   output_summary="grep -A 4 \"summary\": $audit_out"
+elif [ $format = junit ] || [ $format = tap ]; then
+   output_summary=""
+fi
+
+
 
 ## Run commands
 echo "#############"
 echo "Audit Started"
 echo "#############"
 echo
-$AUDIT_BIN -g $audit_content_dir/$AUDIT_FILE --vars $varfile_path  --vars-inline $audit_json_vars v -f $format -o pretty > $audit_out
+$AUDIT_BIN -g $audit_content_dir/$AUDIT_FILE --vars $varfile_path  --vars-inline $audit_json_vars v $format_output > $audit_out
 
 # create screen output
-if [ `grep -c $BENCHMARK $audit_out` != 0 ]; then
-echo "
-`tail -7 $audit_out`
+if [ `grep -c $BENCHMARK $audit_out` != 0 ] || [ $format = junit ] || [ $format = tap ]; then
+echo " `$output_summary`
 Completed file can be found at $audit_out"
 echo "###############"
 echo "Audit Completed"
