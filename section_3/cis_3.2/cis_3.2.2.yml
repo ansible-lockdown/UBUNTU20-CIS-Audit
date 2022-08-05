@@ -37,11 +37,7 @@ command:
       - 3.2.2
   {{ if .Vars.ubuntu20cis_ipv6_required }}
   ipv6_ip_forward:
-<<<<<<< HEAD
     title: 3.2.2 | Ensure IP forwarding is disabled | IPv6 config
-=======
-    title: 3.2.2 | L1 | Ensure IP forwarding is disabled | IPv6 config
->>>>>>> dd6bf79 (merge and squash devel initial main)
     exec: grep -E "^\s*net\.ipv6\.conf\.all\.forwarding" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf
     exit-status:
       or:
