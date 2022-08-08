@@ -24,7 +24,7 @@ command:
       or:
       - 0
       - 1
-    stdout: 
+    stdout:
     - '/^\/etc\/sysctl.*:net.ipv4.conf.all.accept_redirects(\s|)=(\s|)0/'
     meta:
       server: 1

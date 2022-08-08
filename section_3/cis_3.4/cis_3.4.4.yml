@@ -2,7 +2,7 @@
 command:
   modprobe_TIPC:
     title: 3.4.4 | Ensure TIPC is disabled | tipc config
-    exit-status: 
+    exit-status:
       or:
       - 0
       - 1
