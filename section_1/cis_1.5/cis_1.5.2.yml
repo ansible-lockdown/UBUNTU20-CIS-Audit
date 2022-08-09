@@ -12,6 +12,7 @@ kernel-param:
 command:
   aslr_enabled_2:
     title: 1.5.2 | Ensure address space layout randomization (ASLR) is enabled | sysctl_configured
+    exit-status:
       or:
       - 0
       - 2
