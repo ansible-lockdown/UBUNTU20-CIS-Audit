@@ -282,6 +282,7 @@ script variables
 example:
 
 ```sh
+BENCHMARK=CIS  # Benchmark Name aligns to the audit
 AUDIT_BIN=/usr/local/bin/goss  # location of the goss executable
 AUDIT_FILE=goss.yml  # the default goss file used by the audit provided by the audit configuration
 AUDIT_CONTENT_LOCATION=/var/tmp  # Location of the audit configuration file as available to the OS
