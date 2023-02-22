@@ -2,10 +2,11 @@
 command:
   logrotate_perms:
     title: 4.4 | Ensure logrotate assigns appropriate permissions | existing
-    exec: grep -Es "^\s*create\s+\S+" /etc/logrotate.conf /etc/logrotate.d/* | grep - E -v "\s(0)?[0-6][04]0\s"
+    exec: grep -Es "^\s*create\s+\S+" /etc/logrotate.conf /etc/logrotate.d/* | grep -E -v "\s(0)?[0-6][04]0\s"
     exit-status: 0
     stdout:
-    - '!/^Manual/'
+    - '/.*:(\s*|)create 06[0,4]0/'
+    - '!/.*/'
     meta:
       server: 1
       workstation: 1
@@ -16,11 +17,11 @@ file:
     title: 4.4 | Ensure logrotate assigns appropriate permissions | default
     exists: true
     contains:
-    - '/^create 0640/'
-    - '!/^create (?!0640).{4}/'
+    - '/^(\s*|)create 06[0,4]0/'
+    - '!/^(\s*|)create ([0-7]|)([0-9][1-9][1-9]|[0-9][1,2,5,6][0-9])($|\s[a-zA-Z])/'
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 4.4
 {{ end }}
