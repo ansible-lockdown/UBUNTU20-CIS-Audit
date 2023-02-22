@@ -1,0 +1,16 @@
+{{ if .Vars.ubuntu20cis_level_1 }}
+  {{ if .Vars.ubuntu20cis_rule_1_4_2 }}
+command:
+  bootloader_file_perms:
+    title: 1.4.3 | Ensure permissions on bootloader config are configured
+    exec: stat -c "%a %U %G" {{ .Vars.ubuntu20cis_grub_conf_file }}
+    stdout:
+    - '/0400 root root/'
+    - '/[0-9]'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.4.3
+  {{ end }}
+{{ end }}
