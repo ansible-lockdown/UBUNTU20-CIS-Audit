@@ -28,5 +28,17 @@ file:
       workstation: 1
       CIS_ID: 2.1.15
   {{ end }}
+    {{ if eq .Vars.ubuntu20cis_mailserver "postfix" }}
+  /etc/postfix/main.conf:
+    title: 2.1.15 | Ensure mail transfer agent is configured for local-only mode | postfix config
+    exists: true
+    contains:
+    - '/^inet_interfaces = loopback-only/'
+    - '!/^inet_interfaces\s*=\s*all/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 2.1.15
+  {{ end }}
   {{ end }}
 {{ end }}
