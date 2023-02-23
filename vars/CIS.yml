@@ -328,9 +328,11 @@ ubuntu20_warning_banner: Authorized uses only. All activity may be monitored and
 # End Banner
 
 # Section 2
-# Time sync - can be timesync or chriny or ntp
+# Time sync - can be timesync or chrony or ntp
 ubuntu20cis_time_service: chrony
 ubuntu20cis_ntp_servers:
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org
 ubuntu20cis_ntp_fallback:
 ubuntu20cis_ntp_root_distance:
 
