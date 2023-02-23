@@ -3,7 +3,7 @@ command:
   cramfs:
     title: 1.1.1.1 | Ensure mounting of cramfs filesystems is disabled
     exit-status: 0
-    exec: if [ `lsmod | grep -c cramfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(cramfs|install)'"; else echo OK; fi
+    exec: if [ `lsmod | grep -c cramfs` != 0 ]; then  "modprobe -n -v cramfs | grep -E '(cramfs|install)'"; else echo OK; fi
     stdout:
     - '/(install /bin/true|OK)/'
     meta:
@@ -15,7 +15,7 @@ command:
   freevxfs:
     title: 1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled
     exit-status: 0
-    exec: if [ `lsmod | grep -c freevxfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(freevxfs|install)'"; else echo OK; fi
+    exec: if [ `lsmod | grep -c freevxfs` != 0 ]; then  "modprobe -n -v freevxfs | grep -E '(freevxfs|install)'"; else echo OK; fi
     stdout:
     - '/(install /bin/true|OK)/'
     meta:
@@ -42,7 +42,7 @@ command:
   hfs:
     title: 1.1.1.4 | Ensure mounting of hfs filesystems is disabled
     exit-status: 0
-    exec: if [ `lsmod | grep -c hfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(hfs|install)'"; else echo OK; fi
+    exec: if [ `lsmod | grep -c hfs` != 0 ]; then  "modprobe -n -v hfs | grep -E '(hfs|install)'"; else echo OK; fi
     stdout:
     - '/(install /bin/true|OK)/'
     meta:
@@ -54,7 +54,7 @@ command:
   hfsplus:
     title: 1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled
     exit-status: 0
-    exec: if [ `lsmod | grep -c hfsplus` != 0 ]; then  "modprobe -n -v jffs | grep -E '(hfsplus|install)'"; else echo OK; fi
+    exec: if [ `lsmod | grep -c hfsplus` != 0 ]; then  "modprobe -n -v hfsplu | grep -E '(hfsplus|install)'"; else echo OK; fi
     stdout:
     - '/(install /bin/true|OK)/'
     meta:
@@ -66,7 +66,7 @@ command:
   udf:
     title: 1.1.1.7 | Ensure mounting of udf filesystems is disabled
     exit-status: 0
-    exec: if [ `lsmod | grep -c udf` != 0 ]; then  "modprobe -n -v jffs | grep -E '(udf|install)'"; else echo OK; fi
+    exec: if [ `lsmod | grep -c udf` != 0 ]; then  "modprobe -n -v udf | grep -E '(udf|install)'"; else echo OK; fi
     stdout:
     - '/(install /bin/true|OK)/'
     meta:
@@ -82,7 +82,7 @@ command:
       or:
       - 0
       - 1
-    exec: if [ `lsmod | grep -c squashfs` != 0 ]; then  "modprobe -n -v jffs | grep -E '(squashfs|install)'"; else echo OK; fi
+    exec: if [ `lsmod | grep -c squashfs` != 0 ]; then  "modprobe -n -v squashfs | grep -E '(squashfs|install)'"; else echo OK; fi
     stdout:
     - '/(install /bin/true|OK)/'
     meta:
