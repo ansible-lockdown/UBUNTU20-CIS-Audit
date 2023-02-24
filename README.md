@@ -2,13 +2,11 @@
 
 ## Overview
 
-based on CIS 1.0
+based on CIS 1.1.0
 
 Set of configuration files and directories to run the first stages of CIS of Ubuntu 20.04 servers
 
 This is configured in a directory structure level.
-
-This could do with further testing but sections 1.x should be complete
 
 Goss is run based on the goss.yml file in the top level directory. This specifies the configuration.
 
@@ -29,7 +27,9 @@ If a site has specific options e.g. password complexity these can also be set.
 
 ## Usage
 
-You must have [goss](https://github.com/aelsabbahy/goss/) available to your host you would like to test.
+- [Readthedocs](https://ansible-lockdown.readthedocs.io/en/latest/)
+
+You must have [goss](https://github.com/goss-org/goss) available to your host you would like to test.
 
 You must have root access to the system as some commands require privilege information.
 
@@ -121,7 +121,7 @@ Ability to add your own requirements is available in several sections
 
 ## further information
 
-- [goss documentation](https://github.com/aelsabbahy/goss/blob/master/docs/manual.md#patterns)
+- [goss documentation](https://github.com/goss-org/goss/blob/master/docs/manual.md#patterns)
 - [CIS standards](https://www.cisecurity.org)
 
 ## Feedback required
