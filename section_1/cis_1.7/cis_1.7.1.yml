@@ -13,7 +13,7 @@ command:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.7.1
   {{ end }}
 {{ end }}

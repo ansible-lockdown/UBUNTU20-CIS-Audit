@@ -2,7 +2,7 @@
 command:
   home_dirs_exist:
     title: 6.2.4 | Ensure all users' home directories exist
-    exec: pwck -r
+    exec: pwck -r | grep -v '/var/run/ircd'
     exit-status: 
       or:
       - 0

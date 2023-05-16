@@ -24,7 +24,7 @@ command:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.5.4
 kernel-param:
   fs.suid_dumpable:
@@ -33,7 +33,7 @@ kernel-param:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.5.4
 service:
   coredump:
@@ -44,11 +44,11 @@ service:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.5.4
 file:
   /etc/systemd/coredump.conf:
-    title: 1.5.4 | Ensure core dumps are restricted | coredump.conf
+    title: 1.5.4 | Ensure core dumps are restricted | coredump.conf if systemd-coredump installed
     exists: true
     contains:
     - '/^Storage=none/'
@@ -56,7 +56,7 @@ file:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.5.4
   {{ end }}
 {{ end }}
