@@ -162,6 +162,7 @@ ubtu20cis_rule_3_3_5: true
 ubtu20cis_rule_3_3_6: true
 ubtu20cis_rule_3_3_7: true
 ubtu20cis_rule_3_3_8: true
+ubtu20cis_rule_3_3_9: true
 
 
 # UFW
@@ -357,11 +358,11 @@ ubtu20_warning_banner: Authorized uses only. All activity may be monitored and r
 # Section 2
 # Time sync - can be systemd-timesyncd or chrony or ntp
 ubtu20cis_time_service: systemd-timesyncd
-ubtu22cis_time_pool:
+ubtu20cis_time_pool:
 - name: time.nist.gov
   options: iburst maxsources 4
 
-ubtu22cis_time_servers:
+ubtu20cis_time_servers:
 - name: time.nist.gov
   options: iburst maxsources 4
 
@@ -373,6 +374,7 @@ ubtu20cis_avahi_server: false
 ubtu20cis_cups_server: false
 ubtu20cis_nfs_server: true
 ubtu20cis_dhcp_server: false
+ubtu20cis_dnsmasq_server: false
 ubtu20cis_ldap_server: false
 ubtu20cis_dns_server: false
 ubtu20cis_vsftpd_server: false
