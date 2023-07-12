@@ -172,29 +172,31 @@ ubtu20cis_rule_3_4_1_4: true
 ubtu20cis_rule_3_4_1_5: true
 ubtu20cis_rule_3_4_1_6: true
 ubtu20cis_rule_3_4_1_7: true
+
 # NFTables
-ubtu20cis_rule_3_5_2_1: true
-ubtu20cis_rule_3_5_2_2: true
-ubtu20cis_rule_3_5_2_3: true
-ubtu20cis_rule_3_5_2_4: true
-ubtu20cis_rule_3_5_2_5: true
-ubtu20cis_rule_3_5_2_6: true
-ubtu20cis_rule_3_5_2_7: true
-ubtu20cis_rule_3_5_2_8: true
-ubtu20cis_rule_3_5_2_9: true
-ubtu20cis_rule_3_5_2_10: true
+ubtu20cis_rule_3_4_2_1: true
+ubtu20cis_rule_3_4_2_2: true
+ubtu20cis_rule_3_4_2_3: true
+ubtu20cis_rule_3_4_2_4: true
+ubtu20cis_rule_3_4_2_5: true
+ubtu20cis_rule_3_4_2_6: true
+ubtu20cis_rule_3_4_2_7: true
+ubtu20cis_rule_3_4_2_8: true
+ubtu20cis_rule_3_4_2_9: true
+ubtu20cis_rule_3_4_2_10: true
+
 # IPTables
-ubtu20cis_rule_3_5_3_1_1: true
-ubtu20cis_rule_3_5_3_1_2: true
-ubtu20cis_rule_3_5_3_1_3: true
-ubtu20cis_rule_3_5_3_2_1: true
-ubtu20cis_rule_3_5_3_2_2: true
-ubtu20cis_rule_3_5_3_2_3: true
-ubtu20cis_rule_3_5_3_2_4: true
-ubtu20cis_rule_3_5_3_3_1: true
-ubtu20cis_rule_3_5_3_3_2: true
-ubtu20cis_rule_3_5_3_3_3: true
-ubtu20cis_rule_3_5_3_3_4: true
+ubtu20cis_rule_3_4_3_1_1: true
+ubtu20cis_rule_3_4_3_1_2: true
+ubtu20cis_rule_3_4_3_1_3: true
+ubtu20cis_rule_3_4_3_2_1: true
+ubtu20cis_rule_3_4_3_2_2: true
+ubtu20cis_rule_3_4_3_2_3: true
+ubtu20cis_rule_3_4_3_2_4: true
+ubtu20cis_rule_3_4_3_3_1: true
+ubtu20cis_rule_3_4_3_3_2: true
+ubtu20cis_rule_3_4_3_3_3: true
+ubtu20cis_rule_3_4_3_3_4: true
 
 # Section 4 rules
 ubtu20cis_rule_4_1_1_1: true
