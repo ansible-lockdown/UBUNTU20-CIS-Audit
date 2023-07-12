@@ -1,4 +1,4 @@
-{{ if not .Vars.ubtu20cis_nis_server }}
+{{ if not .Vars.ubtu20cis_dnsmasq_server }}
   {{ if .Vars.ubtu20cis_rule_2_2_15 }}
 package:
   dnsmasq:
@@ -13,7 +13,7 @@ package:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques: CM-7
+      Mitre_Techniques:
       - T1203
       - T1203.000
       - T1210
