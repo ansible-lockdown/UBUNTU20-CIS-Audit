@@ -1,4 +1,4 @@
-{{ if .Vars.ubtu20cis_rule_3_4_4 }}
+{{ if .Vars.ubtu20cis_rule_3_1_7 }}
 command:
   modprobe_TIPC:
     title: 3.1.7 | Ensure TIPC is disabled | tipc config

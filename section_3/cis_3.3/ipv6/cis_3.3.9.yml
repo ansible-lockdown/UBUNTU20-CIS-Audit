@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_3_3_9 }}
+{{ if .Vars.ubtu20cis_rule_3_3_9 }}
 kernel-param:
   net.ipv6.conf.all.accept_ra:
     title: 3.3.9 | Ensure IPv6 router advertisements are not accepted | ipv6 all router adverts

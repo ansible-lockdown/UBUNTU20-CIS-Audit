@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_3_2_1 }}
+{{ if .Vars.ubtu20cis_rule_3_2_1 }}
 kernel-param:
   net.ipv4.conf.all.send_redirects:
     title: 3.2.1 | Ensure packet redirect sending is disabled | all send_redirect

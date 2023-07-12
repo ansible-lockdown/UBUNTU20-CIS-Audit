@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_3_3_6 }}
+{{ if .Vars.ubtu20cis_rule_3_3_6 }}
 kernel-param:
   net.ipv4.icmp_ignore_bogus_error_responses:
     title: 3.3.6 | Ensure bogus ICMP responses are ignored | ignore bogus icmp

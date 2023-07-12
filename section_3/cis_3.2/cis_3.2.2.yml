@@ -33,7 +33,7 @@ kernel-param:
   net.ipv6.conf.all.forwarding:
     title: 3.2.2 | Ensure IP forwarding is disabled | IPv6
     value: '0'
-     meta:
+    meta:
       server: 1
       workstation: 1
       CIS_ID:
@@ -70,7 +70,7 @@ command:
       - 2
     stdout:
     - '/^.*:net.ipv4.ip_forward=0/'
-     meta:
+    meta:
       server: 1
       workstation: 1
       CIS_ID:
@@ -106,7 +106,7 @@ command:
       - 2
     stdout:
     - '/^.*:net.ipv6.conf.all.forwarding=0/'
-     meta:
+    meta:
       server: 1
       workstation: 1
       CIS_ID:

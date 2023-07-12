@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_3_3_2 }}
+{{ if .Vars.ubtu20cis_rule_3_3_2 }}
 kernel-param:
   net.ipv6.conf.all.accept_redirects:
     title: 3.3.2 | Ensure ICMP redirects are not accepted | ipv6 all icmp redirects
