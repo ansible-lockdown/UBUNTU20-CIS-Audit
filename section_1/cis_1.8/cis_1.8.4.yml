@@ -1,15 +1,30 @@
-{{ if .Vars.ubuntu20cis_gui }}
-  {{ if .Vars.ubuntu20cis_rule_1_8_4 }}
+{{ if .Vars.ubtu20cis_gui }}
+  {{ if .Vars.ubtu20cis_rule_1_8_4 }}
 file:
-  /etc/gdm3/custom.conf:
-    title: 1.8.4 | Ensure XDCMP is not enabled
+  /etc/dconf/db/local.d/00-screensaver:
+    title: 1.8.4 | Ensure GDM login banner is configured
     exists: true
     contains:
-    - '!/^Enable=true/'
+    - '/^[org/gnome/desktop/session]/'
+    - '/^idle-delay=uint32 (1|[1-9]|[1-8][0-9]{1,2}|900)$/'
+    - '/^lock-delay=uint32 [0-5]$/'
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.8.4
+      CISv8: 4.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques: T1461
+      Mitre_Tactics: TA0027
+      Mitre_Mitigations: NA
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
   {{ end }}
 {{ end }}

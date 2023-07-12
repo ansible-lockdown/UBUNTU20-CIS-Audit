@@ -1,33 +1,23 @@
-{{ if .Vars.ubtu20cis_rule_1_3_2 }}
+{{ if .Vars.ubtu20cis_rule_1_3_3}}
 command:
-  repos_configd:
-    title: 1.3.2 | Ensure package manager repositories are configured
-    exec: echo "Please check manually for configured repos"
+  gpg_configd:
+    title: 1.3.3 | Ensure GPG keys are configured 
+    exec: echo "Please check manually for gpg keys"
     exit-status: 0
     stdout:
     - '!/^Please.*'
     meta:
       server: 1
       workstation: 2
-      CIS_ID: 1.3.2
+      CIS_ID: 1.3.3
       CIS_v8: 7.3
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
       Mitre_Techniques:
-      - TA0068
-      - TA0068.000
       - TA1195
       - TA1195.001
       - TA1195.002
-      - TA1203
-      - TA1203.00
-      - TA1210
-      - TA1210.000
-      - TA1211
-      - TA1211.000
-      - TA1212
-      - TA1212.000
       Mitre_Tactics: TA0001
       Mitre_Mitigations: M1051
       Nist_800_53_R5:

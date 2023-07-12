@@ -1,0 +1,32 @@
+{{ if .Vars.ubtu20cis_gui }}
+  {{ if .Vars.ubtu20cis_rule_1_8_9 }}
+file:
+  /etc/dconf/db/local.d/locks/00-autorun_lock:
+    title: 1.8.9 | Ensure GDM autorun-never is not overridden
+    exists: true
+    contains:
+    - '^/\/org\/gnome\/desktop\/media-handling\/autorun-never/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.8.9
+      CISv8: 10.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques: 
+      - T1091
+      - T1091.000
+      Mitre_Tactics:
+      - TA0001
+      - TA0008
+      Mitre_Mitigations: M1028
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  {{ end }}
+{{ end }}
