@@ -1,7 +1,7 @@
-{{ if .Vars.ubuntu20cis_rule_2_3 }}
+{{ if .Vars.ubtu20cis_rule_2_4 }}
 command:
   non_essen_svcs:
-    title: 2.3 | Ensure nonessential services are removed or masked
+    title: 2.4 | Ensure nonessential services are removed or masked
     exec: echo "Manual -  checking of services that are not required are removed or masked"
     exit-status: 0
     stdout:
@@ -9,5 +9,5 @@ command:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 2.3
+      CIS_ID: 2.4
 {{ end }}

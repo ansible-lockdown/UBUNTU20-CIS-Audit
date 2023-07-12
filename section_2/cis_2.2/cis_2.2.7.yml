@@ -1,13 +1,13 @@
-{{ if not .Vars.ubtu20cis_dhcp_server }}
-  {{ if .Vars.ubtu20cis_rule_2_2_4 }}
+{{ if not .Vars.ubtu20cis_dns_server }}
+  {{ if .Vars.ubtu20cis_rule_2_2_7 }}
 package:
-  cups:
-    title: 2.2.4 | Ensure DHCP Server is not installed
+  bind9:
+    title: 2.2.7 | Ensure DNS Server is not installed
     installed: false
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 2.2.4
+      CIS_ID: 2.2.7
       CISv8:
       - 4.8
       CISv8_IG1: false
