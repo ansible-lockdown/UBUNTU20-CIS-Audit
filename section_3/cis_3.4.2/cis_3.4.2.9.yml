@@ -1,0 +1,29 @@
+{{ if .Vars.ubtu20cis_rule_3_4_2_9 }}
+service:
+  nftables:
+    title: 3.4.2.9 | Ensure nftables service is enabled
+    running: true
+    enabled: true
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 3.4.2.9
+      CISv8:
+      - 4.4
+      - 4.5
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1562
+      - T1562.004
+      Mitre_Tactics:
+      - TA0011
+      Mitre_Mitigations:
+      - M1031
+      - M1037
+      Nist_800_53_R5:
+      - CA-9
+      - SC-7
+{{ end }}

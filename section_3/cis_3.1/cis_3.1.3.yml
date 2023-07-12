@@ -1,0 +1,20 @@
+{{ if .Vars.ubtu20cis_rule_3_1_3 }}
+service:
+  bluetooth:
+    title: 3.1.3 | Ensure bluetooth is disabled
+    running: false
+    enabled: false
+    meta:
+      server: 1
+      workstation: NA
+      CIS_ID: 3.1.3
+      CISv8:
+      - 4.8
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques: NA
+      Mitre_Tactics: NA
+      Mitre_Mitigations: NA
+      Nist_800_53_R5: CM-7
+{{ end }}

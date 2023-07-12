@@ -147,6 +147,11 @@ ubtu20cis_rule_2_4: true
 # Section 3 rules
 ubtu20cis_rule_3_1_1: true
 ubtu20cis_rule_3_1_2: true
+ubtu20cis_rule_3_1_3: true
+ubtu20cis_rule_3_1_4: true
+ubtu20cis_rule_3_1_5: true
+ubtu20cis_rule_3_1_6: true
+ubtu20cis_rule_3_1_7: true
 ubtu20cis_rule_3_2_1: true
 ubtu20cis_rule_3_2_2: true
 ubtu20cis_rule_3_3_1: true
@@ -157,19 +162,16 @@ ubtu20cis_rule_3_3_5: true
 ubtu20cis_rule_3_3_6: true
 ubtu20cis_rule_3_3_7: true
 ubtu20cis_rule_3_3_8: true
-ubtu20cis_rule_3_3_9: true
-ubtu20cis_rule_3_4_1: true
-ubtu20cis_rule_3_4_2: true
-ubtu20cis_rule_3_4_3: true
-ubtu20cis_rule_3_4_4: true
+
+
 # UFW
-ubtu20cis_rule_3_5_1_1: true
-ubtu20cis_rule_3_5_1_2: true
-ubtu20cis_rule_3_5_1_3: true
-ubtu20cis_rule_3_5_1_4: true
-ubtu20cis_rule_3_5_1_5: true
-ubtu20cis_rule_3_5_1_6: true
-ubtu20cis_rule_3_5_1_7: true
+ubtu20cis_rule_3_4_1_1: true
+ubtu20cis_rule_3_4_1_2: true
+ubtu20cis_rule_3_4_1_3: true
+ubtu20cis_rule_3_4_1_4: true
+ubtu20cis_rule_3_4_1_5: true
+ubtu20cis_rule_3_4_1_6: true
+ubtu20cis_rule_3_4_1_7: true
 # NFTables
 ubtu20cis_rule_3_5_2_1: true
 ubtu20cis_rule_3_5_2_2: true
