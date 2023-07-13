@@ -1,8 +1,8 @@
-{{ if .Vars.ubuntu20cis_level_1 }}
-  {{ if .Vars.ubuntu20cis_rule_5_2_2 }}
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_3_2 }}
 command:
   sudoers_use_pty:
-    title: 5.2.2 | Ensure sudo commands use pty | Config
+    title: 4.3.2 | Ensure sudo commands use pty | Config
     exec: grep "use_pty" /etc/sudoers
     exit-status: 0
     stdout:
@@ -11,9 +11,25 @@ command:
       server: 1
       workstation: 1
       CIS_ID:
-      - 5.2.2
+      - 4.3.2
+      CISv8: 5.4
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1078
+      - T1078.003
+      - T1548
+      - T1548.003
+      Mitre_Tactics:
+      - TA0001
+      - TA0003
+      Mitre_Mitigations:
+      - M1026
+      - M1038
+      Nist_800_53_R5: NA
   pty_sudoers_d:
-    title: 5.2.2 | Ensure sudo commands use pty | sudoers.d
+    title: 4.3.2 | Ensure sudo commands use pty | sudoers.d
     exec: "ls -1 /etc/sudoers.d/* > /dev/null 2>&1; if [ '$?' = '0' ]; then grep -c '^Defaults.*\\s*use_pty' /etc/sudoers.d/*; else echo 99;fi"
     exit-status: 0
     stdout:
@@ -22,6 +38,22 @@ command:
       server: 1
       workstation: 1
       CIS_ID:
-      - 5.2.2
+      - 4.3.2
+      CISv8: 5.4
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1078
+      - T1078.003
+      - T1548
+      - T1548.003
+      Mitre_Tactics:
+      - TA0001
+      - TA0003
+      Mitre_Mitigations:
+      - M1026
+      - M1038
+      Nist_800_53_R5: NA
   {{ end }}
 {{ end }}
