@@ -1,0 +1,30 @@
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_2_7 }}
+command:
+  ssh_permit_root:
+    title: 4.2.7 | Ensure SSH root login is disabled
+    exec: grep -Ei "permitrootlogin" /etc/ssh/sshd_config
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^(?i)PermitRootLogin no/'
+    - '!/^(?i)PermitRootLogin yes/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.2.7
+      CISv8: 5.4
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1021
+      Mitre_Tactics:
+      - TA0008
+      Mitre_Mitigations: M1042
+      Nist_800_53_R5: NA
+  {{ end }}
+{{ end }}

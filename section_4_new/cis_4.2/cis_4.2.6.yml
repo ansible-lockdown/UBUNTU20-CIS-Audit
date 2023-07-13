@@ -1,0 +1,41 @@
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_2_6 }}
+command:
+  ssh_usepam:
+    title: 4.2.6 | Ensure SSH PAM is enabled
+    exec: grep -Ei "^usepam" /etc/ssh/sshd_config
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - 'UsePAM yes'
+    - '!/^UsePAM no/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.2.6
+      meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.2.17
+      CISv8: 5.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1021
+      - T1021.004
+      Mitre_Tactics:
+      - TA0001
+      Mitre_Mitigations: M1035
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  {{ end }}
+{{ end }}
