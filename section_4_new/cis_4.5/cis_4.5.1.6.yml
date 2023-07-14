@@ -1,0 +1,26 @@
+{{ if .Vars.ubuntu20cis_rule_4_5_1_6 }}
+command:
+  passwd_chg_character:
+    title: 4.5.1.6 | Ensure the number of changed characters in a new password is configured
+    exec: grep '^\h*difok.*' /etc/security/pwquality.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^difok = [2-9]/'
+    - '!/^difok = [0-1]/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.5.1.6
+      CISv8: 5.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques: NA
+      Mitre_Tactics: NA
+      Mitre_Mitigations: NA
+      Nist_800_53_R5: IA-5
+{{ end }}

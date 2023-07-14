@@ -1,0 +1,26 @@
+{{ if .Vars.ubuntu20cis_rule_4_5_1_7 }}
+command:
+  passwd_dict_words:
+    title: 4.5.1.7 | Ensure preventing the use of dictionary words for passwords is configured
+    exec: grep '^\h*dictcheck.*' /etc/security/pwquality.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^dictcheck = 1/'
+    - '!/^dictcheck = 0/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.5.1.7
+      CISv8: 5.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques: NA
+      Mitre_Tactics: NA
+      Mitre_Mitigations: NA
+      Nist_800_53_R5: IA-5
+{{ end }}

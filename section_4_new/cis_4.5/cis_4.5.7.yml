@@ -1,0 +1,31 @@
+{{ if .Vars.ubuntu20cis_rule_4_5_7 }}
+command:
+  passwd_max_repeat:
+    title: 4.5.7 | Ensure maximum number of same consecutive characters  in a new password is configured
+    exec: grep '^maxrepeat' /etc/security/pwquality.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^maxrepeat = [1-3]/'
+    - '!/^maxrepeat = 0/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.5.7
+      CISv8: NA
+      CISv8_IG1: NA
+      CISv8_IG2: NA
+      CISv8_IG3: NA
+      Mitre_Techniques: NA
+      Mitre_Tactics: NA
+      Mitre_Mitigations: NA
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+{{ end }}
