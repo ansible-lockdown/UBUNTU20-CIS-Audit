@@ -18,7 +18,7 @@ package:
       - T1562.000
       Mitre_Tactics: TA0005
       Mitre_Mitigations: M1018
-      Nist_800_53_R5: 
+      Nist_800_53_R5:
       - CM-1
       - CM-2
       - CM-6
