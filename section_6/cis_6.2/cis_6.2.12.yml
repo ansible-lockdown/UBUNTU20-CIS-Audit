@@ -1,14 +1,33 @@
 {{ if .Vars.ubuntu20cis_rule_6_2_12 }}
 command:
-  root_path_check:
-    title: 6.2.12 | Ensure root PATH Integrity
-    exec: "/bin/bash --login -c 'env | grep ^PATH=' | sed -e 's/PATH=//' -e 's/::/:/' -e 's/:$//' -e 's/:/\\n/g'"
+  dot_file_perms:
+    title: 6.2.12 | Ensure users dot files are not group or world writable
+    exec: 'find /home/ -name "\.*" -perm /g+w,o+w'
     exit-status: 0
-    stdout:
-    - '!/\\./'
+    stdout: 
+    - '!/./'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 6.2.12
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1222
+      - T1222.001
+      - T1222.002
+      - T1552
+      - T1552.003
+      - T1552.004
+      Mitre_Tactics: TA0005
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
 {{ end }}
