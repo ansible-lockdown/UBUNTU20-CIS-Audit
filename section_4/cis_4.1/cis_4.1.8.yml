@@ -1,29 +1,50 @@
-{{ if .Vars.ubuntu20cis_rule_4_1_8 }}
-command:
-  auditd_sessions_cnf:
-    title: 4.1.8 | Ensure session initiation information is collected | Config
-    exec: "grep -E '(session|logins)' /etc/audit/rules.d/*.rules"
-    exit-status: 0
-    stdout:
-    - '-w /var/run/utmp -p wa -k session'
-    - '-w /var/log/wtmp -p wa -k logins'
-    - '-w /var/log/btmp -p wa -k logins'
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_1_8 }}
+file:
+  /etc/cron.deny:
+    title: 4.1.8 | Ensure cron is restricted to authorized users
+    exists: false
     meta:
-      server: 2
-      workstation: 2
-      CIS_ID: 
+      server: 1
+      workstation: 1
+      CIS_ID:
       - 4.1.8
-  auditd_session_live:
-    title: 4.1.8 | Ensure session initiation information is collected | Live
-    exec: "auditctl -l | grep -E '(session|logins)'"
-    exit-status: 0
-    stdout:
-    - '-w /var/run/utmp -p wa -k session'
-    - '-w /var/log/wtmp -p wa -k logins'
-    - '-w /var/log/btmp -p wa -k logins'
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1053
+      - T1053.003
+      Mitre_Tactics:
+      - TA0002
+      Mitre_Mitigations: M1018
+      Nist_800_53_R5:
+      - AC-3
+      - MP-2
+  /etc/cron.allow:
+    title: 4.1.8 | Ensure cron is restricted to authorized users
+    exists: true
+    owner: root
+    group: root
+    mode: "0640"
     meta:
-      server: 2
-      workstation: 2
-      CIS_ID: 
+      server: 1
+      workstation: 1
+      CIS_ID:
       - 4.1.8
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1053
+      - T1053.003
+      Mitre_Tactics:
+      - TA0002
+      Mitre_Mitigations: M1018
+      Nist_800_53_R5:
+      - AC-3
+      - MP-2
+  {{ end }}
 {{ end }}
