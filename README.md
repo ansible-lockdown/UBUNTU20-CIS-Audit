@@ -2,7 +2,7 @@
 
 ## Overview
 
-based on CIS 1.1.0
+based on CIS 2.0.1
 
 Set of configuration files and directories to run the first stages of CIS of Ubuntu 20.04 servers
 

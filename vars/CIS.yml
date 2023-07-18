@@ -1,5 +1,5 @@
 ## metadata for Audit benchmark
-benchmark_version: '1.1.0'
+benchmark_version: '2.0.1'
 
 
 #  timeout for each command to run where set - default = 10seconds/10000ms
