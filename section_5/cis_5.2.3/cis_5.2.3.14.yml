@@ -1,7 +1,7 @@
-{{ if .Vars.ubuntu20cis_level_2 }}
-  {{ if not .Vars.ubuntu20cis_apparmor_disable }}
+{{ if .Vars.ubtu20cis_level_2 }}
+  {{ if not .Vars.ubtu20cis_apparmor_disable }}
 command:
-  {{ if .Vars.ubuntu20cis_rule_5_2_3_14 }}
+  {{ if .Vars.ubtu20cis_rule_5_2_3_14 }}
   auditd_MAC_cnf:
     title: 5.2.3.14 | Ensure events that modify the system's Mandatory Access Controls are collected | Config
     exec: grep MAC-policy /etc/audit/rules.d/*.rules

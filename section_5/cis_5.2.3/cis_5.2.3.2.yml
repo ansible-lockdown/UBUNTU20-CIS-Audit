@@ -1,5 +1,5 @@
-{{ if .Vars.ubuntu20cis_level_2 }}
-  {{ if .Vars.ubuntu20cis_rule_5_2_3_2 }}
+{{ if .Vars.ubtu20cis_level_2 }}
+  {{ if .Vars.ubtu20cis_rule_5_2_3_2 }}
 command:
   auditd_sudolog_cnf:
     title: 5.2.3.2 | Ensure actions as another user are always logged  | Config

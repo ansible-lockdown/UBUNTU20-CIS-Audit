@@ -1,5 +1,5 @@
-{{ if .Vars.ubuntu20cis_level_2 }}
-  {{ if .Vars.ubuntu20cis_rule_5_2_3_19 }}
+{{ if .Vars.ubtu20cis_level_2 }}
+  {{ if .Vars.ubtu20cis_rule_5_2_3_19 }}
 command:
   auditd_module_cnf:
     title: 5.2.3.19 | Ensure kernel module loading and unloading is collected | Config

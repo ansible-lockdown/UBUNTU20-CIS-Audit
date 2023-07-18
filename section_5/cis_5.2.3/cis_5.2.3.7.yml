@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_5_2_3_7 }}
+{{ if .Vars.ubtu20cis_rule_5_2_3_7 }}
 command:
   auditd_access_cnf:
     title: 5.2.3.7 | Ensure unsuccessful unauthorized file access attempts are collected | Conf
