@@ -1,9 +1,9 @@
 {{ if .Vars.ubtu20cis_level_2 }}
-  {{ if .Vars.ubuntu20cis_rule_5_2_1_3 }}
+  {{ if .Vars.ubtu20cis_rule_5_2_1_3 }}
 command:
   auditd_grub:
     title: 5.2.1.3 | Ensure auditing for processes that start prior to auditd is enabled | bootloader file
-    exec: grep "^\s*linux" {{ .Vars.ubuntu20cis_grub_conf_file }} | grep -Evc "audit=1"
+    exec: grep "^\s*linux" {{ .Vars.ubtu20cis_grub_conf_file }} | grep -Evc "audit=1"
     exit-status: 1
     stdout:
     - '0'

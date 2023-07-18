@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_level_1 }}
+{{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_4_3_1 }}
 package:
   sudo: 

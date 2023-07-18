@@ -1,9 +1,9 @@
 {{ if .Vars.ubtu20cis_level_2 }}
-  {{ if .Vars.ubuntu20cis_rule_5_2_1_4 }}
+  {{ if .Vars.ubtu20cis_rule_5_2_1_4 }}
 command:
   auditd_grub_backlog:
     title: 5.2.1.4 | Ensure audit_backlog_limit is sufficient | bootloader file
-    exec: grep "^\s*linux" {{ .Vars.ubuntu20cis_grub_conf_file }} | grep -Evc "audit_backlog_limit="
+    exec: grep "^\s*linux" {{ .Vars.ubtu20cis_grub_conf_file }} | grep -Evc "audit_backlog_limit="
     exit-status: 1
     stdout:
     - '0'
@@ -33,7 +33,7 @@ file:
     exists: true
     title: 5.2.1.4 | Ensure audit_backlog_limit is sufficient | default grub
     contains: 
-    - '/GRUB_CMDLINE_LINUX=".*audit_backlog_limit={{ .Vars.ubuntu20cis_auditd.auditd_backlog_limit }}/'
+    - '/GRUB_CMDLINE_LINUX=".*audit_backlog_limit={{ .Vars.ubtu20cis_auditd.auditd_backlog_limit }}/'
     - '/audit_backlog_limit=(819[2-9]|8[2-9]{2,}|9[0-9]{3,}|[1-9]{5,})/'
     meta:
       server: 2

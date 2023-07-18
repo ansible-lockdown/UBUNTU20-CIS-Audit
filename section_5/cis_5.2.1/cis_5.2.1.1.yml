@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_5_2_1_1 }}
+{{ if .Vars.ubtu20cis_rule_5_2_1_1 }}
 package:
   auditd:
     title: 5.2.1.1 | Ensure auditd is installed | auditd pkg
