@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_1_10 }}
+{{ if .Vars.ubtu20cis_rule_6_1_10 }}
 command:
   etc_opasswd_perms:
     title: 6.1.10 | Ensure permissions on /etc/shells are configured 

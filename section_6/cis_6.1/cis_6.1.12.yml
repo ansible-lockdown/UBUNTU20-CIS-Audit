@@ -1,5 +1,5 @@
 {{ if .Vars.run_heavy_tests }}
-  {{ if .Vars.ubuntu20cis_rule_6_1_12 }}
+  {{ if .Vars.ubtu20cis_rule_6_1_12 }}
 command:
   unowned_dirs:
     title: 6.1.12 | Ensure no unowned or ungrouped files or directories exist | Unowned check

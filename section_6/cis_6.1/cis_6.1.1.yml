@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_1_1 }}
+{{ if .Vars.ubtu20cis_rule_6_1_1 }}
 command:
   passwd_perms:
     title: 6.1.1 | Ensure permissions on /etc/passwd are configured

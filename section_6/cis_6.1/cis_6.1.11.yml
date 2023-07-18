@@ -1,5 +1,5 @@
 {{ if .Vars.run_heavy_tests }}
-  {{ if .Vars.ubuntu20cis_rule_6_1_11 }}
+  {{ if .Vars.ubtu20cis_rule_6_1_11 }}
 command:
   world_writable:
     title: 6.1.11 | Ensure world writable files and directories are secured | find worldwritable files

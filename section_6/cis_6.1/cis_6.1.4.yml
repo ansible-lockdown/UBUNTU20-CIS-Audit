@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_1_4 }}
+{{ if .Vars.ubtu20cis_rule_6_1_4 }}
 command:
   group-_perms:
     title: 6.1.4 | Ensure permissions on /etc/group- are configured

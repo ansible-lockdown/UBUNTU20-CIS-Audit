@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_7 }}
+{{ if .Vars.ubtu20cis_rule_6_2_7 }}
 command:
   no_dup_username:
     title: 6.2.7 | Ensure no duplicate user names exist

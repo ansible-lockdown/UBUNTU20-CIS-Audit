@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_8 }}
+{{ if .Vars.ubtu20cis_rule_6_2_8 }}
 command:
   no_dup_groupname:
     title: 6.2.8 | Ensure no duplicate group names exist

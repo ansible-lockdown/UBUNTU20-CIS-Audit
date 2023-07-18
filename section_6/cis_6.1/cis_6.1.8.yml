@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_1_8 }}
+{{ if .Vars.ubtu20cis_rule_6_1_8 }}
 command:
   gshadow-_perms:
     title: 6.1.8 | Ensure permissions on /etc/gshadow- are configured

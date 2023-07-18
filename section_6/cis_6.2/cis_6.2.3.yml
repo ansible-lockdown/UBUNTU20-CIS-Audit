@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_3 }}
+{{ if .Vars.ubtu20cis_rule_6_2_3 }}
 command:
   passwd_group_exist:
     title: 6.2.3 | Ensure all groups in /etc/passwd exist in /etc/group

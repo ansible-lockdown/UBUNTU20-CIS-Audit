@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_10 }}
+{{ if .Vars.ubtu20cis_rule_6_2_10 }}
 command:
   uid_0_check:
     title: 6.2.10 | Ensure root is the only UID 0 account

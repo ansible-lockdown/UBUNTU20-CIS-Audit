@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_9 }}
+{{ if .Vars.ubtu20cis_rule_6_2_9 }}
 command:
   root_path_check:
     title: 6.2.9 | Ensure root PATH Integrity

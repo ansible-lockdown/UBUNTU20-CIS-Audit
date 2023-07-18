@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_1 }}
+{{ if .Vars.ubtu20cis_rule_6_2_1 }}
 file:
   /etc/passwd:
     title: 6.2.1 | Ensure accounts in /etc/passwd use shadowed passwords

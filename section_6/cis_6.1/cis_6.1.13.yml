@@ -1,5 +1,5 @@
 {{ if .Vars.run_heavy_tests }}
-  {{ if .Vars.ubuntu20cis_rule_6_1_13 }}
+  {{ if .Vars.ubtu20cis_rule_6_1_13 }}
 command:
   audit_suid_exec:
     title: 6.1.13 | Ensure SUID and SGID files are reviewed | SUID check
@@ -13,7 +13,7 @@ command:
       workstation: 1
       CIS_ID:
       - 6.1.13
-       Mitre_Techniques:
+      Mitre_Techniques:
       - T1548
       - T1548.001
       Mitre_Tactics: TA0004
@@ -38,5 +38,18 @@ command:
       workstation: 1
       CIS_ID:
       - 6.1.13
+      Mitre_Techniques:
+      - T1548
+      - T1548.001
+      Mitre_Tactics: TA0004
+      Mitre_Mitigations: M1028
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+      - AC-3
+      - MP-2
   {{ end }}
 {{ end }}

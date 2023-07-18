@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_4 }}
+{{ if .Vars.ubtu20cis_rule_6_2_4 }}
 command:
   empty_shadow_group:
     title: 6.2.4 | Ensure shadow group is empty (Automated)

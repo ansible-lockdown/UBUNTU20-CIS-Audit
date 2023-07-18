@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_12 }}
+{{ if .Vars.ubtu20cis_rule_6_2_12 }}
 command:
   dot_file_perms:
     title: 6.2.12 | Ensure users dot files are not group or world writable

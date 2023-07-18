@@ -1,4 +1,4 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_6 }}
+{{ if .Vars.ubtu20cis_rule_6_2_6 }}
 command:
   no_dup_gid:
     title: 6.2.6 | Ensure no duplicate GIDs exist
