@@ -23,7 +23,7 @@ file:
     title: 1.5.4 | Ensure Automatic Error Reporting is not enabled | config file
     exists: true
     contains:
-    - '^enabled(\s|)=(\s|)0'
+    - '/^enabled(\s|)=(\s|)0/'
     meta:
       server: 1
       workstation: 1
