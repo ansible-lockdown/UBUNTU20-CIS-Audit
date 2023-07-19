@@ -1,5 +1,14 @@
 # Changes to UbuntU20-CIS-Audit
 
+## 2.0
+
+### based upon CIS 2.0.1
+
+- Rewrite and reorder of many controls.
+- many new controls
+- Updated var naming to be ubtu from ubuntu
+- Many new variables now used
+
 ## 1.0
 
 ### Based on CIS 1.1.0
