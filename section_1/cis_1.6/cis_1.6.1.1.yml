@@ -21,7 +21,7 @@ package:
       Mitre_Tactics: TA0003
       Mitre_Mitigations: M1026
       Nist_800_53_R5: NA
-  apparmor_utils:
+  apparmor-utils:
     title: 1.6.1.1 | Ensure AppArmor is installed | apparmor_utils
     installed: true
     meta:
