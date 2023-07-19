@@ -2,7 +2,7 @@
 command:
   etc_opasswd_perms:
     title: 6.1.10 | Ensure permissions on /etc/shells are configured 
-    exec: if [[ -f /etc/opasswd ]] then; stat -L -c "%a %U %G" /etc/security/opasswd ; else echo "OK file not presenet"; fi
+    exec: if [[ -f /etc/opasswd ]]; then stat -L -c "%a %U %G" /etc/security/opasswd ; else echo "OK file not present"; fi
     exit-status: 0
     stdout:
     - '/([4,6]00 root root|OK file not present)/'
@@ -29,7 +29,7 @@ command:
       - MP-2
   etc_opasswd_old_perms:
     title: 6.1.10 | Ensure permissions on /etc/shells are configured 
-    exec: if [[ -f /etc/opasswd ]] then; stat -L -c "%a %U %G" /etc/security/opasswd.old ; else echo "OK file not presenet"; fi
+    exec: if [[ -f /etc/opasswd ]]; then stat -L -c "%a %U %G" /etc/security/opasswd.old ; else echo "OK file not present"; fi
     exit-status: 0
     stdout:
     - '/([4,6]00 root root|OK file not present)/'
