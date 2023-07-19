@@ -1,10 +1,8 @@
 ## metadata for Audit benchmark
 benchmark_version: '2.0.1'
 
-
 #  timeout for each command to run where set - default = 10seconds/10000ms
 timeout_ms: 60000
-
 
 ubtu20cis_notauto: false
 ubtu20cis_section1: true
@@ -553,3 +551,4 @@ ubtu20_sugroup_users: "root"
 # var log location variable
 ubtu20_varlog_location: "/var/log/sudo.log"
 
+ubtu20cis_min_uid: 1000

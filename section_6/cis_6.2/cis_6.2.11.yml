@@ -58,7 +58,7 @@ command:
       - IA-5
   home_dirs_restrict:
     title: 6.2.11 | Ensure local interactive user home directories are configured | permissions 750 or more
-    exec: export def_home=`grep "^HOME" /etc/default/useradd |cut -d= -f2` && for i in `ls $def_home`; do stat -c "%a %n" $def_home/$i; done
+    exec: export def_home=`grep "^HOME" /etc/default/useradd |cut -d= -f2` && for i in `ls $def_home`; do stat -c "%g %a %n" $def_home/$i | awk -F' ' '($1)>={ .Vars.ubtu20cis_min_uid }''; done
     exit-status: 0
     timeout: {{ .Vars.timeout_ms }}
     stdout:
