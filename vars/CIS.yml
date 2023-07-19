@@ -475,6 +475,7 @@ ubtu20cis_auditd:
   auditd_backlog_limit: 2048
 
 ## syslog
+ubtu20cis_syslog_service: rsyslog
 ubtu20cis_is_syslog_server: false
 ### Section 5
 ubtu20cis_sshd_limited: false
