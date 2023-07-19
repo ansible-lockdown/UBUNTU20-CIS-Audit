@@ -49,7 +49,15 @@ gossfile:
 
 # Section 5
   {{ if .Vars.ubtu20cis_section5 }}
-  section_5/*/*.yml: {}
+    {{ ubtu20cis_syslog_service == "journald" }}
+  section_5/cis_5.1.1.1/*.yml: {}
+  section_5/cis_5.1.1/*.yml: {}
+    {{ end }}
+    {{ ubtu20cis_syslog_service == "rsyslog" }}
+  section_5/cis_5.1.2/*.yml: {}
+    {{ end }}
+  # Auditd
+  section_5/cis_5.2.*/*.yml: {}
   {{ end }}
 
 # Section 6
