@@ -7,7 +7,7 @@ command:
     exit-status: 0
     stdout:
     - '-w /etc/sudoers -p wa -k scope'
-    - '-w /etc/sudoers.d -p wa -k scope'
+    - '-w /etc/sudoers.d/ -p wa -k scope'
     meta:
       server: 2
       workstation: 2

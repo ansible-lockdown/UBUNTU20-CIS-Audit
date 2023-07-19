@@ -35,7 +35,7 @@ command:
     exec: auditctl -l | grep perm_mod
     exit-status: 0
     stdout:
-    - '/-a always,exit -F arch=b64 -S chmod,fchmod,fchmodat - -F auid>=1000 -F auid!=(4294967295|unset|-1) -F key=perm_mod/'
+    - '/-a always,exit -F arch=b64 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=(4294967295|unset|-1) -F key=perm_mod/'
     - '/-a always,exit -F arch=b32 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=(4294967295|unset|-1) -F key=perm_mod/'
     - '/-a always,exit -F arch=b64 -S chown,fchown,lchown,fchownat -F auid>=1000 -F auid!=(4294967295|unset|-1) -F key=perm_mod/'
     - '/-a always,exit -F arch=b32 -S lchown,fchown,chown,fchownat -F auid>=1000 -F auid!=(4294967295|unset|-1) -F key=perm_mod/'

@@ -41,7 +41,7 @@ command:
     - '-w /etc/issue.net -p wa -k system-locale'
     - '-w /etc/hosts -p wa -k system-locale'
     - '-w /etc/networks -p wa -k system-locale'
-    - '-w /etc/network/ -p wa -k system-locale'
+    - '-w /etc/network -p wa -k system-locale'
     meta:
       server: 2
       workstation: 2

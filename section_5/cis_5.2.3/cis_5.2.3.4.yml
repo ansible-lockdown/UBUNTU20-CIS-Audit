@@ -7,7 +7,7 @@ command:
     exit-status: 0
     stdout:
     - '-a always,exit -F arch=b64 -S adjtimex,settimeofday,clock_settime -k time-change'
-    - '-a always,exit -F arch=b32 -S adjtimex,settimeofday,clock_settime -k time-change'
+    - '-a always,exit -F arch=b32 -S settimeofday,adjtimex,clock_settime -k time-change'
     - '-w /etc/localtime -p wa -k time-change'
     meta:
       server: 2

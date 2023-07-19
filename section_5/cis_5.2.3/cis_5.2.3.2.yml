@@ -6,8 +6,8 @@ command:
     exec: grep actions /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '-a always,exit -F arch=b64 -C euid!=uid -F auid!=unset -S execve -k user_emulation'
-    - '-a always,exit -F arch=b32 -C euid!=uid -F auid!=unset -S execve -k user_emulation'
+    - '/-a always,exit -F arch=b64 -C euid!=uid -F auid!=(4294967295|unset|-1) -S execve -k user_emulation/'
+    - '/-a always,exit -F arch=b32 -C euid!=uid -F auid!=(4294967295|unset|-1) -S execve -k user_emulation/'
     meta:
       server: 2
       workstation: 2
@@ -30,8 +30,8 @@ command:
     exec: auditctl -l | grep actions
     exit-status: 0
     stdout:
-    - '-a always,exit -F arch=b64 -S execve -C uid!=euid -F auid!=-1 -F key=user_emulation'
-    - '-a always,exit -F arch=b32 -S execve -C uid!=euid -F auid!=-1 -F key=user_emulation'
+    - '/-a always,exit -F arch=b64 -S execve -C uid!=euid -F auid!=(4294967295|unset|-1) -F key=user_emulation/'
+    - '/-a always,exit -F arch=b32 -S execve -C uid!=euid -F auid!=(4294967295|unset|-1) -F key=user_emulation/'
     meta:
       server: 2
       workstation: 2

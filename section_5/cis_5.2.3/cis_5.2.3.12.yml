@@ -6,9 +6,8 @@ command:
     exec: grep logins /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '/-w /var/log/faillog -p wa -k logins/'
+    - '/-w /var/log/faillock -p wa -k logins/'
     - '/-w /var/log/lastlog -p wa -k logins/'
-    - '/-w /var/log/tallylog -p wa -k logins/'
     meta:
       server: 2
       workstation: 2
@@ -33,7 +32,6 @@ command:
     stdout:
     - '-w /var/log/faillock -p wa -k logins'
     - '-w /var/log/lastlog -p wa -k logins'
-    - '-w /var/log/tallylog -p wa -k logins'
     meta:
       server: 2
       workstation: 2
