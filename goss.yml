@@ -53,7 +53,7 @@ gossfile:
   section_5/cis_5.1.1.1/*.yml: {}
   section_5/cis_5.1.1/*.yml: {}
     {{ end }}
-    {{ if eq ubtu20cis_syslog_service "rsyslog" }}
+    {{ if eq .Vars.ubtu20cis_syslog_service "rsyslog" }}
   section_5/cis_5.1.2/*.yml: {}
     {{ end }}
   # Auditd
