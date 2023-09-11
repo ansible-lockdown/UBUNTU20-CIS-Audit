@@ -64,12 +64,6 @@ ubtu20cis_rule_1_1_8_2: true
 ubtu20cis_rule_1_1_8_3: true
 ubtu20cis_rule_1_1_9: true
 ubtu20cis_rule_1_1_10: true
-ubtu20cis_rule_1_1_5: true
-ubtu20cis_rule_1_1_6: true
-ubtu20cis_rule_1_1_7: true
-ubtu20cis_rule_1_1_8: true
-ubtu20cis_rule_1_1_9: true
-ubtu20cis_rule_1_1_10: true
 ubtu20cis_rule_1_2_1: true
 ubtu20cis_rule_1_2_2: true
 ubtu20cis_rule_1_3_1: true
@@ -391,12 +385,12 @@ ubtu20_warning_banner: Authorized uses only. All activity may be monitored and r
 # Time sync - can be systemd-timesyncd or chrony or ntp
 ubtu20cis_time_service: systemd-timesyncd
 ubtu20cis_time_pool:
-- name: time.nist.gov
-  options: iburst maxsources 4
+  - name: time.nist.gov
+    options: iburst maxsources 4
 
 ubtu20cis_time_servers:
-- name: time.nist.gov
-  options: iburst maxsources 4
+  - name: time.nist.gov
+    options: iburst maxsources 4
 
 # Whether or not to run tasks related to auditing/patching the desktop environment
 ubtu20cis_gui: false
