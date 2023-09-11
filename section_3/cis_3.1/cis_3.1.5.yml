@@ -56,7 +56,8 @@ command:
     exit-status: 0
     exec: grep "blacklist sctp" /etc/modprobe.d/*.conf
     stdout:
-    - '/^blacklist sctp/'
+    - '/.*:blacklist sctp/'
+    - '!/.*:#blacklist sctp/'
     meta:
       server: 2
       workstation: 2

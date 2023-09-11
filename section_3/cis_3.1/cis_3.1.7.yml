@@ -58,7 +58,8 @@ command:
     exit-status: 0
     exec: grep "blacklist tipc" /etc/modprobe.d/*.conf
     stdout:
-    - '/^blacklist tipc/'
+    - '/.*:blacklist tipc/'
+    - '!/.*:#blacklist tipc/'
     meta:
       server: 2
       workstation: 2

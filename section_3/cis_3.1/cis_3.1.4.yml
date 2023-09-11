@@ -57,7 +57,8 @@ command:
     exit-status: 0
     exec: grep "blacklist dccp" /etc/modprobe.d/*.conf
     stdout:
-    - '/^blacklist dccp/'
+    - '/^.*:blacklist dccp/'
+    - '!/.*:#blacklist dccp/'
     meta:
       server: 2
       workstation: 2

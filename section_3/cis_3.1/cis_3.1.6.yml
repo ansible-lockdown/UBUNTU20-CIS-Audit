@@ -54,7 +54,8 @@ command:
     exit-status: 0
     exec: grep "blacklist rds" /etc/modprobe.d/*.conf
     stdout:
-    - '/^blacklist rds/'
+    - '/.*:blacklist rds/'
+    - '!/.*:#blacklist rds/'
     meta:
       server: 2
       workstation: 2

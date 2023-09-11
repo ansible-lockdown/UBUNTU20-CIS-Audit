@@ -32,7 +32,8 @@ command:
       - 1
     exec: grep "blacklist wlan" /etc/modprobe.d/*.conf
     stdout:
-    - '/^blacklist wlan/'
+    - '/^.*:blacklist wlan/'
+    - '!/^.*:#blacklist wlan/'
     meta:
       server: 1
       workstation: NA

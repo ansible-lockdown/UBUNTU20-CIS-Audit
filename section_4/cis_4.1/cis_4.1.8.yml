@@ -26,7 +26,7 @@ file:
     title: 4.1.8 | Ensure cron is restricted to authorized users
     exists: true
     owner: root
-    group: root
+    group: crontab
     mode: "0640"
     meta:
       server: 1
