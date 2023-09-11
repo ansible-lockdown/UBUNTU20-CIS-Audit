@@ -53,4 +53,30 @@ command:
       Nist_800_53_R5:
       - SI-4
       - CM-7
+  TIPC_blacklist:
+    title: 3.1.7 | Ensure TIPC is disabled | blacklist
+    exit-status: 0
+    exec: grep "blacklist tipc" /etc/modprobe.d/*.conf
+    stdout:
+    - '/^blacklist tipc/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 3.1.7
+      CISv8:
+      - 4.8
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1068
+      - T1068.000
+      - T1210
+      - T1210.00
+      Mitre_Tactics: TA0008
+      Mitre_Mitigations: M1042
+      Nist_800_53_R5:
+      - SI-4
+      - CM-7
 {{ end }}

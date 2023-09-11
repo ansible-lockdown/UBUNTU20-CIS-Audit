@@ -5,8 +5,36 @@ command:
     title: 1.1.10 | Disable USB Storage
     exit-status: 0
     exec: "modprobe -n -v usb-storage | grep -E '(usb-storage|install)'"
-    stdout: 
+    stdout:
     - install /bin/true
+    meta:
+      server: 1
+      workstation: 2
+      CIS_ID: 1.1.10
+      CISv8: 10.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1052
+      - T1052.001
+      - T1091
+      - T1091.000
+      - T1200
+      - T1200.000
+      Mitre_Tactics:
+      - TA0001
+      - TA0010
+      Mitre_Mitigations:
+      - M1034
+      Nist_800_53_R5:
+      - SI-3
+  usb-storage_blacklist:
+    title: 1.1.10 | Disable USB Storage
+    exit-status: 0
+    exec: grep blacklist /etc/modprobe.d/*.conf
+    stdout:
+    - '/^blacklist usb-storage/'
     meta:
       server: 1
       workstation: 2
