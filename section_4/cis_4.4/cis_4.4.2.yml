@@ -1,0 +1,54 @@
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_4_2 }}
+file:
+  /etc/pam.d/common-auth:
+    title: 4.4.2 | Ensure lockout for failed password attempts is configured | common-auth
+    exists: true
+    contains:
+    - '/^auth\s*required\s*pam_tally2.so/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.4.2
+      CISv8: 16.7
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1110
+      - T1110.001
+      - T1110.003
+      Mitre_Tactics:
+      - TA0006
+      Mitre_Mitigations: M1027
+      Nist_800_53_R5:
+      - AC-1
+      - AC-2
+  /etc/pam.d/common-account:
+    title: 4.4.2 | Ensure lockout for failed password attempts is configured | common-account
+    exists: true
+    contains:
+    - '/^account\s*requisite\s*pam_deny.so/'
+    - '/^account\s*required\s*pam_tally2.so/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.4.2
+      CISv8: 16.7
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1110
+      - T1110.001
+      - T1110.003
+      Mitre_Tactics:
+      - TA0006
+      Mitre_Mitigations: M1027
+      Nist_800_53_R5:
+      - AC-1
+      - AC-2
+  {{ end }}
+{{ end }}

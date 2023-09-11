@@ -1,0 +1,25 @@
+{{ if .Vars.ubtu20cis_rule_1_3_3}}
+command:
+  gpg_configd:
+    title: 1.3.3 | Ensure GPG keys are configured 
+    exec: echo "Please check manually for gpg keys"
+    exit-status: 0
+    stdout:
+    - '!/^Please.*'
+    meta:
+      server: 1
+      workstation: 2
+      CIS_ID: 1.3.3
+      CIS_v8: 7.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - TA1195
+      - TA1195.001
+      - TA1195.002
+      Mitre_Tactics: TA0001
+      Mitre_Mitigations: M1051
+      Nist_800_53_R5:
+      - SI-2
+{{ end }}

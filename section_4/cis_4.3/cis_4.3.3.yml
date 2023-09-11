@@ -1,0 +1,29 @@
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_3_3 }}
+command:
+  log_sudoers_d: 
+    title: 4.3.3 | Ensure sudo log file exists | sudoers.d
+    exec: "grep -Ec '^Defaults logfile=/var/log/*.log' /etc/sudoers /etc/sudoers.d/.*/" 
+    exit-status:
+      lt: 3
+    stdout:
+    - '/[1:99]/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 
+      - 4.3.3
+      CISv8: 8.5
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1562
+      - T1562.006
+      Mitre_Tactics:
+      - TA0004
+      Mitre_Mitigations:
+      - M1026
+      Nist_800_53_R5: NA
+  {{ end }}
+{{ end }}

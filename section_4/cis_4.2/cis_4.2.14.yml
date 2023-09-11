@@ -1,0 +1,40 @@
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_2_14 }}
+command:
+  sshd_MACS:
+    title: 4.2.14 | Ensure only strong MACs are used
+    exec: grep -Ei "^MACs" /etc/ssh/sshd_config
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - {{ .Vars.ubtu20cis_ssh_strong_macs }}
+    {{ range .Vars.ubtu20cis_ssh_weak_macs }}
+    - !{{ . }}
+    {{ end }}
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.2.14
+      CISv8: 3.10
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1040
+      - T1040.000
+      - T1557
+      - T1557.000
+      Mitre_Tactics:
+      - TA0001
+      Mitre_Mitigations: M1041
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  {{ end }}
+{{ end }}

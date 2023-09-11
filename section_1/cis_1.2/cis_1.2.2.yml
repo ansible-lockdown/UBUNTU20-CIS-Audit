@@ -1,13 +1,78 @@
-{{ if .Vars.ubuntu20cis_rule_1_2_2}}
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_config_aide }}
+    {{ if .Vars.ubtu20cis_rule_1_3_2 }}
+      {{ if eq .Vars.ubtu20cis_aide_scan "cron" }}
 command:
-  gpg_configd:
-    title: 1.2.2 | Ensure GPG keys are configured 
-    exec: echo "Please check manually for gpg keys"
-    exit-status: 0
+  aide_cron:
+    title: 1.2.2 | L1 | Ensure filesystem integrity is regularly checked | aide cron
+    exit-status:
+      or:
+      - 0
+      - 2
+    exec: "grep -rs aide /etc/cron.* /etc/crontab /var/spool/cron/*"
     stdout:
-    - '!/^Please.*'
+    - '!/^#/'
     meta:
       server: 1
-      workstation: 2
-      CIS_ID: 1.2.2
+      workstation: 1
+      CIS_ID:
+      - 1.2.2
+      CIS_v8: 8.5
+      CISv8_IG1: false
+      CISv8_IG2: false
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1036
+      - T1036.002
+      - T1036.003
+      - T1036.004
+      - T1036.005
+      - T1565
+      - T1565.001
+      Mitre_Tactics: TA0040
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - AU-2
+      {{ end }}
+service:
+    {{ if eq .Vars.ubtu20cis_aide_scan "timer" }}
+  aidecheck:
+    title: 1.2.2 | L1 | Ensure filesystem integrity is regularly checked | aidecheck service
+    enabled: true
+    running: true
+    skip: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 
+      - 1.2.2
+  aidecheck.timer:
+    title: 1.2.2 | L1 | Ensure filesystem integrity is regularly checked | aidecheck timer
+    enabled: true
+    running: true
+    skip: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.2.2
+      CIS_v8: 8.5
+      CISv8_IG1: false
+      CISv8_IG2: false
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1036
+      - T1036.002
+      - T1036.003
+      - T1036.004
+      - T1036.005
+      - T1565
+      - T1565.001
+      Mitre_Tactics: TA0040
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - AU-2
+      {{ end }}
+    {{ end }}
+  {{ end }}
 {{ end }}

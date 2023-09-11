@@ -1,0 +1,40 @@
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_2_22 }}
+command:
+  sshd_clientalive:
+    title: 4.2.22 | Ensure SSH Idle Timeout Interval is configured
+    exec: grep -Ei "^ClientAlive" /etc/ssh/sshd_config
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - 'ClientAliveInterval {{ .Vars.ubtu20cis_ssh_aliveinterval }}'
+    - 'ClientAliveCountMax {{ .Vars.ubtu20cis_ssh_countmax }}'
+    - '/ClientAliveInterval ([1-9]|[1-2][0-9][0-9]|300)/'
+    - '/ClientAliveCountMax [0-3]/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.2.22
+      CISv8: 4.8
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1078
+      - T1078.001
+      - T1078.002
+      - T1078.003
+      Mitre_Tactics:
+      - TA0001
+      Mitre_Mitigations: M1026
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  {{ end }}
+{{ end }}

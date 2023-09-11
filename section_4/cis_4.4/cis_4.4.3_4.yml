@@ -1,0 +1,45 @@
+{{ if .Vars.ubtu20cis_level_1 }}
+file:
+  /etc/pam.d/common-password:
+    title: 4.4.3 | Ensure password reuse is limited | password-auth
+           4.4.4 | Ensure password hashing algorithm is SHA-512 | password-auth
+    exists: true
+    contains:
+    {{ if .Vars.ubtu20cis_rule_4_4_3 }}
+    - '/^password.*required.*pam_pwhistory.so.*remember=\b(?:[1-5]\d+|5)\b/'
+    {{ end }}
+    {{ if .Vars.ubtu20cis_rule_4_4_4 }}
+    - '/^password\s+\[success=1 default=ignore\]\s+pam_unix.so obscure.*\ssha512/'
+    - '!/^password.*md5/'
+    {{ end }}
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.4.3
+      CISv8:
+      - 5.2
+      - 3.11
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1003
+      - T1003.008
+      - T1078
+      - T1078.001
+      - T1078.002
+      - T1078.003
+      - T1078.004
+      - T1110
+      - T1110.002
+      - T1110.004
+      Mitre_Tactics:
+      - TA0005
+      - TA0006
+      Mitre_Mitigations: M1041
+      Nist_800_53_R5:
+      - AC-2
+      - IA-5
+      - SC-28
+{{ end }}

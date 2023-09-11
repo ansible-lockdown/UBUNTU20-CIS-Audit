@@ -1,0 +1,55 @@
+{{ if .Vars.ubtu20cis_level_2 }}
+  {{ if .Vars.ubtu20cis_rule_5_2_3_17 }}
+command:
+  chacl_module_cnf:
+    title: 5.2.3.17 | Ensure successful and unsuccessful attempts to use the chacl command are recorded | Config
+    exec: grep chacl /etc/audit/rules.d/*.rules
+    exit-status: 0
+    stdout:
+    - '/-a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=(4294967295|unset|-1) -k perm_chng/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 5.2.3.17
+      CISv8:
+      - 8.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1562
+      - T1562.006
+      Mitre_Tactics: TA0005
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - AU-2
+      - AU-12
+      - SI-5
+  chacl_module_live:
+    title: 5.2.3.17 | Ensure successful and unsuccessful attempts to use the chacl command are recorded | Live
+    exec: auditctl -l | grep chacl
+    exit-status: 0
+    stdout:
+    - '/-a always,exit -S all -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=(4294967295|unset|-1) -F key=perm_chng/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 5.2.3.17
+      CISv8:
+      - 8.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1562
+      - T1562.006
+      Mitre_Tactics: TA0005
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - AU-2
+      - AU-12
+      - SI-5
+  {{ end }}
+{{ end }}

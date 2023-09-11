@@ -1,0 +1,32 @@
+{{ if .Vars.ubtu20cis_level_2 }}
+  {{ if .Vars.ubtu20cis_rule_1_1_7_1 }}
+mount:
+  /home:
+    title: 1.1.7.1 | Ensure separate partition exists for /home
+    exists: true
+    opts:
+    {{ if .Vars.ubtu20cis_rule_1_1_7_2 }}
+    - nodev
+    {{ end }}
+    {{ if .Vars.ubtu20cis_rule_1_1_7_3 }}
+    - nosuid
+    {{ end }}
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 1.1.7.1
+      - 1.1.7.2
+      - 1.1.7.3
+      CIS_v8: 8.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1499
+      - T1499.001
+      Mitre_Tactics: TA0005
+      Mitre_Mitigations: M1038
+      Nist_800_53_R5: MP-2
+  {{ end }}
+{{ end }}

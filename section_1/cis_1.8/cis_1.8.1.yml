@@ -1,5 +1,5 @@
-{{ if not .Vars.ubuntu20cis_gui }}
-  {{ if .Vars.ubuntu20cis_rule_1_8_1 }}
+{{ if not .Vars.ubtu20cis_gui }}
+  {{ if .Vars.ubtu20cis_rule_1_8_1 }}
 package:
   gdm3:
     title: 1.8.1 | Ensure GNOME Display Manager is removed
@@ -7,7 +7,17 @@ package:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.8.1
+      CISv8: 4.8
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1543
+      - T1543.002
+      Mitre_Tactics: TA0002
+      Mitre_Mitigations: NA
+      Nist_800_53_R5: CM-11
   {{ end }}
 {{ end }}

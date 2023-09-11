@@ -1,0 +1,28 @@
+{{ if not .Vars.ubtu20cis_dnsmasq_server }}
+  {{ if .Vars.ubtu20cis_rule_2_2_15 }}
+package:
+  dnsmasq:
+    title: 2.2.15 | Ensure dnsmasq is not installed
+    installed: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 2.1.14
+      CISv8:
+      - 4.8
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1203
+      - T1203.000
+      - T1210
+      - T1210.000
+      - T1543
+      - T1543.002
+      Mitre_Tactics: TA0008
+      Mitre_Mitigations: M1042
+      Nist_800_53_R5:
+      - CM-7
+  {{ end }}
+{{ end }}

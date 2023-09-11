@@ -1,16 +1,29 @@
-{{ if .Vars.ubuntu20cis_level_1 }}
-  {{ if .Vars.ubuntu20cis_rule_1_4_2 }}
-file:
-  {{ .Vars.ubuntu20cis_grub_conf_file }}:
-    title: 1.4.2 | Ensure bootloader password is set
-    exists: true
-    contains: 
-    - '/set superusers="{{ .Vars.ubuntu20cis_grub_username }}"/'
-    - '/password_pbkdf2 {{ .Vars.ubuntu20cis_grub_username }} {{ .Vars.ubuntu20cis_grub_hash }}'
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_1_4_2 }}
+command:
+  bootloader_file_perms:
+    title: 1.4.2 | Ensure permissions on bootloader config are configured
+    exec: stat -c "%a %U %G" {{ .Vars.ubtu20cis_grub_conf_file }}
+    exit-status: 0
+    stdout:
+    - '/600 root root/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.4.2
+      CIS_v8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1542
+      - T1542.000
+      Mitre_Tactics:
+      - TA0005
+      - TA0007
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - CM-6
   {{ end }}
 {{ end }}

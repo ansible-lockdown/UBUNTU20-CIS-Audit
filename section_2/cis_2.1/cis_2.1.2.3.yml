@@ -1,0 +1,29 @@
+---
+
+{{ if eq .Vars.ubtu20cis_time_service "chrony" }}
+  {{ if .Vars.ubtu20cis_rule_2_1_2_3 }}
+service:
+  chronyd:
+    title: 2.1.2.3 | Ensure chrony is enabled and running
+    enabled: true
+    running: true
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 2.1.2.3
+      CISv8:
+      - 8.4
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1070
+      - T1070.002
+      - T1562
+      - T1562.001
+      Mitre_Tactics: TA0002
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - AU-8
+  {{ end }}
+{{ end }}

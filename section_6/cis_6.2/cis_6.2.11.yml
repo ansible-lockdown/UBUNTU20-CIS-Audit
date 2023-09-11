@@ -1,14 +1,87 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_11 }}
+{{ if .Vars.ubtu20cis_rule_6_2_11 }}
 command:
-  uid_0_check:
-    title: 6.2.11 | Ensure root is the only UID 0 account
-    exec: "awk -F: '($3 == 0) { print $1 }' /etc/passwd"
-    exit-status: 0
+  home_dirs_exist:
+    title: 6.2.11 | Ensure local interactive user home directories are configured | dirs exist
+    exec: pwck -r | grep -v '/var/run/ircd'
+    exit-status: 
+      or:
+      - 0
+      - 1
+      - 2
     stdout:
-    - 'root'
+    - '!/./'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 6.2.11
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1222
+      - T1222.002
+      Mitre_Tactics: TA0005
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  home_dirs_owned:
+    title: 6.2.11 | Ensure local interactive user home directories are configured | dir owned by user
+    exec: "getent passwd {1000..60000} |  awk -F: '{ print $1  \" \"  $7 }' | while read user dir; do if [ $user != 'ftpd' ]; then owner=$(stat -L -c \"%U\" \"$dir\"); if [ \"$owner\" != \"$user\" ]; then echo \"home dir for $user owned by $owner\"; fi; fi; done"
+    exit-status: 0
+    stdout:
+    - '!/./'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.11
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1222
+      - T1222.002
+      Mitre_Tactics: TA0005
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  home_dirs_restrict:
+    title: 6.2.11 | Ensure local interactive user home directories are configured | permissions 750 or more
+    exec: export def_home=`grep "^HOME" /etc/default/useradd |cut -d= -f2` && for i in `ls $def_home`; do stat -c "%g %a %n" $def_home/$i | awk -F' ' '($1)>={ .Vars.ubtu20cis_min_uid }''; done
+    exit-status: 0
+    timeout: {{ .Vars.timeout_ms }}
+    stdout:
+    - '/7(0|5)0\s/'
+    - '!/^7[6-9][1-9]\s.*/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.11
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1222
+      - T1222.002
+      Mitre_Tactics: TA0005
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
 {{ end }}

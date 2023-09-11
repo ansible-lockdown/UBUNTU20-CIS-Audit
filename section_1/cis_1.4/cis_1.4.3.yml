@@ -1,16 +1,31 @@
-{{ if .Vars.ubuntu20cis_level_1 }}
-  {{ if .Vars.ubuntu20cis_rule_1_4_2 }}
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_1_4_3 }}
 command:
-  bootloader_file_perms:
-    title: 1.4.3 | Ensure permissions on bootloader config are configured
-    exec: stat -c "%a %U %G" {{ .Vars.ubuntu20cis_grub_conf_file }}
-    exit-status: 0
-    stdout:
-    - '/400 root root/'
+  check_root_pw:
+    title: 1.4.3 | Ensure authentication required for single user mode
+    exec: grep -Eq '^root:\$[0-9]' /etc/shadow || echo "root is not locked"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout: 
+    - '!/^root is not locked/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.4.3
+      CIS_v8: 5.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1548
+      - T1548.000
+      Mitre_Tactics:
+      - TA0005
+      Mitre_Mitigations: M1022
+      Nist_800_53_R5:
+      - IA-5
   {{ end }}
 {{ end }}

@@ -1,16 +1,29 @@
-{{ if .Vars.ubuntu20cis_level_1 }}
-  {{ if .Vars.ubuntu20cis_rule_1_5_1 }}
-command:
-  kernel_nx:
-    title: 1.5.1 | Ensure XD/NX support is enabled
-    exit-status: 0
-    exec: "journalctl | grep 'protection: active'"
-    stdout:
-    - "kernel: NX (Execute Disable) protection: active"
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_1_5_1 }}
+package:
+  prelink:
+    title: 1.5.1 | Ensure prelink is not installed
+    installed: false
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 
+      CIS_ID:
       - 1.5.1
+      CIS_v8: 3.14
+      CISv8_IG1: false
+      CISv8_IG2: false
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1555
+      - T1555.009
+      - T1065
+      - T1065.001
+      Mitre_Tactics:
+      - TA0002
+      Mitre_Mitigations: M1050
+      Nist_800_53_R5:
+      - CM-6
+      - CM-1
+      - CM-3
   {{ end }}
 {{ end }}

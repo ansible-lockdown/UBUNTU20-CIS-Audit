@@ -1,14 +1,29 @@
-{{ if .Vars.ubuntu20cis_rule_6_2_10 }}
+{{ if .Vars.ubtu20cis_rule_6_2_10 }}
 command:
-  dot_rhosts_files:
-    title: 6.2.10 | Ensure no users have .rhosts files
-    exec: 'find /home/ -name .rhosts'
+  uid_0_check:
+    title: 6.2.10 | Ensure root is the only UID 0 account
+    exec: "awk -F: '($3 == 0) { print $1 }' /etc/passwd"
     exit-status: 0
-    stdout: 
-    - '!/./'
+    stdout:
+    - 'root'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 6.2.10
+      CISv8: NA
+      CISv8_IG1: NA
+      CISv8_IG2: NA
+      CISv8_IG3: NA
+      Mitre_Techniques:
+      - T1548
+      - T1548.000
+      Mitre_Tactics: TA0001
+      Mitre_Mitigations: M1026
+      Nist_800_53_R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
 {{ end }}
