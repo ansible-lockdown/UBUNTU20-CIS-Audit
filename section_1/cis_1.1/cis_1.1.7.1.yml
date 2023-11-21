@@ -1,9 +1,10 @@
 {{ if .Vars.ubtu20cis_level_2 }}
   {{ if .Vars.ubtu20cis_rule_1_1_7_1 }}
 mount:
-  /home:
+  home_exists:
     title: 1.1.7.1 | Ensure separate partition exists for /home
     exists: true
+    mountpoint: /home
     opts:
     {{ if .Vars.ubtu20cis_rule_1_1_7_2 }}
     - nodev

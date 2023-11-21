@@ -1,9 +1,10 @@
 {{ if .Vars.ubtu20cis_level_2 }}
   {{ if .Vars.ubtu20cis_rule_1_1_4_1 }}
 mount:
-  /var/tmp:
+  var_tmp_exists:
     title: 1.1.4.1 | Ensure separate partition exists for /var/tmp
     exists: true
+    mountpoint: /var/tmp
     opts:
     {{ if .Vars.ubtu20cis_rule_1_1_4_2 }}
     - nodev

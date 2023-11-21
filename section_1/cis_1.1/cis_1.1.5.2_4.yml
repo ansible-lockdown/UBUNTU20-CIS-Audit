@@ -1,12 +1,13 @@
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_1_1_5_1 }}
 mount:
-  /var/log:
+  var_log_options:
     title: |
         1.1.5.2 | Ensure nodev option set on /var/log partition
         1.1.5.3 | Ensure noexec option set on /var/log partition
         1.1.5.4 | Ensure nosuid option set on /var/log partition
     exists: true
+    mountpoint: /var/log
     opts:
     {{ if .Vars.ubtu20cis_rule_1_1_5_2 }}
     - nodev
