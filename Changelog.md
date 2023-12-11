@@ -1,5 +1,11 @@
 # Changes to UbuntU20-CIS-Audit
 
+## 2.0.1
+
+- updated to goss 0.4.4
+- many tests updates
+- duplicates removed and isolated
+
 ## 2.0
 
 ### based upon CIS 2.0.1

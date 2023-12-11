@@ -1,12 +1,13 @@
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_1_1_6_1 }}
 mount:
-  /var/log/audit:
+  var_log_audit_options:
     title: |
         1.1.6.2 | Ensure nodev option set on /var/log/audit partition
         1.1.6.3 | Ensure noexec option set on /var/log/audit partition
         1.1.6.4 | Ensure nosuid option set on /var/log/audit partition
     exists: true
+    mountpoint: /var/log/audit
     opts:
     {{ if .Vars.ubtu20cis_rule_1_1_6_2 }}
     - nodev

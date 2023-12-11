@@ -1,7 +1,7 @@
 {{ if not .Vars.ubtu20cis_dhcp_server }}
   {{ if .Vars.ubtu20cis_rule_2_2_4 }}
 package:
-  cups:
+  isc-dhcp-server:
     title: 2.2.4 | Ensure DHCP Server is not installed
     installed: false
     meta:
