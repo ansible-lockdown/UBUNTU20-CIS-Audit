@@ -1,9 +1,10 @@
 {{ if not .Vars.ubtu20cis_nis_server }}
   {{ if .Vars.ubtu20cis_rule_2_2_14 }}
 package:
-  nis:
+  nis_server:
     title: 2.2.14 | Ensure NIS Server is not installed
     installed: false
+    name: nis
     meta:
       server: 1
       workstation: 1

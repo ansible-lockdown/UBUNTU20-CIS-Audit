@@ -1,9 +1,10 @@
 {{ if .Vars.ubtu20cis_level_2 }}
   {{ if .Vars.ubtu20cis_rule_1_1_5_1 }}
 mount:
-  /var/log:
+  var_log_exists:
     title: 1.1.5.1 | Ensure separate partition exists for /var/log
     exists: true
+    mountpoint: /var/log
     opts:
     {{ if .Vars.ubtu20cis_rule_1_1_5_2 }}
     - nodev

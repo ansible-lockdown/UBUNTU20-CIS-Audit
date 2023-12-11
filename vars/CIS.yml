@@ -2,7 +2,7 @@
 benchmark_version: '2.0.1'
 
 #  timeout for each command to run where set - default = 10seconds/10000ms
-timeout_ms: 60000
+timeout_ms: 120000
 
 ubtu20cis_notauto: false
 ubtu20cis_section1: true
