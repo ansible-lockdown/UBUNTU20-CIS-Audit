@@ -1,7 +1,11 @@
-{{ if .Vars.ubtu20cis_rule_3_3_1 }}
+---
+
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if not .Vars.ubtu20cis_is_router }}
+    {{ if .Vars.ubtu20cis_rule_3_3_1 }}
 kernel-param:
-  net.ipv4.conf.all.accept_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 all source routed
+  net.ipv4.ip_forward:
+    title: 3.3.1 | Ensure IP forwarding is disabled | IPv4
     value: '0'
     meta:
       server: 1
@@ -13,20 +17,15 @@ kernel-param:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
       - CM-7
       - IA-5
-  net.ipv4.conf.default.accept_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 default source routed
+  {{ if .Vars.ubtu20cis_ipv6_required }}
+  net.ipv6.conf.all.forwarding:
+    title: 3.3.1 | Ensure IP forwarding is disabled | IPv6
     value: '0'
     meta:
       server: 1
@@ -38,28 +37,24 @@ kernel-param:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
       - CM-7
       - IA-5
+  {{ end }}
 command:
-  ipv4_all_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 all source routed conf
-    exec: grep "net\.ipv4\.conf\.all\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*
+  ipv4_ip_forward:
+    title: 3.3.1 | Ensure IP forwarding is disabled | IPv4 config
+    exec: grep -E "^\s*net\.ipv4\.ip_forward" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf
     exit-status:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.all.accept_source_route(\s|)=(\s|)0/'
+    - '/^.*:net.ipv4.ip_forward\s*=\s*0/'
     meta:
       server: 1
       workstation: 1
@@ -70,27 +65,23 @@ command:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
       - CM-7
       - IA-5
-  ipv4_def_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 default source routed conf
-    exec: grep "net\.ipv4\.conf\.default\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*
+  {{ if .Vars.ubtu20cis_ipv6_required }}
+  ipv6_ip_forward:
+    title: 3.3.1 | Ensure IP forwarding is disabled | IPv6 config
+    exec: grep -E "^\s*net\.ipv6\.conf\.all\.forwarding" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf
     exit-status:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.default.accept_source_route(\s|)=(\s|)0/'
+    - '/^.*:net.ipv6.conf.all.forwarding\s*=\s*0/'
     meta:
       server: 1
       workstation: 1
@@ -101,16 +92,13 @@ command:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
       - CM-7
       - IA-5
+      {{ end }}
+    {{ end }}
+  {{ end }}
 {{ end }}

@@ -1,28 +1,24 @@
+---
+
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_1_4_1 }}
 file:
-  {{ .Vars.ubtu20cis_grub_conf_file }}:
+  bootloader_password_set:
     title: 1.4.1 | Ensure bootloader password is set
+    path: /etc/grub.d/00_user
     exists: true
-    contains: 
-    - '/set superusers="{{ .Vars.ubtu20cis_grub_username }}"/'
-    - '/password_pbkdf2 {{ .Vars.ubtu20cis_grub_username }} {{ .Vars.ubtu20cis_grub_hash }}'
+    contents:
+    - '/set superusers="{{ .Vars.ubtu20cis_grub_user }}"/'
+    - '/password_pbkdf2 {{ .Vars.ubtu20cis_grub_user }} {{ .Vars.ubtu20cis_bootloader_password_hash }}/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.4.1
-      CIS_v8: 5.2
+      CISv8: 3.3
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1542
-      - T1542.000
-      Mitre_Tactics:
-      - TA0003
-      Mitre_Mitigations: M1048
-      Nist_800_53_R5:
-      - CM-6
+      NIST800-53R5: AC-3
   {{ end }}
 {{ end }}

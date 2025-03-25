@@ -1,24 +1,27 @@
-{{ if .Vars.ubtu20cis_rule_4_3_6 }}
+---
+
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_4_3_6 }}
 command:
-  sudo_timeout: 
-    title: 4.3.6 | Ensure sudo authentication timeout is configured correctly
-    exec: grep -rP "timestamp_timeout=\K[0-9]*" /etc/sudoers*
+  nft_loopback:
+    title: 4.3.6 | Ensure nftables loopback traffic is configured | Manual
+    exec: echo "Manual - Please confirm nfttables loopback traffic configured and matched site policy"
     exit-status: 0
     stdout:
-    - '!/timestamp_timeout=(-1|1[6-9]|[2-9][0-9]|[1-9][0-9]{2,})/'
-    - '/timestamp_timeout=([5-9]|1[0-5])/'
+    - '!/^Manual/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 4.3.6
       CISv8:
-      - 5.4
+      - 4.4
+      - 4.5
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques: NA
-      Mitre_Tactics: NA
-      Mitre_Mitigations: NA
-      Nist_800_53_R5: AC-6
+      NIST800-53R5:
+      - CA-9
+      - SC-7
+  {{ end }}
 {{ end }}

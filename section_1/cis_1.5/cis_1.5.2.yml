@@ -1,52 +1,40 @@
+---
+
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_1_5_2 }}
 kernel-param:
-  kernel.randomize_va_space:
-    title: 1.5.2 | Ensure address space layout randomization (ASLR) is enabled | sysctl_live
-    value: '2'
+  kernel.yama.ptrace_scope:
+    title: 1.5.2 | Ensure ptrace_scope is restricted | sysctl_live
+    value: '1'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.5.2
-      CIS_v8: 10.5
+      CISv8: 10.5
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1068
-      - T1068.000
-      Mitre_Tactics:
-      - TA0002
-      Mitre_Mitigations: M1050
-      Nist_800_53_R5:
-      - CM-6
+      NIST800-53R5: CM-6
 command:
-  aslr_enabled_2:
-    title: 1.5.2 | Ensure address space layout randomization (ASLR) is enabled | sysctl_configured
+  ptrace_restrict_2:
+    title: 1.5.2 | Ensure ptrace_scope is restricted | sysctl_configured
     exit-status:
       or:
       - 0
       - 2
-    exec: 'grep "^kernel\.randomize_va_space" /etc/sysctl.conf /etc/sysctl.d/* | cut -d ":" -f2'
+    exec: 'grep "^kernel\.yama.ptrace_scope" /etc/sysctl.conf /etc/sysctl.d/* | cut -d ":" -f2'
     stdout:
-    - '/kernel.randomize_va_space(\s|)=(\s|)2/'
+    - '/kernel.yama.ptrace_scope\s*=\s*1/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.5.2
-      CIS_v8: 10.5
+      CISv8: 10.5
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1068
-      - T1068.000
-      Mitre_Tactics:
-      - TA0002
-      Mitre_Mitigations: M1050
-      Nist_800_53_R5:
-      - CM-6
+      NIST800-53R5: CM-6
   {{ end }}
 {{ end }}

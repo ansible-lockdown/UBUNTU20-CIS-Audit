@@ -1,30 +1,27 @@
-{{ if .Vars.ubtu20cis_level_2 }}
+---
+
+{{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_4_3_4 }}
 command:
-  nopasswd_sudoers_d: 
-    title: 4.3.4 | Ensure users must provide password for escalation 
-    exec: grep -R NOPASSWD /etc/sudoers /etc/sudoers.d/* | grep -v '.*\:#'
-    exit-status: 
-      or:
-      - 0
-      - 1
+  nft_tables:
+    title: 4.3.4 | Ensure a nftables table exists | Manual
+    exec: echo "Manual - Please confirm nfttables table exists and matched site policy"
+    exit-status: 0
     stdout:
-    - '!/.*/'
+    - '!/^Manual/'
     meta:
-      server: 2
-      workstation: 2
+      server: 1
+      workstation: 1
       CIS_ID:
       - 4.3.4
       CISv8:
-      - 5.4
+      - 4.4
+      - 4.5
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1078
-      - T10548
-      Mitre_Tactics: TA0005
-      Mitre_Mitigations: M1026
-      Nist_800_53_R5: AC-6
+      NIST800-53R5:
+      - CA-9
+      - SC-7
   {{ end }}
 {{ end }}

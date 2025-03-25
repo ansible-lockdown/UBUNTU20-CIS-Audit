@@ -1,34 +1,33 @@
+---
+
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_4_2_5 }}
 command:
-  ssh_loglevel:
-    title: 4.2.5 | Ensure SSH LogLevel is appropriate
-    exec: grep -E "^LogLevel" /etc/ssh/sshd_config
-    exit-status:
-      or:
-      - 0
-      - 1
+  ufw_loopback:
+    title: 4.2.5 | Ensure ufw loopback traffic is configured
+    exec: ufw status verbose
+    exit-status: 0
     stdout:
-    - '/LogLevel (VERBOSE|INFO)/'
-    - '!/^LogLevel DEBUG/'
+    - '/^Anywhere on lo\s+ ALLOW IN\s+ Anywhere/'
+    - '/^Anywhere\s+DENY IN\s+127.0.0.0\/8/'
+    - '/^Anywhere\s+ ALLOW OUT\s+ Anywhere on lo/'
+    {{ if .Vars.ubtu20cis_ipv6_required}}
+    - '/^Anywhere \(v6\) on lo\s+ALLOW IN\s+Anywhere \(v6\)/'
+    - '/^Anywhere \(v6\)\s+DENY IN\s+::1/'
+    - '/^Anywhere \(v6\)\s+ALLOW OUT\s+Anywhere \(v6\) on lo/'
+    {{ end }}
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 4.2.5
-      CISv8: 8.2
+      CISv8:
+      - 4.4
+      - 4.5
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1562
-      - T1562.006
-      Mitre_Tactics:
-      - TA0005
-      Mitre_Mitigations: NA
-      Nist_800_53_R5:
-      - AU-3
-      - AU-12
-      - SI-5
- {{ end }}
+      NIST800-53R5:
+      - SC-7
+  {{ end }}
 {{ end }}
