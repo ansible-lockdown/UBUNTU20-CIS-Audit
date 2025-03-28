@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.ubtu20cis_level_2 }}
-  {{ if .Vars.ubtu20cis_squashfs_required }}
+  {{ if not .Vars.ubtu20cis_squashfs_required }}
   {{ if .Vars.ubtu20cis_rule_1_1_1_7 }}
 file:
   squashfs_disabled:

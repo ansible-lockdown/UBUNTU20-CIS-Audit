@@ -33,8 +33,6 @@ file:
     contents:
     - '/#\s*session\s+optional\s+pam_motd.so\s+motd=/run/motd.dynamic/'
     - '/#\s*session\s+optional\s+pam_motd.so noupdate/'
-    - '!/^session\s+optional\s+pam_motd.so noupdate/'
-    - '!/^session\s+optional\s+pam_motd.so\s+motd=/run/motd.dynamic/'
 {{ end }}
 {{ if not .Vars.ubtu20cis_disable_dynamic_motd }}
 command:

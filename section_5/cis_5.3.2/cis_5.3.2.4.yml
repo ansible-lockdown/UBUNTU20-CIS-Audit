@@ -20,7 +20,7 @@ file:
       CISv8_IG2: true
       CISv8_IG3: true
       NIST800-53R5: NA
-  pam_pwhistory_enabled_common_passwd:
+  pam_pwhistory_enabled_common_passwd_config:
     title: 5.3.2.4 | Ensure pam_pwhistory module is enabled
     path: /usr/share/pam-configs/pwhistory
     exists: true
@@ -29,7 +29,8 @@ file:
     - 'Default: yes'
     - 'Priority: 1024'
     - 'Password-Type: Primary'
-    - 'Password: requisite pam_pwhistory.so remember=24 enforce_for_root use_authtok'
+    - 'Password:'
+    - '/\s+requisite\s+pam_pwhistory.so enforce_for_root try_first_pass remember=24 enforce_for_root use_authtok/'
     meta:
       server: 1
       workstation: 1

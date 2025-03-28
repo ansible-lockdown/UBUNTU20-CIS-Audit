@@ -1,11 +1,11 @@
 ---
 
 {{ if .Vars.ubtu20cis_level_1 }}
-  {{ if .Vars.ubtu20cis_rule_6_1_2_1_2 }}
+  {{ if .Vars.ubtu20cis_rule_6_2_2_1_2 }}
     {{ if not .Vars.ubtu20cis_is_syslog_server }}
 file:
   journal_remote_configured:
-    title: 6.1.2.1.2 | Ensure systemd-journal-upload authentication is configured
+    title: 6.2.2.1.2 | Ensure systemd-journal-upload authentication is configured
     path: /etc/systemd/journal-upload.conf
     exists: true
     contents:
@@ -17,7 +17,7 @@ file:
       server: 1
       workstation: 1
       CIS_ID:
-      - 6.1.2.1.2
+      - 6.2.2.1.2
       CISv8: 8.2
       CISv8_IG1: true
       CISv8_IG2: true

@@ -48,7 +48,7 @@ file:
     - 'Priority: 0'
     - 'Auth-Type: Primary'
     - 'Auth:'
-    - '/\s+[default=die]\s+pam_faillock.so authfail/'
+    - '/\s+\[default=die\]\s+pam_faillock.so authfail/'
     meta:
       server: 1
       workstation: 1

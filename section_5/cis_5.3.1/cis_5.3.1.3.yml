@@ -8,7 +8,6 @@ package:
     name: libpam-pwquality
     installed: true
     versions:
-      not:
       - 1.4.2-1build1
     meta:
       server: 1
