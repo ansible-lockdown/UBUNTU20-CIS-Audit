@@ -3,7 +3,7 @@
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_6_2_3_5 }}
 file:
-  /etc/rsyslog.conf:
+  /etc/rsyslog.d/50-default.conf:
     title: 6.2.3.5 | Ensure rsyslog logging is configured
     exists: true
     contents:
@@ -16,7 +16,7 @@ file:
     - '/^cron.\*\s+/var/log/cron/'
     - '/^*.=warning;\*.=err\s+-/var/log/warn/'
     - '/^*.crit\s+/var/log/warn/'
-    - '/^*.*;mail.none;news.none\s+/var/log/messages/'
+    - '/^*.*;mail.none;news.none\s+-/var/log/messages/'
     - '/^local0,local1.\*\s+-/var/log/localmessages/'
     - '/^local2,local3.\*\s+-/var/log/localmessages/'
     - '/^local4,local5.\*\s+-/var/log/localmessages/'

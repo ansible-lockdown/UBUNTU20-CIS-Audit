@@ -1,19 +1,18 @@
-
 ---
 
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_6_2_3_8 }}
 command:
   rsyslog_logrotate:
-    title: 6.2.3.8 | Ensure rsyslog logrotate is configured
-    exec: grep -A9 "rsyslog/*.log" /etc/logrotate.conf /etc/logrotate.d/*
+    title: 6.2.3.8 | Ensure rsyslog logrotate is configured | Manual
+    exec: echo "Manual Check Required for rsyslog files being rotated"
     exit-status:
       or:
       - 0
       - 1
       - 2
     stdout:
-    - '/.*: rotate/'
+    - 'OK'
     meta:
       server: 1
       workstation: 1
