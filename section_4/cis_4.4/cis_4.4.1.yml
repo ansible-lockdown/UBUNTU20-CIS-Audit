@@ -2,7 +2,7 @@
   {{ if .Vars.ubtu20cis_rule_4_4_1 }}
 package:
   libpam-pwquality:
-    title: 5.4.1 | Ensure password creation requirements are configured | package
+    title: 4.4.1 | Ensure password creation requirements are configured | package
     installed: true
     meta:
       server: 1

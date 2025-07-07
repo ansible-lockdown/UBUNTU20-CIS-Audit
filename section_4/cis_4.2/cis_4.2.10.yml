@@ -2,7 +2,7 @@
   {{ if .Vars.ubtu20cis_rule_4_2_10 }}
 command:
   ssh_userenv:
-    title: 4.2.12 | Ensure SSH PermitUserEnvironment is disabled
+    title: 4.2.10 | Ensure SSH PermitUserEnvironment is disabled
     exec: grep -Ei "PermitUserEnvironment" /etc/ssh/sshd_config
     exit-status:
       or:
