@@ -24,8 +24,9 @@ command:
       Mitre_Mitigations: M1047
       Nist_800_53_R5: NA
 file:
-  /etc/default/grub:
+  auditd_prior_default_grub:
     title: 5.2.1.3 | Ensure auditing for processes that start prior to auditd is enabled | default grub
+    path: /etc/default/grub
     exists: true
     contains:
     - '/^GRUB_CMDLINE_LINUX=.*"audit=1"/'
