@@ -6,7 +6,7 @@ file:
   /etc/chrony/chrony.conf:
     title: 2.1.2.2 | Ensure chrony is running as user _chrony
     exists: true
-    contains:
+    contents:
     - '/^user _chrony/'
     meta:
       server: 1

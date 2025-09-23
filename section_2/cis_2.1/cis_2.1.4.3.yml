@@ -6,7 +6,7 @@ file:
   /etc/init.d/ntp:
     title: 2.1.4.3 | Ensure ntp is running as user ntp
     exists: true
-    contains:
+    contents:
     {{- range .Vars.ubtu20cis_time_pool }}
     - '/^pool {{ .name }} {{ .options }}/'
     {{ end }}

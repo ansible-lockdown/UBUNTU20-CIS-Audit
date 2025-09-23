@@ -4,7 +4,7 @@ file:
   /etc/dconf/db/local.d/00-media-autorun:
     title: 1.8.8 | Ensure GDM autorun-never is enabled
     exists: true
-    contains:
+    contents:
     - '/^[org/gnome/desktop/media-handling]/'
     - '/^autrun-never=true/'
     meta:

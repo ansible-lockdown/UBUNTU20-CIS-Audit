@@ -34,7 +34,7 @@ file:
   /etc/exim4/update-exim4.conf.conf:
     title: 2.2.15 | Ensure mail transfer agent is configured for local-only mode | exim config
     exists: true
-    contains:
+    contents:
     {{ range .Vars.ubtu20_exim_conf }}
     - {{ . }}
     {{ end }}

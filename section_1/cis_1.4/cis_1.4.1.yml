@@ -4,7 +4,7 @@ file:
   {{ .Vars.ubtu20cis_grub_conf_file }}:
     title: 1.4.1 | Ensure bootloader password is set
     exists: true
-    contains: 
+    contents: 
     - '/set superusers="{{ .Vars.ubtu20cis_grub_username }}"/'
     - '/password_pbkdf2 {{ .Vars.ubtu20cis_grub_username }} {{ .Vars.ubtu20cis_grub_hash }}'
     meta:

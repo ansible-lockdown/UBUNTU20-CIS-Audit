@@ -4,7 +4,7 @@ file:
   /etc/systemd/journal-upload.conf:
     title: 5.1.1.1.2 | Ensure systemd-journal-remote is configured
     exists: true
-    contains:
+    contents:
     - '/^URL=/'
     - '/ServerKeyFile=.*.pem'
     - '/ServerCertificateFile=.*.pem'
