@@ -90,7 +90,7 @@ file:
   /etc/systemd/coredump.conf:
     title: 1.5.5 | Ensure core dumps are restricted | coredump.conf if systemd-coredump installed
     exists: true
-    contains:
+    contents:
     - '/^Storage=none/'
     - '/^ProcessSizeMax=0/'
     meta:

@@ -6,7 +6,7 @@ file:
   /etc/systemd/timesyncd.conf.d/50-timesyncd.conf:
     title: 2.1.4.1 | Ensure ntp access control is configured
     exists: true
-    contains:
+    contents:
     - '/^restrict -4 default kod nomodify notrap nopeer noquery/'
     - '/^restrict -6 default kod nomodify notrap nopeer noquery/'
     meta:

@@ -32,7 +32,7 @@ file:
   /etc/security/pwquality.conf:
     title: 4.4.1 | Ensure password creation requirements are configured | pwquality
     exists: true
-    contains:
+    contents:
     {{ range .Vars.ubtu20cis_pam_password }}
     - {{ . }}
     {{ end }}

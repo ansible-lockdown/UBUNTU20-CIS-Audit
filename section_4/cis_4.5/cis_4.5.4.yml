@@ -31,7 +31,7 @@ file:
   /etc/pam.d/common-session:
     title: 4.5.4 | Ensure default user umask is 027 or more restrictive | /etc/pam.d/common-session
     exists: true
-    contains:
+    contents:
     - '/^session\s+optional\s+pam_umask.so/'
     meta:
       server: 1

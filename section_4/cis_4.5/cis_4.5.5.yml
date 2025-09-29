@@ -4,7 +4,7 @@ file:
   /etc/profile.d/tmout.sh:
     title: 4.5.5 | Ensure default user shell timeout is configured | profile.d
     exists: true
-    contains:
+    contents:
     - '/TMOUT=([1-8][0-9]{0,2}|900)/'
     - '/^readonly TMOUT/'
     meta:

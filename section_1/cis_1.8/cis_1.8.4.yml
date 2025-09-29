@@ -4,7 +4,7 @@ file:
   /etc/dconf/db/local.d/00-screensaver:
     title: 1.8.4 | Ensure GDM login banner is configured
     exists: true
-    contains:
+    contents:
     - '/^[org/gnome/desktop/session]/'
     - '/^idle-delay=uint32 (1|[1-9]|[1-8][0-9]{1,2}|900)$/'
     - '/^lock-delay=uint32 [0-5]$/'

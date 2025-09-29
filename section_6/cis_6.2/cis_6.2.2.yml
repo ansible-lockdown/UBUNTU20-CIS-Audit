@@ -3,7 +3,7 @@ file:
   /etc/shadow:
     title: 6.2.2 | Ensure /etc/shadow password fields are not empty
     exists: true
-    contains:
+    contents:
     - '!/^*.[a-z]::/'
     meta:
       server: 1

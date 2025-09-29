@@ -22,7 +22,7 @@ file:
   /etc/default/apport:
     title: 1.5.4 | Ensure Automatic Error Reporting is not enabled | config file
     exists: true
-    contains:
+    contents:
     - '/^enabled(\s|)=(\s|)0/'
     meta:
       server: 1

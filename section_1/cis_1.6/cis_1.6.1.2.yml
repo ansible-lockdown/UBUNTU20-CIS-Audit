@@ -3,7 +3,7 @@ file:
   {{ .Vars.ubtu20cis_grub_conf_file }}:
     title: 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | running grub
     exists: true
-    contains:
+    contents:
     - '/apparmor=1/'
     - '/security=apparmor/'
     - '!/apparmor=0/'
@@ -25,10 +25,11 @@ file:
       Mitre_Tactics: TA0003
       Mitre_Mitigations: M1026
       Nist_800_53_R5: AC-3
-  /etc/default/grub:
+  grub_apparmor:
     title: 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | running grub
     exists: true
-    contains:
+    path: /etc/default/grub
+    contents:
     - '/^GRUB_CMDLINE_LINUX.*apparmor=1/'
     - '/^GRUB_CMDLINE_LINUX.*security=apparmor/'
     - '!/apparmor=0/'
