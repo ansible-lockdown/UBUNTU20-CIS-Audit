@@ -1,4 +1,12 @@
-# Changes to UbuntU20-CIS-Audit
+# Changes to Ubuntu20-CIS-Audit
+
+## 3.0.0
+
+### based upon CIS 3.0.0
+
+- Fixed run_audit.sh: BENCHMARK_VER corrected from 2.2.0 to 3.0.0
+- Fixed run_audit.sh: BENCHMARK_OS corrected from UBUNTU22 to UBUNTU20
+- Audit role tests already v3.0.0 compliant (312 Goss tests across 7 sections)
 
 ## 2.0
 
