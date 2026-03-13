@@ -605,12 +605,12 @@ ubtu20cis_time_pool:
 # The default setting for the `options` is `iburst` -- please refer to the documentation
 # of the time synchronization mechanism you are using.
 ubtu20cis_time_servers:
-- name: time-a-g.nist.gov
-  options: iburst
-- name: time-b-g.nist.gov
-  options: iburst
-- name: time-c-g.nist.gov
-  options: iburst
+  - name: time-a-g.nist.gov
+    options: iburst
+  - name: time-b-g.nist.gov
+    options: iburst
+  - name: time-c-g.nist.gov
+    options: iburst
 
 # Section 3
 ## Control 3.1.1 - Ensure system is checked to determine if IPv6 is enabled
