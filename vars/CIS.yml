@@ -503,9 +503,9 @@ ubtu20cis_core_dump_installed: true
 # Note that the banner text must not contain the below items in order to be
 # compliant with CIS: \m, \r, \s, \v or references to the OS platform
 ubtu20cis_warning_banner: |
-        Authorized users only. All activity may be monitored and reported.
+    Authorized users only. All activity may be monitored and reported.
 
-# This variable governs, whether dynamic motd is disabled (as required by control 1.7.1)
+# This variable governs, whether dynamic motd is disabled (as required by control 1.6.1)
 ubtu20cis_disable_dynamic_motd: true
 
 ## Controls 1.7.x - Settings for GDM
@@ -577,7 +577,7 @@ ubtu20cis_is_mail_server: false
 
 # Client Services
 ubtu20cis_nis_client_required: false  # Same package as NIS server
-ubtu20cis_rsh_client: false
+ubtu20cis_rsh_required: false
 ubtu20cis_talk_client: false
 ubtu20cis_telnet_required: false
 ubtu20cis_ldap_clients_required: false
