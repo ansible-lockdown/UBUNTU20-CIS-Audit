@@ -578,7 +578,7 @@ ubtu20cis_is_mail_server: false
 # Client Services
 ubtu20cis_nis_client_required: false  # Same package as NIS server
 ubtu20cis_rsh_required: false
-ubtu20cis_talk_client: false
+ubtu20cis_talk_client_required: false
 ubtu20cis_telnet_required: false
 ubtu20cis_ldap_clients_required: false
 ubtu20cis_ftp_client: false
