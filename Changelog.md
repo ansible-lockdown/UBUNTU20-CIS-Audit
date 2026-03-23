@@ -32,6 +32,7 @@
 - Fixed 1.7.10 XDMCP typo: "XDCMP" to "XDMCP" (in test key and title)
 - Fixed 1.4.2 title typo: "if configured" to "is configured"
 - Renamed misnamed `section_3/cis_3.2/cis_3.4.3.yml` to `cis_3.2.3.yml` (content was correct for 3.2.3)
+- Added missing `---` YAML document marker and blank line to 20 goss test files across sections 2–7
 
 ## 2.0
 
