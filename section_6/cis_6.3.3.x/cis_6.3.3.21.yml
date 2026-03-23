@@ -4,7 +4,7 @@
   {{ if .Vars.ubtu20cis_rule_6_3_3_21 }}
 command:
   auditd_config_match:
-    title: 6.3.3.21 | Ensure the audit configuration is immutable
+    title: 6.3.3.21 | Ensure the running and on disk configuration is the same
     exec: augenrules --check
     exit-status: 0
     stdout:

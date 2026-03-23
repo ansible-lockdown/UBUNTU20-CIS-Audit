@@ -5,7 +5,7 @@
 file:
   hfsplus_disabled:
     title: 1.1.1.4 | Ensure hfsplus kernel module is not available | modprobe
-    path: /etc/modprobe.d/CIS.conf
+    path: /etc/modprobe.d/hfsplus.conf
     exists: true
     contents:
     - '/^install hfsplus /bin/(true|false)/'

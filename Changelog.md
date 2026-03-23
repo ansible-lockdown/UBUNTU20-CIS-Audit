@@ -17,6 +17,21 @@
   - `cis_1.1.1.10.yml` — Ensure unused filesystems kernel modules are not available (Manual)
   - `cis_4.1.1.yml` — Ensure a single firewall configuration utility is in use (Automated)
 - Added `section_4/cis_4.1/*.yml` include to `goss.yml` for new section 4.1 tests
+- Fixed kernel module audit paths (1.1.1.1-1.1.1.9): changed from single `/etc/modprobe.d/CIS.conf` to per-module files (`cramfs.conf`, `freevxfs.conf`, `hfs.conf`, `hfsplus.conf`, `jffs2.conf`, `overlayfs.conf`, `squashfs.conf`, `udf.conf`, `usb_storage.conf`) to match remediation
+- Fixed `ubtu20cis_syslog_service` default from `journald` to `rsyslog` to match remediation defaults
+- Fixed SSH config path typo in 5.1.4: `/etc/sshd/sshd_config` to `/etc/ssh/sshd_config`
+- Fixed 7.1.2 audit path: was checking `/etc/passwd` (7.1.1's file) instead of `/etc/passwd-`
+- Fixed cron control alignment:
+  - 2.4.1.7: changed from /etc/cron.d to /etc/cron.yearly to match benchmark
+  - 2.4.1.8: changed from cron restriction to /etc/cron.d permissions to match benchmark
+  - 2.4.1.9: added cron.deny absence check alongside existing cron.allow check
+- Added `/etc/security/opasswd.old` coverage to 7.1.10 audit (remediation covers both files)
+- Fixed 5.3.3.1.3 title: "Ensure password unlock time is configured" to "Ensure password failed attempts lockout includes root account"
+- Fixed 6.3.3.21 title: "Ensure the audit configuration is immutable" to "Ensure the running and on disk configuration is the same"
+- Fixed 5.4.1.2 command section: CIS_ID and title incorrectly referenced 5.4.1.1
+- Fixed 1.7.10 XDMCP typo: "XDCMP" to "XDMCP" (in test key and title)
+- Fixed 1.4.2 title typo: "if configured" to "is configured"
+- Renamed misnamed `section_3/cis_3.2/cis_3.4.3.yml` to `cis_3.2.3.yml` (content was correct for 3.2.3)
 
 ## 2.0
 

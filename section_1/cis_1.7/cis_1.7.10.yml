@@ -4,8 +4,8 @@
   {{ if .Vars.ubtu20cis_desktop_required }}
     {{ if .Vars.ubtu20cis_rule_1_7_10 }}
 file:
-  gdm_xdcmp:
-    title: 1.7.10 | Ensure XDCMP is not enabled
+  gdm_xdmcp:
+    title: 1.7.10 | Ensure XDMCP is not enabled
     path: /etc/gdm3/custom.conf
     exists: true
     contents:

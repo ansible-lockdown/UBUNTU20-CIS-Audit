@@ -5,7 +5,7 @@
 file:
   cramfs_disabled:
     title: 1.1.1.1 | Ensure cramfs kernel module is not available | modprobe
-    path: /etc/modprobe.d/CIS.conf
+    path: /etc/modprobe.d/cramfs.conf
     exists: true
     contents:
     - '/^install cramfs /bin/(true|false)/'

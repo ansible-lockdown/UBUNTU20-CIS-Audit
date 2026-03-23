@@ -652,7 +652,7 @@ ubtu20cis_auditd:
 ## syslog
 # Set which syslog service
 # journald or rsyslog
-ubtu20cis_syslog_service: 'journald'
+ubtu20cis_syslog_service: 'rsyslog'
 ubtu20cis_is_syslog_server: false
 
 ### Section 5
