@@ -4,7 +4,7 @@ gossfile:
   section_1/*/*.yml: {}
   {{ end }}
 
- # Section 2
+# Section 2
   {{ if .Vars.ubtu20cis_section2 }}
   # Special Services
   section_2/cis_2.1/*.yml: {}
