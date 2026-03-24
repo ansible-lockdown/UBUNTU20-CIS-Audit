@@ -28,9 +28,9 @@ ubtu20cis_legacy_boot: true
 ## Use the switches below to disable specific rules independently of the chosen profile
 ##
 
-## Section 1 Fixes
-# Section 1 is Initial setup (FileSystem Configuration, Configure Software Updates, Filesystem Integrity Checking, Secure Boot Settings,
-# Additional Process Hardening, Mandatory Access Control, Command Line Warning Banners, and GNOME Display Manager)
+## Section 1 Rule Toggles
+# Section 1 is Initial Setup (Filesystem Configuration, Package Management, Mandatory Access Control,
+# Bootloader, Process Hardening, Warning Banners, and GNOME Display Manager)
 
 # 1.1 Filesystems
 # 1.1.1 Configure Filesystem Kernel Modules
@@ -86,11 +86,11 @@ ubtu20cis_rule_1_1_2_7_2: true
 ubtu20cis_rule_1_1_2_7_3: true
 ubtu20cis_rule_1_1_2_7_4: true
 
-# 1.2 Package mgmt
-# 1.2.1 Configure Package repositories
+# 1.2 Package Management
+# 1.2.1 Configure Package Repositories
 ubtu20cis_rule_1_2_1_1: true
 ubtu20cis_rule_1_2_1_2: true
-# 1.2.2 Configure Package updates
+# 1.2.2 Configure Package Updates
 ubtu20cis_rule_1_2_2_1: true
 
 # 1.3 Mandatory Access Control
@@ -104,7 +104,7 @@ ubtu20cis_rule_1_3_1_4: true
 ubtu20cis_rule_1_4_1: true
 ubtu20cis_rule_1_4_2: true
 
-# 1.5 Configure additional Process Hardening
+# 1.5 Configure Additional Process Hardening
 ubtu20cis_rule_1_5_1: true
 ubtu20cis_rule_1_5_2: true
 ubtu20cis_rule_1_5_3: true
@@ -131,8 +131,8 @@ ubtu20cis_rule_1_7_8: true
 ubtu20cis_rule_1_7_9: true
 ubtu20cis_rule_1_7_10: true
 
-## Section 2 Fixes
-# Section 2 is Services (Special Purpose Services, and service clients)
+## Section 2 Rule Toggles
+# Section 2 is Services (Server Services, Client Services, Time Synchronization, Job Schedulers)
 
 # 2.1 Configure Server Services
 ubtu20cis_rule_2_1_1: true
@@ -158,7 +158,7 @@ ubtu20cis_rule_2_1_20: true
 ubtu20cis_rule_2_1_21: true
 ubtu20cis_rule_2_1_22: true
 
-# 2.2 Configure client services
+# 2.2 Configure Client Services
 ubtu20cis_rule_2_2_1: true
 ubtu20cis_rule_2_2_2: true
 ubtu20cis_rule_2_2_3: true
@@ -166,7 +166,7 @@ ubtu20cis_rule_2_2_4: true
 ubtu20cis_rule_2_2_5: true
 ubtu20cis_rule_2_2_6: true
 
-# Ensure time synchronization is in use
+# 2.3 Ensure Time Synchronization is in Use
 ubtu20cis_rule_2_3_1_1: true
 # Configure systemd-timesyncd
 ubtu20cis_rule_2_3_2_1: true
@@ -187,20 +187,21 @@ ubtu20cis_rule_2_4_1_6: true
 ubtu20cis_rule_2_4_1_7: true
 ubtu20cis_rule_2_4_1_8: true
 ubtu20cis_rule_2_4_1_9: true
-# Configure At
+# 2.4.2 Configure At
 ubtu20cis_rule_2_4_2_1: true
 
-## Section 3 Network Configuration
+## Section 3 Rule Toggles
+# Section 3 is Network Configuration
 # 3.1 Configure Network Devices
 ubtu20cis_rule_3_1_1: true
 ubtu20cis_rule_3_1_2: true
 ubtu20cis_rule_3_1_3: true
-# 3.2 Configure Network Kernel Modules (Host Only)
+# 3.2 Configure Network Kernel Modules
 ubtu20cis_rule_3_2_1: true
 ubtu20cis_rule_3_2_2: true
 ubtu20cis_rule_3_2_3: true
 ubtu20cis_rule_3_2_4: true
-# 3.3 Configure Network Kernel Parameters (Host and Router)
+# 3.3 Configure Network Kernel Parameters
 ubtu20cis_rule_3_3_1: true
 ubtu20cis_rule_3_3_2: true
 ubtu20cis_rule_3_3_3: true
@@ -213,9 +214,10 @@ ubtu20cis_rule_3_3_9: true
 ubtu20cis_rule_3_3_10: true
 ubtu20cis_rule_3_3_11: true
 
-## Section 4 Host Based Firewall
+## Section 4 Rule Toggles
+# Section 4 is Host Based Firewall
 
-# 4.1 single firewall
+# 4.1 Single Firewall Configuration Utility
 ubtu20cis_rule_4_1_1: true
 
 # 4.2 Configure UncomplicatedFirewall
@@ -239,7 +241,7 @@ ubtu20cis_rule_4_3_8: true
 ubtu20cis_rule_4_3_9: true
 ubtu20cis_rule_4_3_10: true
 
-# 4.4.1 Configure iptables software
+# 4.4.1 Configure iptables Software
 ubtu20cis_rule_4_4_1_1: true
 ubtu20cis_rule_4_4_1_2: true
 ubtu20cis_rule_4_4_1_3: true
@@ -255,7 +257,8 @@ ubtu20cis_rule_4_4_3_2: true
 ubtu20cis_rule_4_4_3_3: true
 ubtu20cis_rule_4_4_3_4: true
 
-## Section 5 Access Control
+## Section 5 Rule Toggles
+# Section 5 is Access Control
 # 5.1 Configure SSH Server
 ubtu20cis_rule_5_1_1: true
 ubtu20cis_rule_5_1_2: true
@@ -279,7 +282,7 @@ ubtu20cis_rule_5_1_19: true
 ubtu20cis_rule_5_1_20: true
 ubtu20cis_rule_5_1_21: true
 ubtu20cis_rule_5_1_22: true
-# 5.2 Configure privilege escalation
+# 5.2 Configure Privilege Escalation
 ubtu20cis_rule_5_2_1: true
 ubtu20cis_rule_5_2_2: true
 ubtu20cis_rule_5_2_3: true
@@ -287,20 +290,20 @@ ubtu20cis_rule_5_2_4: true
 ubtu20cis_rule_5_2_5: true
 ubtu20cis_rule_5_2_6: true
 ubtu20cis_rule_5_2_7: true
-# 5.3.1 Configure PAM software packages
+# 5.3.1 Configure PAM Software Packages
 ubtu20cis_rule_5_3_1_1: true
 ubtu20cis_rule_5_3_1_2: true
 ubtu20cis_rule_5_3_1_3: true
-# 5.3.2 Configure pam-auth-update profiles
+# 5.3.2 Configure pam-auth-update Profiles
 ubtu20cis_rule_5_3_2_1: true
 ubtu20cis_rule_5_3_2_2: true
 ubtu20cis_rule_5_3_2_3: true
 ubtu20cis_rule_5_3_2_4: true
-# 5.3.3.1 Configure pam_faillock module
+# 5.3.3.1 Configure pam_faillock Module
 ubtu20cis_rule_5_3_3_1_1: true
 ubtu20cis_rule_5_3_3_1_2: true
 ubtu20cis_rule_5_3_3_1_3: true
-# 5.3.3.2 Configure pam_quality module
+# 5.3.3.2 Configure pam_pwquality Module
 ubtu20cis_rule_5_3_3_2_1: true
 ubtu20cis_rule_5_3_3_2_2: true
 ubtu20cis_rule_5_3_3_2_3: true
@@ -309,25 +312,24 @@ ubtu20cis_rule_5_3_3_2_5: true
 ubtu20cis_rule_5_3_3_2_6: true
 ubtu20cis_rule_5_3_3_2_7: true
 ubtu20cis_rule_5_3_3_2_8: true
-# 5.3.3.3 Configure pam_history module
-# This are added as part of 5.3.2.4 using jinja2 template
+# 5.3.3.3 Configure pam_pwhistory Module
 ubtu20cis_rule_5_3_3_3_1: true
 ubtu20cis_rule_5_3_3_3_2: true
 ubtu20cis_rule_5_3_3_3_3: true
-# 5.3.3.4 Configure pam_unix module
+# 5.3.3.4 Configure pam_unix Module
 ubtu20cis_rule_5_3_3_4_1: true
 ubtu20cis_rule_5_3_3_4_2: true
 ubtu20cis_rule_5_3_3_4_3: true
 ubtu20cis_rule_5_3_3_4_4: true
 # 5.4 User Accounts and Environment
-# 5.4.1 Configure shadow password suite parameters
+# 5.4.1 Configure Shadow Password Suite Parameters
 ubtu20cis_rule_5_4_1_1: true
 ubtu20cis_rule_5_4_1_2: true
 ubtu20cis_rule_5_4_1_3: true
 ubtu20cis_rule_5_4_1_4: true
 ubtu20cis_rule_5_4_1_5: true
 ubtu20cis_rule_5_4_1_6: true
-# 5.4.2 Configure root and system accounts and environment
+# 5.4.2 Configure Root and System Accounts
 ubtu20cis_rule_5_4_2_1: true
 ubtu20cis_rule_5_4_2_2: true
 ubtu20cis_rule_5_4_2_3: true
@@ -336,24 +338,25 @@ ubtu20cis_rule_5_4_2_5: true
 ubtu20cis_rule_5_4_2_6: true
 ubtu20cis_rule_5_4_2_7: true
 ubtu20cis_rule_5_4_2_8: true
-# 5.4.2 Configure user default environment
+# 5.4.3 Configure User Default Environment
 ubtu20cis_rule_5_4_3_1: true
 ubtu20cis_rule_5_4_3_2: true
 ubtu20cis_rule_5_4_3_3: true
 
-## Section 6
+## Section 6 Rule Toggles
+# Section 6 is Logging and Auditing
 
 # 6.1 Configure Filesystem Integrity Checking
 ubtu20cis_rule_6_1_1: true
 ubtu20cis_rule_6_1_2: true
 ubtu20cis_rule_6_1_3: true
 
-# 6.2.1.x Configure systemd-journald service
+# 6.2.1 Configure systemd-journald Service
 ubtu20cis_rule_6_2_1_1: true
 ubtu20cis_rule_6_2_1_2: true
 ubtu20cis_rule_6_2_1_3: true
 
-# 6.1.2.1 Configure journald
+# 6.2.2 Configure journald
 ubtu20cis_rule_6_2_2_1_1: true
 ubtu20cis_rule_6_2_2_1_2: true
 ubtu20cis_rule_6_2_2_1_3: true
@@ -361,7 +364,7 @@ ubtu20cis_rule_6_2_2_1_4: true
 ubtu20cis_rule_6_2_2_2: true
 ubtu20cis_rule_6_2_2_3: true
 ubtu20cis_rule_6_2_2_4: true
-# 6.1.3 Configure rsyslog
+# 6.2.3 Configure rsyslog
 ubtu20cis_rule_6_2_3_1: true
 ubtu20cis_rule_6_2_3_2: true
 ubtu20cis_rule_6_2_3_3: true
@@ -370,19 +373,19 @@ ubtu20cis_rule_6_2_3_5: true
 ubtu20cis_rule_6_2_3_6: true
 ubtu20cis_rule_6_2_3_7: true
 ubtu20cis_rule_6_2_3_8: true
-# 6.1.4.1 Configure Logfiles
+# 6.2.4 Configure Logfiles
 ubtu20cis_rule_6_2_4_1: true
-# 6.2.1 Configure auditd services
+# 6.3.1 Configure auditd Service
 ubtu20cis_rule_6_3_1_1: true
 ubtu20cis_rule_6_3_1_2: true
 ubtu20cis_rule_6_3_1_3: true
 ubtu20cis_rule_6_3_1_4: true
-# 6.2.2 Configure auditd data retention
+# 6.3.2 Configure auditd Data Retention
 ubtu20cis_rule_6_3_2_1: true
 ubtu20cis_rule_6_3_2_2: true
 ubtu20cis_rule_6_3_2_3: true
 ubtu20cis_rule_6_3_2_4: true
-# 6.2.3 Configure auditd rules
+# 6.3.3 Configure auditd Rules
 ubtu20cis_rule_6_3_3_1: true
 ubtu20cis_rule_6_3_3_2: true
 ubtu20cis_rule_6_3_3_3: true
@@ -404,7 +407,7 @@ ubtu20cis_rule_6_3_3_18: true
 ubtu20cis_rule_6_3_3_19: true
 ubtu20cis_rule_6_3_3_20: true
 ubtu20cis_rule_6_3_3_21: true
-# 6.2.4 Configure audit file access
+# 6.3.4 Configure Audit File Access
 ubtu20cis_rule_6_3_4_1: true
 ubtu20cis_rule_6_3_4_2: true
 ubtu20cis_rule_6_3_4_3: true
@@ -416,7 +419,8 @@ ubtu20cis_rule_6_3_4_8: true
 ubtu20cis_rule_6_3_4_9: true
 ubtu20cis_rule_6_3_4_10: true
 
-## Section 7
+## Section 7 Rule Toggles
+# Section 7 is System Maintenance
 # 7.1 System File Permissions
 ubtu20cis_rule_7_1_1: true
 ubtu20cis_rule_7_1_2: true
@@ -487,8 +491,6 @@ ubtu20cis_apparmor_disable: false
 # HAVING THAT PW EXPOSED IN RAW TEXT IS NOT SECURE!!!!
 ubtu20cis_grub_user: root
 ubtu20cis_bootloader_password_hash: "grub.pbkdf2.sha512.changethispassword"  # pragma: allowlist secret
-
-## Controls 1.5.x
 
 ## Controls 1.5.x
 # 1.5.3 - only check if core dump installed
@@ -572,7 +574,7 @@ ubtu20cis_nginx_server: false
 ubtu20cis_nginx_mask: false
 ubtu20cis_xinetd_server: false
 ubtu20cis_xinetd_mask: false
-ubtu20cis_xwindow_server: false  # will remove mask not an option
+ubtu20cis_xwindows_required: false  # will remove mask not an option
 ubtu20cis_is_mail_server: false
 
 # Client Services
