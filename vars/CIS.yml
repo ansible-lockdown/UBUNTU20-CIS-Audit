@@ -575,6 +575,7 @@ ubtu20cis_nginx_mask: false
 ubtu20cis_xinetd_server: false
 ubtu20cis_xinetd_mask: false
 ubtu20cis_xwindows_required: false  # will remove mask not an option
+ubtu20cis_xwindow_server: false
 ubtu20cis_is_mail_server: false
 
 # Client Services
@@ -656,6 +657,10 @@ ubtu20cis_auditd:
 # journald or rsyslog
 ubtu20cis_syslog_service: 'rsyslog'
 ubtu20cis_is_syslog_server: false
+ubtu20cis_remote_log_server: "192.168.2.100"
+ubtu20cis_remote_log_host: "192.168.2.100"
+ubtu20cis_remote_log_port: "514"
+ubtu20cis_remote_log_protocol: "tcp"
 
 ### Section 5
 # Note the following to understand precedence and layout

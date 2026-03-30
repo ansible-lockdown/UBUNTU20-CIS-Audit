@@ -33,6 +33,8 @@
 - Fixed 1.4.2 title typo: "if configured" to "is configured"
 - Renamed misnamed `section_3/cis_3.2/cis_3.4.3.yml` to `cis_3.2.3.yml` (content was correct for 3.2.3)
 - Added missing `---` YAML document marker and blank line to 20 goss test files across sections 2–7
+- Added `ubtu20cis_remote_log_server`, `ubtu20cis_remote_log_host`, `ubtu20cis_remote_log_port`, `ubtu20cis_remote_log_protocol` to `vars/CIS.yml` for goss test 6.2.3.6 remote syslog validation
+- Added `ubtu20cis_xwindow_server` to `vars/CIS.yml` — goss test 2.1.20 references `.Vars.ubtu20cis_xwindow_server` but only `ubtu20cis_xwindows_required` was defined
 
 ## 2.0
 
