@@ -3,12 +3,34 @@
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_6_2_1_2 }}
 command:
-  /etc/tmpfiles.d/systemd.conf:
-    title: 6.2.1.2 | Ensure journald log file access is configured | Manual Check Required
-    exec: echo "Manual - Please check journald default permissions"
+  journald_log_access_override:
+    title: 6.2.1.2 | Ensure journald log file access is configured | Override file
     exit-status: 0
+    exec: "test -f /etc/tmpfiles.d/systemd.conf && grep -E 'var/log/journal' /etc/tmpfiles.d/systemd.conf | grep -q 'adm'"
+    stdout: []
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.1.2
+      CISv8:
+      - 3.3
+      - 8.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AC-3
+      - AU-2
+      - AU-12
+      - MP-2
+      - SI-5
+  journald_log_access_perms:
+    title: 6.2.1.2 | Ensure journald log file access is configured | Directory permissions
+    exit-status: 0
+    exec: "stat -c '%a' /var/log/journal 2>/dev/null | grep -qE '^(2750|2755|750|755)$' && echo PASS || echo FAIL"
     stdout:
-    - '!/^Manual/'
+    - PASS
     meta:
       server: 1
       workstation: 1

@@ -3,12 +3,12 @@
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_1_1_1_10 }}
 command:
-  unused_fs_modules:
-    title: 1.1.1.10 | Ensure unused filesystems kernel modules are not available | Manual
-    exec: echo "Manual - Review loaded kernel filesystem modules and verify no unused modules are available"
+  cve_fs:
+    title: 1.1.1.10 | Ensure unused filesystems kernel modules are not available
     exit-status: 0
+    exec: "/var/fs_with_cves.sh"
     stdout:
-    - '!/^Manual/'
+    - '!/.*<- CVE exists!/'
     meta:
       server: 1
       workstation: 1

@@ -5,7 +5,6 @@
 ### v3_2026_March_Updates based upon CIS 3.0.0
 
 - Fixed run_audit.sh: BENCHMARK_VER corrected from 2.2.0 to 3.0.0
-- Fixed run_audit.sh: BENCHMARK_OS corrected from UBUNTU22 to UBUNTU20
 - Audit role tests v3.0.0 compliant — 313/313 benchmark controls now covered
 - Fixed 9 toggle variable mismatches in section 4.4 (iptables) goss tests — files referenced `ubtu20cis_rule_4_3_*` instead of `ubtu20cis_rule_4_4_*`:
   - `cis_4.4.1.3.yml`, `cis_4.4.2.1-4.yml`, `cis_4.4.3.1-4.yml`
@@ -35,6 +34,11 @@
 - Added missing `---` YAML document marker and blank line to 20 goss test files across sections 2–7
 - Added `ubtu20cis_remote_log_server`, `ubtu20cis_remote_log_host`, `ubtu20cis_remote_log_port`, `ubtu20cis_remote_log_protocol` to `vars/CIS.yml` for goss test 6.2.3.6 remote syslog validation
 - Added `ubtu20cis_xwindow_server` to `vars/CIS.yml` — goss test 2.1.20 references `.Vars.ubtu20cis_xwindow_server` but only `ubtu20cis_xwindows_required` was defined
+- Converted 4 manual stub audit tests to automated assertions (ported from UBUNTU22-CIS-Audit where applicable):
+  - `cis_1.1.1.10.yml`: replaced echo stub with `/var/fs_with_cves.sh` CVE filesystem module check
+  - `cis_3.1.2.yml`: replaced simple wireless directory check with modprobe blacklist-wireless.conf validation
+  - `cis_6.2.1.2.yml`: replaced echo stub with `/etc/tmpfiles.d/systemd.conf` ACL check + `/var/log/journal` directory permissions check
+  - `cis_6.2.3.8.yml`: replaced echo stub with `/etc/logrotate.d/rsyslog` existence and rotation settings checks
 
 ## 2.0
 
