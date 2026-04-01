@@ -34,7 +34,7 @@
 - Added missing `---` YAML document marker and blank line to 20 goss test files across sections 2–7
 - Added `ubtu20cis_remote_log_server`, `ubtu20cis_remote_log_host`, `ubtu20cis_remote_log_port`, `ubtu20cis_remote_log_protocol` to `vars/CIS.yml` for goss test 6.2.3.6 remote syslog validation
 - Added `ubtu20cis_xwindow_server` to `vars/CIS.yml` — goss test 2.1.20 references `.Vars.ubtu20cis_xwindow_server` but only `ubtu20cis_xwindows_required` was defined
-- Converted 4 manual stub audit tests to automated assertions (ported from UBUNTU22-CIS-Audit where applicable):
+- Converted 4 manual stub audit tests to automated assertions:
   - `cis_1.1.1.10.yml`: replaced echo stub with `/var/fs_with_cves.sh` CVE filesystem module check
   - `cis_3.1.2.yml`: replaced simple wireless directory check with modprobe blacklist-wireless.conf validation
   - `cis_6.2.1.2.yml`: replaced echo stub with `/etc/tmpfiles.d/systemd.conf` ACL check + `/var/log/journal` directory permissions check
