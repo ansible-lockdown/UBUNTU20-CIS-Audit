@@ -87,9 +87,9 @@ file:
       - MP-2
   {{ end }}
   {{ if .Vars.ubtu20cis_rule_2_4_1_7 }}
-  cron_d_perms:
-    title: 2.4.1.7 | Ensure permissions on /etc/cron.d are configured
-    path: /etc/cron.d
+  cron_yearly_perms:
+    title: 2.4.1.7 | Ensure access to /etc/cron.yearly is configured
+    path: /etc/cron.yearly
     exists: true
     owner: root
     group: root

@@ -1,6 +1,6 @@
 ---
 
-{{ if not .Vars.ubtu20cis_talk_client }}
+{{ if not .Vars.ubtu20cis_talk_client_required }}
   {{ if .Vars.ubtu20cis_level_1 }}
     {{ if .Vars.ubtu20cis_rule_2_2_3 }}
 package:

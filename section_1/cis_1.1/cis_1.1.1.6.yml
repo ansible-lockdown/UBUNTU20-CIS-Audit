@@ -5,7 +5,7 @@
 file:
   overlayfs_disabled:
     title: 1.1.1.6 | Ensure overlayfs kernel module is not available | modprobe
-    path: /etc/modprobe.d/CIS.conf
+    path: /etc/modprobe.d/overlayfs.conf
     exists: true
     contents:
     - '/^install overlayfs /bin/(true|false)/'

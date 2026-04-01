@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_1_1_1_10 }}
+command:
+  cve_fs:
+    title: 1.1.1.10 | Ensure unused filesystems kernel modules are not available
+    exit-status: 0
+    exec: "/var/fs_with_cves.sh"
+    stdout:
+    - '!/.*<- CVE exists!/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.1.1.10
+      CISv8:
+      - 4.8
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - CM-7
+  {{ end }}
+{{ end }}

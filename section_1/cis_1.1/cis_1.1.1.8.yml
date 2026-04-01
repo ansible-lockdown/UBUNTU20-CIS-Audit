@@ -5,7 +5,7 @@
 file:
   udf_disabled:
     title: 1.1.1.8 | Ensure udf kernel module is not available | modprobe
-    path: /etc/modprobe.d/CIS.conf
+    path: /etc/modprobe.d/udf.conf
     exists: true
     contents:
     - '/^install udf /bin/(true|false)/'

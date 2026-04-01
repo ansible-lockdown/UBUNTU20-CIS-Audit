@@ -1,6 +1,6 @@
 ---
 
-{{ if not .Vars.ubtu20cis_rsh_client }}
+{{ if not .Vars.ubtu20cis_rsh_required }}
   {{ if .Vars.ubtu20cis_level_1 }}
     {{ if .Vars.ubtu20cis_rule_2_2_2 }}
 package:

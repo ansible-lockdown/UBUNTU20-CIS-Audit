@@ -4,7 +4,7 @@ gossfile:
   section_1/*/*.yml: {}
   {{ end }}
 
- # Section 2
+# Section 2
   {{ if .Vars.ubtu20cis_section2 }}
   # Special Services
   section_2/cis_2.1/*.yml: {}
@@ -28,6 +28,7 @@ gossfile:
 
 # Section 4
   {{ if .Vars.ubtu20cis_section4 }}
+  section_4/cis_4.1/*.yml: {}
     # If ufw firewall
     {{ if eq .Vars.ubtu20cis_firewall_package "ufw" }}
   section_4/cis_4.2/*.yml: {}

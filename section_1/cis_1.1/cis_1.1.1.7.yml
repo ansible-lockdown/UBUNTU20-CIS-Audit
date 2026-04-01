@@ -1,12 +1,11 @@
 ---
 
 {{ if .Vars.ubtu20cis_level_2 }}
-  {{ if not .Vars.ubtu20cis_squashfs_required }}
   {{ if .Vars.ubtu20cis_rule_1_1_1_7 }}
 file:
   squashfs_disabled:
     title: 1.1.1.7 | Ensure squashfs kernel module is not available | modprobe
-    path: /etc/modprobe.d/CIS.conf
+    path: /etc/modprobe.d/squashfs.conf
     exists: true
     contents:
     - '/^install squashfs /bin/(true|false)/'
@@ -36,6 +35,5 @@ file:
       CISv8_IG2: true
       CISv8_IG3: true
       NIST800-53R5: CM-7
-    {{ end }}
   {{ end }}
 {{ end }}
