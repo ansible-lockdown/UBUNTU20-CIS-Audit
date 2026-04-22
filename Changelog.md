@@ -40,6 +40,12 @@
   - `cis_6.2.1.2.yml`: replaced echo stub with `/etc/tmpfiles.d/systemd.conf` ACL check + `/var/log/journal` directory permissions check
   - `cis_6.2.3.8.yml`: replaced echo stub with `/etc/logrotate.d/rsyslog` existence and rotation settings checks
 
+## 2.0.1
+
+- updated to goss 0.4.4
+- many tests updates
+- duplicates removed and isolated
+
 ## 2.0
 
 ### based upon CIS 2.0.1
