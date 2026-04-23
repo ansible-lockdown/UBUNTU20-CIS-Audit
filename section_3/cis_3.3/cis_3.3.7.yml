@@ -1,7 +1,10 @@
-{{ if .Vars.ubtu20cis_rule_3_3_7 }}
+---
+
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_3_3_7 }}
 kernel-param:
   net.ipv4.conf.all.rp_filter:
-    title: 3.3.7 | Ensure Reverse Path Filtering is enabled | ipv4 all rp_filter
+    title: 3.3.7 | Ensure reverse path filtering is enabled | ipv4 all rp_filter
     value: '1'
     meta:
       server: 1
@@ -13,16 +16,7 @@ kernel-param:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
@@ -41,16 +35,7 @@ kernel-param:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
@@ -65,7 +50,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.all.rp_filter(\s|)=(\s|)1/'
+    - '/^\/etc\/sysctl.*:net.ipv4.conf.all.rp_filter\s*=\s*1/'
     meta:
       server: 1
       workstation: 1
@@ -76,16 +61,7 @@ command:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
@@ -99,7 +75,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.default.rp_filter(\s|)=(\s|)/'
+    - '/^\/etc\/sysctl.*:net.ipv4.conf.default.rp_filter\s*=\s*1/'
     meta:
       server: 1
       workstation: 1
@@ -110,19 +86,11 @@ command:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
-      Nist_800_53_R5:
+      NIST800-53R5:
       - CM-1
       - CM-2
       - CM-6
       - CM-7
       - IA-5
+  {{ end }}
 {{ end }}

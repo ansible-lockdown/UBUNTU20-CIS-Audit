@@ -1,55 +1,32 @@
+---
+
 {{ if .Vars.ubtu20cis_level_1 }}
   {{ if .Vars.ubtu20cis_rule_4_1_1 }}
-package:
-  cron:
-    title: 4.1.1 | Ensure cron daemon is enabled and running | pkg
-    installed: true
+command:
+  single_firewall_utility:
+    title: 4.1.1 | Ensure a single firewall configuration utility is in use
+    exec: |
+      active=0
+      dpkg -s ufw 2>/dev/null | grep -q 'Status: install ok installed' && ufw status | grep -q 'Status: active' && active=$((active+1))
+      dpkg -s nftables 2>/dev/null | grep -q 'Status: install ok installed' && systemctl is-active nftables 2>/dev/null | grep -q '^active' && active=$((active+1))
+      dpkg -s iptables 2>/dev/null | grep -q 'Status: install ok installed' && iptables -L -n 2>/dev/null | grep -qv '^$' && active=$((active+1))
+      if [ "$active" -le 1 ]; then echo "PASS: $active firewall utility active"; else echo "FAIL: $active firewall utilities active"; fi
+    exit-status: 0
+    stdout:
+    - 'PASS'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 4.1.1
-      CISv8: NA
-      CISv8_IG1: NA
-      CISv8_IG2: NA
-      CISv8_IG3: NA
-      Mitre_Techniques:
-      - T1562
-      - T1562.000
-      Mitre_Tactics: TA0005
-      Mitre_Mitigations: M1018
-      Nist_800_53_R5:
-      - CM-1
-      - CM-2
-      - CM-6
-      - CM-7
-      - IA-5
-service:
-  cron:
-    title: 4.1.1 | Ensure cron daemon is enabled and running | service
-    running: true
-    enabled: true
-    meta:
-      server: 1
-      workstation: 1
-      CIS_ID:
-      - 4.1.1
-      CISv8: NA
-      CISv8_IG1: NA
-      CISv8_IG2: NA
-      CISv8_IG3: NA
-      Mitre_Techniques:
-      - T1562
-      - T1562.000
-      Mitre_Tactics: TA0005
-      Mitre_Mitigations: M1018
-      Nist_800_53_R5: 
-      - CM-1
-      - CM-2
-      - CM-6
-      - CM-7
-      - IA-5
+      CISv8:
+      - 4.4
+      - 4.5
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - CA-9
+      - SC-7
   {{ end }}
 {{ end }}
-
-

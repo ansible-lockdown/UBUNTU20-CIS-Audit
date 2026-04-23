@@ -1,11 +1,19 @@
 gossfile:
+# Section 1
   {{ if .Vars.ubtu20cis_section1 }}
   section_1/*/*.yml: {}
   {{ end }}
 
- # Section 2
+# Section 2
   {{ if .Vars.ubtu20cis_section2 }}
-  section_2/*/*.yml: {}
+  # Special Services
+  section_2/cis_2.1/*.yml: {}
+  # Client Service
+  section_2/cis_2.2/*.yml: {}
+  # Time services
+  section_2/cis_2.3/*.yml: {}
+  # scheduling services
+  section_2/cis_2.4/*.yml: {}
   {{ end }}
 
 # Section 3
@@ -16,53 +24,57 @@ gossfile:
     {{ if .Vars.ubtu20cis_ipv6_required }}
   section_3/cis_3.3/ipv6/*.yml: {}
     {{ end }}
-    # If ufw firewall
-    {{ if eq .Vars.ubtu20cis_firewall "ufw" }}
-  section_3/cis_3.4.1/*.yml: {}
-    {{ end }}
-    # If nftables firewall
-    {{ if eq .Vars.ubtu20cis_firewall "nftables" }}
-  section_3/cis_3.4.2/*.yml: {}
-    {{ end }}
-    # If iptables firewall
-    {{ if eq .Vars.ubtu20cis_firewall "iptables" }}
-  section_3/cis_3.4.3.1/*.yml: {}
-  section_3/cis_3.4.3.2/*.yml: {}
-      {{ if .Vars.ubtu20cis_ipv6_required }}
-  section_3/cis_3.4.3.3/*.yml: {}
-      {{ end }}
-    {{ end }}
   {{ end }}
 
 # Section 4
   {{ if .Vars.ubtu20cis_section4 }}
-  # Auditd and level 2
-    {{ if .Vars.ubtu20cis_level_2 }}
-      {{ if .Vars.ubtu20cis_auditd }}
   section_4/cis_4.1/*.yml: {}
-      {{ end }}
-    {{ end }}
+    # If ufw firewall
+    {{ if eq .Vars.ubtu20cis_firewall_package "ufw" }}
   section_4/cis_4.2/*.yml: {}
+    {{ end }}
+    # If nftables firewall
+    {{ if eq .Vars.ubtu20cis_firewall_package "nftables" }}
   section_4/cis_4.3/*.yml: {}
+    {{ end }}
+    # If iptables firewall
+    {{ if eq .Vars.ubtu20cis_firewall_package "iptables" }}
   section_4/cis_4.4/*.yml: {}
+    {{ end }}
   {{ end }}
 
 # Section 5
   {{ if .Vars.ubtu20cis_section5 }}
-    {{ if eq .Vars.ubtu20cis_syslog_service "journald" }}
-  section_5/cis_5.1.1.1/*.yml: {}
-  section_5/cis_5.1.1/*.yml: {}
-    {{ end }}
-    {{ if eq .Vars.ubtu20cis_syslog_service "rsyslog" }}
-  section_5/cis_5.1.2/*.yml: {}
-    {{ end }}
-  # Auditd
-  section_5/cis_5.2.*/*.yml: {}
+  section_5/*/*.yml: {}
   {{ end }}
 
 # Section 6
   {{ if .Vars.ubtu20cis_section6 }}
-  section_6/*/*.yml: {}
+  # Aide
+  section_6/cis_6.1.*/*.yml: {}
+  {{ end }}
+  # Journald
+  {{ if eq .Vars.ubtu20cis_syslog_service "journald" }}
+  section_6/cis_6.2.1.x/*.yml: {}
+  section_6/cis_6.2.2.x/*.yml: {}
+  {{ end }}
+  # Rsyslog
+  {{ if eq .Vars.ubtu20cis_syslog_service "rsyslog" }}
+  section_6/cis_6.2.3.*/*.yml: {}
+  {{ end }}
+  # logrotate
+  section_6/cis_6.2.4.*/*.yml: {}
+  # Auditd and level 2
+  # Auditd
+    {{ if .Vars.ubtu20cis_level_2 }}
+      {{ if .Vars.ubtu20cis_auditd }}
+  section_6/cis_6.3.*/*.yml: {}
+      {{ end }}
+    {{ end }}
+
+# Section 7
+  {{ if .Vars.ubtu20cis_section7 }}
+  section_7/cis_7.*/*.yml: {}
   {{ end }}
 
 # Metadata

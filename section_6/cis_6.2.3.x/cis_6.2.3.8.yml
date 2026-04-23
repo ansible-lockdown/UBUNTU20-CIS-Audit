@@ -1,0 +1,45 @@
+---
+
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if .Vars.ubtu20cis_rule_6_2_3_8 }}
+command:
+  logrotate_rsyslog_conf:
+    title: 6.2.3.8 | Ensure logrotate is configured | rsyslog config exists
+    exit-status: 0
+    exec: "test -f /etc/logrotate.d/rsyslog && echo PASS || echo FAIL"
+    stdout:
+    - PASS
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.3.8
+      CISv8:
+      - 4.8
+      - 8.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AU-8
+  logrotate_rsyslog_rotate:
+    title: 6.2.3.8 | Ensure logrotate is configured | rotation settings
+    exit-status: 0
+    exec: "grep -cE '(daily|weekly|monthly|rotate)' /etc/logrotate.d/rsyslog 2>/dev/null"
+    stdout:
+    - '!/^0$/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.3.8
+      CISv8:
+      - 4.8
+      - 8.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AU-8
+  {{ end }}
+{{ end }}

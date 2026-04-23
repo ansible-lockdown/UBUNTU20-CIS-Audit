@@ -1,32 +1,29 @@
-{{ if not .Vars.ubtu20cis_ipv6_required }}
- {{ if .Vars.ubtu20cis_rule_3_1_1 }}
+---
+
+{{ if .Vars.ubtu20cis_level_1 }}
+  {{ if not .Vars.ubtu20cis_ipv6_required }}
+   {{ if .Vars.ubtu20cis_rule_3_1_1 }}
+     {{ if eq .Vars.ubtu20cis_ipv6_disable "grub" }}
 command:
   grub_ipv6:
     title: 3.1.1 | Ensure IPv6 status is identified | via grub boot
-    exec: grep -i "^[^#]\s.*ipv6" {{ .Vars.ubtu20cis_grub_conf_file }}
+    exec: grep -i "^[^#]\s.*ipv6" /boot/grub/grub.cfg
     exit-status: 0
     stdout:
     - '/^\s*linux.*ipv6.disable=1/'
     - '!/ipv6.disable=0/'
     meta:
-      server: 1
-      workstation: 1
+      server: 2
+      workstation: 2
       CIS_ID: 3.1.1
       CISv8:
       - 4.8
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1557
-      - T1557.000
-      - T1595
-      - T1595.001
-      - T1595.002
-      Mitre_Tactics: TA0008
-      Mitre_Mitigations: M1042
-      Nist_800_53_R5: CM-7
-  etc_default_grub:
+      NIST800-53R5:
+      - CM-7
+  ipv6_etc_default_grub:
     title: 3.1.1 | Ensure IPv6 status is identified | default grub
     exec: grep -i "GRUB_CMDLINE_LINUX=.*ipv6" /etc/default/grub
     exit-status: 0
@@ -34,44 +31,37 @@ command:
     - '/^GRUB_CMDLINE_LINUX=.*ipv6.disable=1/'
     - '!/ipv6.disable=0/'
     meta:
-      server: 1
-      workstation: 1
+      server: 2
+      workstation: 2
       CIS_ID: 3.1.1
       CISv8:
       - 4.8
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1557
-      - T1557.000
-      - T1595
-      - T1595.001
-      - T1595.002
-      Mitre_Tactics: TA0008
-      Mitre_Mitigations: M1042
-      Nist_800_53_R5: CM-7
-file:
-  /proc/sys/net/ipv6:
+      NIST800-53R5:
+      - CM-7
+    {{ end }}
+    {{ if eq .Vars.ubtu20cis_ipv6_disable "sysctl" }}
+ file:
+  ipv6_disabled:
     title: 3.1.1 | Ensure IPv6 status is identified | sysctl all disable
-    exists: false
+    path: /proc/sys/net/ipv6/conf/all/disable_ipv6
+    exists: true
+    contents:
+    - '/^1/'
     meta:
-      server: 1
-      workstation: 1
-      CIS_ID: 3.1.1
+      server: 2
+      workstation: 2
+      CIS_ID: 3.3.1
       CISv8:
       - 4.8
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1557
-      - T1557.000
-      - T1595
-      - T1595.001
-      - T1595.002
-      Mitre_Tactics: TA0008
-      Mitre_Mitigations: M1042
-      Nist_800_53_R5: CM-7
+      NIST800-53R5:
+      - CM-7
+      {{ end }}
+    {{ end }}
   {{ end }}
 {{ end }}

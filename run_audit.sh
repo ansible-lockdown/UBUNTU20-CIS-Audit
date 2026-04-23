@@ -26,7 +26,7 @@
 
 # Goss benchmark variables (these should not need changing unless new release)
 BENCHMARK=CIS # Benchmark Name aligns to the audit
-BENCHMARK_VER=2.0.1
+BENCHMARK_VER=3.0.0
 BENCHMARK_OS=UBUNTU20
 
 # Goss host Variables
@@ -79,7 +79,7 @@ done
 
 # check access need to run as root or privileges due to some configuration access
 if [ "$(/usr/bin/id -u)" -ne 0 ]; then
-  echo "Script need to run with root privileges"
+  echo "Script needs to run with root privileges"
   exit 1
 fi
 
@@ -169,7 +169,7 @@ if [ -s "${AUDIT_BIN}" ]; then
   if [ "$goss_installed_version" = "$newer_version" ] || [ "$goss_installed_version" = "$AUDIT_BIN_MIN_VER" ]; then
     echo "OK - Goss is installed and version is ok ($goss_installed_version >= $AUDIT_BIN_MIN_VER)"
   else
-    echo "WARNING - Goss installed = ${goss_installed_version}, does not met minimum of ${AUDIT_BIN_MIN_VER}"
+    echo "WARNING - Goss installed = ${goss_installed_version}, does not meet minimum of ${AUDIT_BIN_MIN_VER}"
     export FAILURE=2
   fi
 else

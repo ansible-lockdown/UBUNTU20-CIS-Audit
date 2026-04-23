@@ -1,26 +1,32 @@
+---
+
 {{ if .Vars.ubtu20cis_level_1 }}
-  {{ if .Vars.ubtu20cis_rule_1_7_6 }}
+  {{ if .Vars.ubtu20cis_desktop_required }}
+    {{ if .Vars.ubtu20cis_rule_1_7_6 }}
 file:
-  /etc/issue.net:
-    title: 1.7.6 | Ensure permissions on /etc/issue.net are configured
+  gnome_automount_disable:
+    title: 1.7.6 | Ensure GDM automatic mounting of removable media is disabled
+    path: /etc/dconf/db/local.d/00-media-automount
     exists: true
-    owner: root
-    group: root
-    mode: '0644'
+    contents:
+    - '/^[org/gnome/desktop/media-handling]/'
+    - '/^automount=false/'
+    - '/^automount-open=false/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.7.6
-      CIS_v8: 3.3
+      CISv8: 10.3
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1222
-      - T1222.000
-      Mitre_Tactics: TA0005
-      Mitre_Mitigations: M1022
-      Nist_800_53_R5: NA
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+    {{ end }}
   {{ end }}
 {{ end }}
